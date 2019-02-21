@@ -8,7 +8,8 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name, htmlAttrs: {
+    title: 'AjaxTI',
+    htmlAttrs: {
       lang: 'pt_BR',
       amp: undefined // "amp" has no value
     },

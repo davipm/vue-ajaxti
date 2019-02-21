@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="container-fluid footer-content">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12 col-lg-3 border-right">
           <div class="logo-footer">
             <nuxt-link to="/" class="logo-link">
               <img src="../../assets/img/logo.svg" alt="">
@@ -28,7 +28,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12 col-lg-6 border-right">
           <div class="row">
             <div class="col-md-4">
               <nav class="menu-footer">
@@ -114,15 +114,25 @@
             </div>
           </div>
         </div>
-        <div class="col-md-3">
-          div 3
+        <div class="col-md-12 col-lg-3">
+          <div class="subscribe">
+            <h5 class="subscribe-title">INSCREVA-SE</h5>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Enter email address">
+              <a href="#" class="btn btn-secondary"><i class="fas fa-angle-right"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container-fluid footer-bottom-content">
-        <h5 class="footer-bottom-title">Nós vamos além</h5>
-        <h5 class="footer-bottom-title">Ajax Advanced Technological Solution. All Rights Reserved.</h5>
+        <h5 class="footer-bottom-title">
+          Nós vamos além!
+        </h5>
+        <h5 class="footer-bottom-title">
+          Ajax Advanced Technological Solution. All Rights Reserved.
+        </h5>
       </div>
     </div>
   </footer>
@@ -141,7 +151,7 @@
     color: #FFF;
     background-color: #212934;
     &-content {
-      padding: 15px 20px;
+      padding: 15px 40px;
     }
   }
 
@@ -195,11 +205,39 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0 40px;
     }
+
     &-title {
       margin-top: 10px;
       margin-bottom: 10px;
       font-size: 1rem;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .form-control {
+    height: 50px;
+  }
+
+  .btn-secondary {
+    position: absolute;
+    right: 0;
+    padding: 1px 25px;
+    font-size: 2rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  @media (max-width: 768px) {
+    .border-right {
+      border-right: 0!important;
     }
   }
 </style>

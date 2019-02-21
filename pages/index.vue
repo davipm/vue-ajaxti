@@ -3,6 +3,7 @@
     <Slider/>
     <ContactSite/>
     <Solution/>
+    <Client/>
   </div>
 </template>
 
@@ -10,11 +11,13 @@
   import Slider from '@/components/Slider.vue'
   import ContactSite from '@/components/ContactSite.vue'
   import Solution from '@/components/Solution.vue'
+  import Client from '../components/Client.vue'
   export default {
     components: {
       Slider,
       ContactSite,
-      Solution
+      Solution,
+      Client
     }
   }
 </script>
