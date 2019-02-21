@@ -40,7 +40,7 @@ module.exports = {
       {itemprop: 'image', content: 'http://www.ajaxti.com.br/images/seo/index.jpg'}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'http://www.ajaxti.com.br/favicon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: 'https://www.ajaxti.com.br/favicon.png' },
       { rel: 'stylesheet', href: '//unpkg.com/bootstrap/dist/css/bootstrap.min.css' },
       { rel: 'stylesheet', href: '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css' },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' },
