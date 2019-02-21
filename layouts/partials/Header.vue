@@ -62,32 +62,32 @@
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/feature">
+              <nuxt-link class="nav-link" to="/solucoes">
                 SOLUÇÕES
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/">
+              <nuxt-link class="nav-link" to="/industria">
                 INDÚSTRIA 4.0
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/">
+              <nuxt-link class="nav-link" to="/engenharia">
                 ENGENHARIA
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/">
+              <nuxt-link class="nav-link" to="/outsorcing">
                 OUTSOURCING 4.0
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/">
+              <nuxt-link class="nav-link" to="/blog">
                 BLOG
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/">
+              <nuxt-link class="nav-link" to="/contato">
                 CONTATO
               </nuxt-link>
             </li>
@@ -139,7 +139,7 @@
       width: 27px;
       height: 27px;
       margin-right: 5px;
-      padding-top: 3px;
+      padding-top: 5px;
       text-align: center;
       font-size: .8rem;
       border-radius: 50%;
