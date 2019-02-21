@@ -173,12 +173,6 @@
     }
   }
 
-  .navbar-brand {
-    width: 260px;
-    height: auto;
-    margin-right: 160px;
-  }
-
   .nav-link {
     display: inline-block;
     text-transform: uppercase;
@@ -198,8 +192,20 @@
     }
   }
 
+  .nuxt-link-exact-active {
+    color: #FFF;
+    background-color: #212934;
+  }
+
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1rem;
     padding-left: 1rem;
+  }
+
+  .navbar-brand {
+    width: 260px;
+    height: auto;
+    margin-right: 160px;
+    background-color: inherit;
   }
 </style>

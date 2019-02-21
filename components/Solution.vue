@@ -84,8 +84,22 @@
 </script>
 
 <style scoped lang="scss">
+  .solution {
+    padding-top: 60px;
+    padding-bottom: 0;
+
+    &::after {
+      content: '';
+      display: block;
+      position: relative;
+      height: 50px;
+      background-color: #FF6B3A;
+    }
+  }
+
   .title {
     display: block;
+    font-weight: 600;
     font-size: 3rem;
     text-align: center;
   }

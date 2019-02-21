@@ -1,5 +1,9 @@
 <template>
-  <h3>Feature</h3>
+  <section class="section page">
+    <div class="container">
+      <h3>Page</h3>
+    </div>
+  </section>
 </template>
 
 <script>
