@@ -23,7 +23,7 @@
     margin: 0;
     padding: 0;
     font-size: 1rem;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #0E1B32;
   }
 

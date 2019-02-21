@@ -20,14 +20,14 @@ module.exports = {
       // The list of types is available here: http://ogp.me/#types
       {property: 'og:type', content: 'website'},
       // Should the the same as your canonical link, see below.
-      {property: 'og:url', content: 'https://ajaxti.com.br'},
+      {property: 'og:url', content: 'https://ajaxti.netlify.com'},
       {property: 'og:image', content: 'https://www.ajaxti.com.br/images/seo/index.jpg'},
       // Often the same as your meta description, but not always.
       {property: 'og:description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
 
       // Twitter card
       {name: 'twitter:card', content: 'summary'},
-      {name: 'twitter:site', content: 'https://ajaxti.com.br'},
+      {name: 'twitter:site', content: 'https://ajaxti.netlify.com'},
       {name: 'twitter:title', content: 'Ajax Tecnologia & Inovação'},
       {name: 'twitter:description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
       // Your twitter handle, if you have one.
@@ -40,11 +40,11 @@ module.exports = {
       {itemprop: 'image', content: 'https://www.ajaxti.com.br/images/seo/index.jpg'}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'http://www.ajaxti.com.br/favicon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       { rel: 'stylesheet', href: '//unpkg.com/bootstrap/dist/css/bootstrap.min.css' },
       { rel: 'stylesheet', href: '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css' },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:400,500' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400,500' },
     ],
     script: [
       { src: '//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js' },
