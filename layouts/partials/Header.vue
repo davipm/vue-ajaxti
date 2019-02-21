@@ -167,6 +167,10 @@
       margin-right: 20px;
       font-size: .8rem;
     }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   .navbar-brand {

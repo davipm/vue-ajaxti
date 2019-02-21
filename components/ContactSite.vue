@@ -81,4 +81,15 @@
   .btn-secondary {
     background-color: #FFB700;
   }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      width: 100%;
+      font-size: 1.5rem;
+    }
+  }
 </style>
