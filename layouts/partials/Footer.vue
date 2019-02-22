@@ -5,7 +5,7 @@
         <div class="col-md-12 col-lg-3 border-right">
           <div class="logo-footer">
             <nuxt-link to="/" class="logo-link">
-              <img src="../../assets/img/logo.svg" class="img-fluid" alt="">
+              <img src="../../assets/clients/logo_branca.svg" class="img-fluid" alt="">
             </nuxt-link>
             <div class="social-footer">
               <ul class="social-list">
