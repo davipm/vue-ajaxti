@@ -5,7 +5,7 @@
         <div class="col-md-12 col-lg-3 border-right">
           <div class="logo-footer">
             <nuxt-link to="/" class="logo-link">
-              <img src="../../assets/img/logo.svg" alt="">
+              <img src="../../assets/img/logo.svg" class="img-fluid" alt="">
             </nuxt-link>
             <div class="social-footer">
               <ul class="social-list">
@@ -37,24 +37,24 @@
                     SOLUÇÕES
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       AD Experience
-                    </a>
+                    </nuxt-link>
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       Estoque
-                    </a>
+                    </nuxt-link>
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       Inventário
-                    </a>
+                    </nuxt-link>
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       Outsorcing
-                    </a>
+                    </nuxt-link>
                   </li>
                 </ul>
               </nav>
@@ -66,24 +66,24 @@
                     INFORMAÇÕES
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       Licença
-                    </a>
+                    </nuxt-link>
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       Politica de Privacidade
-                    </a>
+                    </nuxt-link>
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       Uso de Cookies
-                    </a>
+                    </nuxt-link>
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                      FAQ
-                    </a>
+                    </nuxt-link>
                   </li>
                 </ul>
               </nav>
@@ -95,19 +95,19 @@
                     SOBRE
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       AD Experience
-                    </a>
+                    </nuxt-link>
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       Team
-                    </a>
+                    </nuxt-link>
                   </li>
                   <li class="footer-nav-item">
-                    <a href="#" class="footer-nav-link">
+                    <nuxt-link to="/" class="footer-nav-link">
                       Soporte
-                    </a>
+                    </nuxt-link>
                   </li>
                 </ul>
               </nav>
@@ -153,6 +153,12 @@
     &-content {
       padding: 15px 40px;
     }
+  }
+
+  .logo-link {
+    display: block;
+    width: 75%;
+    margin: 50px auto 0 auto;
   }
 
   .social-list {
@@ -231,6 +237,8 @@
     right: 0;
     padding: 1px 25px;
     font-size: 2rem;
+    background-color: #333333;
+    border: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
