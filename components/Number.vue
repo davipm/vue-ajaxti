@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="number-item">
-            <img src="../assets/img/gears.svg" class="number-img" alt="">
+            <img src="../assets/img/linhas_de_desenvolvimento.svg" class="number-img" alt="">
             <div class="number-body">
               <p class="number-text">
                 milhares de linhas
@@ -16,7 +16,7 @@
         </div>
         <div class="col-md-4">
           <div class="number-item">
-            <img src="../assets/img/gears.svg" class="number-img" alt="">
+            <img src="../assets/img/velocimetro.svg" class="number-img" alt="">
             <div class="number-body">
               <p class="number-text">
                 mais de 50 projetos
@@ -57,7 +57,7 @@
 
     &-img {
       display: block;
-      height: 150px;
+      height: 85px;
       margin: auto;
     }
 

@@ -62,5 +62,20 @@
 <style scoped lang="scss">
   .products {
     background: url('../assets/img/transparencia_produtos.png') center/cover no-repeat ;
+    &-content {
+      display: block;
+      margin-top: 80px;
+    }
+
+    &-title {
+      display: block;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    &-text {
+      font-size: 1.2rem;
+    }
   }
 </style>
