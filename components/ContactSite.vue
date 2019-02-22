@@ -36,7 +36,9 @@
 
 <style scoped lang="scss">
   .contact-site {
+    color: #FFF;
     text-align: center;
+    background: url('../assets/img/bg_desenvolvimento.png') center/cover no-repeat;
   }
 
   .title {
@@ -53,6 +55,7 @@
   }
 
   .highlight {
+    display: inline-block;
     color: #FFB700;
   }
 

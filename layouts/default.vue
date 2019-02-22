@@ -37,4 +37,8 @@
     color: #FFF;
     background-color: #FF6B3A;
   }
+
+  .container-fluid {
+    max-width: 1536px;
+  }
 </style>

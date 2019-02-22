@@ -93,6 +93,9 @@
             </li>
           </ul>
         </div>
+        <div class="search-content">
+          <button class="btn btn-search"><i class="fas fa-search"></i></button>
+        </div>
       </div>
     </nav>
   </header>
@@ -122,8 +125,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 20px 10px 20px;
-    background-color: #212934;
+    padding: 5px 30px 10px 35px;;
+    background: url('../../assets/img/bg-top.svg') 51% 104%/160% no-repeat;
   }
 
   .social {
@@ -198,8 +201,8 @@
   }
 
   .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 
   .navbar-brand {
