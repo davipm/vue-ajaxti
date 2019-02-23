@@ -2,8 +2,8 @@
   <header class="header">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-1 col-lg-2"></div>
+        <div class="col-md-12 col-lg-8">
           <div class="links">
             <ul class="social">
               <li class="social-item">
@@ -36,7 +36,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-1 col-lg-2"></div>
       </div>
     </div>
     <nav class="navbar navbar-expand-lg">
@@ -210,5 +210,13 @@
     height: auto;
     margin-right: 160px;
     background-color: inherit;
+  }
+
+  @media (max-width: 768px) {
+    .links {
+      padding-top: 0;
+      background-position: 51% -10px;
+      background-size: 160%;
+    }
   }
 </style>
