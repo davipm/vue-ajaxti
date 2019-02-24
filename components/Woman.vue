@@ -30,7 +30,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .woman {
     display: block;
     position: relative;

@@ -19,7 +19,7 @@
             <ul class="contact">
               <li class="contact-item">
                 <span class="contact-icon"><i class="fas fa-phone"></i></span>
-                 55 852180.4208
+                 55 852180.2773
               </li>
               <li class="contact-item">
                 <span class="contact-icon"><i class="fas fa-envelope"></i></span>
@@ -56,45 +56,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <nuxt-link class="nav-link" to="/">
-                HOME
-              </nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link class="nav-link" to="/solucoes">
-                SOLUÇÕES
-              </nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link class="nav-link" to="/industria">
-                INDÚSTRIA 4.0
-              </nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link class="nav-link" to="/engenharia">
-                ENGENHARIA
-              </nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link class="nav-link" to="/outsorcing">
-                OUTSOURCING 4.0
-              </nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link class="nav-link" to="/blog">
-                BLOG
-              </nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link class="nav-link" to="/contato">
-                CONTATO
+            <li class="nav-item" v-for="(item, index) in menus" :key="index">
+              <nuxt-link class="nav-link" :to="item.href">
+                {{ item.name }}
               </nuxt-link>
             </li>
           </ul>
         </div>
         <div class="search-content">
-          <button class="btn btn-search"><i class="fas fa-search"></i></button>
+          <button class="btn btn-search">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
       </div>
     </nav>
@@ -103,7 +75,20 @@
 
 <script>
   export default {
-    name: 'Header'
+    name: 'Header',
+    data() {
+      return {
+        menus: [
+          { name: 'HOME',            href: '/' },
+          { name: 'SOLUÇÕES',        href: '/solucoes' },
+          { name: 'INDÚSTRIA 4.0',   href: '/industria' },
+          { name: 'ENGENHARIA',      href: '/engenharia' },
+          { name: 'OUTSOURCING 4.0', href: '/outsourcing' },
+          { name: 'BLOG',            href: '/blog' },
+          { name: 'CONTATO',         href: '/contato' },
+        ]
+      }
+    }
   }
 </script>
 
@@ -119,6 +104,9 @@
   .navbar {
     padding-top: 30px;
     padding-bottom: 30px;
+    &-nav {
+      margin-left: auto;
+    }
   }
 
   .links {
@@ -208,7 +196,6 @@
   .navbar-brand {
     width: 260px;
     height: auto;
-    margin-right: 160px;
     background-color: inherit;
   }
 
