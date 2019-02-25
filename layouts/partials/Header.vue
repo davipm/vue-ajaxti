@@ -64,12 +64,20 @@
           </ul>
         </div>
         <div class="search-content">
-          <button class="btn btn-search">
+          <button class="btn btn-search" @click="showSearch">
             <i class="fas fa-search"></i>
           </button>
         </div>
       </div>
     </nav>
+    <div class="search-box shadow" :class="{ 'show-search': isVisible }">
+      <form>
+        <input type="text" class="form-control" placeholder="Search">
+        <button class="button-search">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
   </header>
 </template>
 
@@ -86,7 +94,14 @@
           { name: 'OUTSOURCING 4.0', href: '/outsourcing' },
           { name: 'BLOG',            href: '/blog' },
           { name: 'CONTATO',         href: '/contato' },
-        ]
+        ],
+        isVisible: false,
+      }
+    },
+
+    methods: {
+      showSearch() {
+        this.isVisible = !this.isVisible;
       }
     }
   }
@@ -201,6 +216,110 @@
     width: 260px;
     height: auto;
     background-color: inherit;
+  }
+
+  .search-box {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    border-top: 1px solid #eee;
+
+    .form-control {
+      display: block;
+      padding-left: 20px;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #676767;
+      height: 60px;
+      border: none;
+      border-radius: 0;
+    }
+
+    .button-search {
+      position: absolute;
+      right: 15px;
+      bottom: 16px;
+      font-size: 1.3rem;
+      border: none;
+      background-color: inherit;
+    }
+  }
+
+  .show-search {
+    display: block;
+    -webkit-animation: fadeInFromNone 0.5s ease-out;
+    -moz-animation: fadeInFromNone 0.5s ease-out;
+    -o-animation: fadeInFromNone 0.5s ease-out;
+    animation: fadeInFromNone 0.5s ease-out;
+  }
+
+  @-webkit-keyframes fadeInFromNone {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes fadeInFromNone {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes fadeInFromNone {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInFromNone {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    1% {
+      display: block;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 1;
+    }
   }
 
   @media (max-width: 768px) {
