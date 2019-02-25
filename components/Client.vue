@@ -83,7 +83,7 @@
     &-item {
       display: flex;
       justify-content: center;
-      height: 78px;
+      height: 85px;
       margin-bottom: 55px;
     }
 
