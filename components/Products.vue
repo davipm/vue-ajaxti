@@ -1,7 +1,7 @@
 <template>
   <section class="section products">
     <div class="container">
-      <div class="product-item">
+      <div class="products-item">
         <div class="row">
           <div class="col-md-6">
             <img src="../assets/img/ipad_stok.png" class="img-fluid" alt="">
@@ -22,10 +22,18 @@
                 em campo de trabalho.
               </p>
             </div>
+            <div class="products-buttons">
+              <a href="#" class="btn btn-primary">
+                Saiba mais
+              </a>
+              <a href="#" class="btn btn-secondary">
+                Peça um orçamento
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="product-item">
+      <div class="products-item">
         <div class="row">
           <div class="col-md-6">
             <div class="products-content">
@@ -42,6 +50,14 @@
                 Chega de dor de cabeça, na hora de realizar
                 a listagem de seu patrimônio.
               </p>
+            </div>
+            <div class="products-buttons">
+              <a href="#" class="btn btn-primary">
+                Saiba mais
+              </a>
+              <a href="#" class="btn btn-secondary">
+                Peça um orçamento
+              </a>
             </div>
           </div>
           <div class="col-md-6">
@@ -62,6 +78,11 @@
 <style scoped lang="scss">
   .products {
     background: url('../assets/img/transparencia_produtos.png') center/cover no-repeat ;
+
+    &-item {
+      margin-bottom: 30px;
+    }
+
     &-content {
       display: block;
       margin-top: 80px;
@@ -77,5 +98,31 @@
     &-text {
       font-size: 1.2rem;
     }
+
+    &-buttons {
+      display: block;
+      position: relative;
+      margin-top: 30px;
+      text-align: center;
+    }
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 7px 30px;
+    color: #FFF;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
+  }
+
+  .btn-primary {
+    background-color: #212934;
+    box-shadow: 0 5px #151420;
+  }
+
+  .btn-secondary {
+    background-color: #FF6B3A;
+    box-shadow: 0 5px #7B451A;
   }
 </style>

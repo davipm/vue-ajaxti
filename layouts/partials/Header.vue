@@ -72,7 +72,7 @@
     </nav>
     <div class="search-box shadow" :class="{ 'show-search': isVisible }">
       <form>
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Pesquisar">
         <button class="button-search">
           <i class="fas fa-search"></i>
         </button>
@@ -91,7 +91,7 @@
           { name: 'SOLUÇÕES',        href: '/solucoes' },
           { name: 'INDÚSTRIA 4.0',   href: '/industria' },
           { name: 'ENGENHARIA',      href: '/engenharia' },
-          { name: 'OUTSOURCING 4.0', href: '/outsourcing' },
+          { name: 'OUTSOURCING 4.0', href: '/outsorcing' },
           { name: 'BLOG',            href: '/blog' },
           { name: 'CONTATO',         href: '/contato' },
         ],

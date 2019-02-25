@@ -1,7 +1,7 @@
 <template>
   <section class="section page">
     <div class="container">
-      <h3>Page</h3>
+      <h3>Outsorcing</h3>
     </div>
   </section>
 </template>
