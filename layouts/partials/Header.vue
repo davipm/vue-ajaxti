@@ -227,6 +227,7 @@
 
     .form-control {
       display: block;
+      position: relative;
       padding-left: 20px;
       font-size: 2rem;
       font-weight: 600;
