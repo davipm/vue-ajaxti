@@ -129,7 +129,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 30px 10px 35px;;
-    background: url('../../assets/img/bg-top.svg') 51% -12px/160% no-repeat;
+    background: url('../../assets/img/bg-top.svg') 51% -14px/160% no-repeat;
   }
 
   .social {
@@ -320,6 +320,13 @@
     100% {
       display: block;
       opacity: 1;
+    }
+  }
+
+  @media (max-width: 1366px) {
+    .links {
+      padding-top: 0;
+      background-position: 51% -12px;
     }
   }
 
