@@ -114,7 +114,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 30px 10px 35px;;
-    background: url('../../assets/img/bg-top.svg') 51% 104%/160% no-repeat;
+    background: url('../../assets/img/bg-top.svg') 51% -12px/160% no-repeat;
   }
 
   .social {
@@ -191,6 +191,10 @@
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 2rem;
     padding-left: 2rem;
+    @media (max-width: 1366px) {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
   }
 
   .navbar-brand {
