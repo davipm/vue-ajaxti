@@ -38,19 +38,21 @@
     </div>
     <div class="page-content">
       <div class="container">
-        <h3 class="page-title">Você conhece as vantagens do outsourcing? Listamos 4 bem legais:</h3>
+        <h3 class="page-title">
+          Você conhece as vantagens do <span class="mark">outsourcing</span>? Listamos 4 bem legais:
+        </h3>
         <div class="row">
           <div class="col-md-3">
             <div class="item">
               <div class="item-number">
-                <h1 class="item-title">1</h1>
+                <h1 class="item-title title-number">1</h1>
                 <h1 class="item-title">Experiência</h1>
               </div>
               <img src="../../assets/img/out-experiencia.png" class="item-img" alt="">
               <div class="item-body">
                 <p class="item-text">
                   Sua empresa contará com
-                  o know-how da Ajax,
+                  o know-how da <strong>Ajax</strong>,
                   que ficará inteiramente a
                   disposição de suas
                   demandas. Estamos
@@ -65,17 +67,17 @@
           <div class="col-md-3">
             <div class="item">
               <div class="item-number">
-                <h1 class="item-title">2</h1>
+                <h1 class="item-title title-number">2</h1>
                 <h1 class="item-title">Garantia</h1>
               </div>
-              <img src="../../assets/img/out-img-1.png" class="item-img" alt="">
+              <img src="../../assets/img/out-garantia.png" class="item-img" alt="">
               <div class="item-body">
                 <p class="item-text">
                   Uma grande vantagem do
-                  sistema de outsorcing é
+                  sistema de <strong>outsorcing</strong> é
                   a garantia dos riscos
                   operacionais, ou seja,
-                  a Ajax garante que seu
+                  a <strong>Ajax</strong> garante que seu
                   projeto será feito com a
                   máxima expertise.
                 </p>
@@ -85,10 +87,10 @@
           <div class="col-md-3">
             <div class="item">
               <div class="item-number">
-                <h1 class="item-title">3</h1>
+                <h1 class="item-title title-number">3</h1>
                 <h1 class="item-title">Liberdade</h1>
               </div>
-              <img src="../../assets/img/out-img-1.png" class="item-img" alt="">
+              <img src="../../assets/img/out-liberdade.png" class="item-img" alt="">
               <div class="item-body">
                 <p class="item-text">
                   Sua empresa terá liberdade
@@ -107,7 +109,7 @@
           <div class="col-md-3">
             <div class="item">
               <div class="item-number">
-                <h1 class="item-title">4</h1>
+                <h1 class="item-title title-number">4</h1>
                 <h1 class="item-title">Economia</h1>
               </div>
               <img src="../../assets/img/out-img-1.png" class="item-img" alt="">
@@ -119,7 +121,7 @@
                   manutenção do serviço.
                   Todas as obrigações
                   trabalhistas ficam a cargo
-                  da Ajax.
+                  da <strong>Ajax</strong>.
                 </p>
               </div>
             </div>
@@ -138,6 +140,7 @@
 
 <style scoped lang="scss">
   .wrap {
+    position: relative;
     margin-bottom: 30px;
   }
 
@@ -221,11 +224,36 @@
       font-size: 2rem;
       font-weight: 600;
       text-align: center;
-      color: green;
     }
 
     &-text {
       font-size: 1.2rem;
+    }
+  }
+
+  .title-number {
+    display: block;
+    position: relative;
+    font-size: 3.5rem;
+    opacity: 0.6;
+  }
+
+  // col items
+  .row .col-md-3 {
+    &:nth-child(even) {
+      margin-top: 60px;
+    }
+    &:nth-child(1) {
+      color: dodgerblue;
+    }
+    &:nth-child(2) {
+      color: green;
+    }
+    &:nth-child(3) {
+      color: mediumpurple;
+    }
+    &:nth-child(4) {
+      color: orangered;
     }
   }
 </style>
