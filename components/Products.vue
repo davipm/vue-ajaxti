@@ -107,8 +107,10 @@
     }
   }
 
-  .btn-primary,
-  .btn-secondary {
+  .btn {
+    display: inline-block;
+    width: 215px;
+    margin-right: 15px;
     padding: 7px 30px;
     color: #FFF;
     font-weight: 600;

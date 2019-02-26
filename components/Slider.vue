@@ -3,7 +3,7 @@
     id="carousel1"
     fade
     style="text-shadow: 1px 1px 2px #333;"
-    background="#ababab"
+    background="#FFF"
     :interval="4000"
     img-width="1024"
     img-height="550"

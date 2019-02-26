@@ -5,32 +5,44 @@
         <div class="container-fluid">
           <div class="text-top-right">
             <p class="text">
-              Sua empresa contará com a competência de especialistas na
-              área da Engenharia Elétrica, Química e de Automação Industrial
-              que, aliados à expertise dos Analistas da área de TI,
-              colaboram para o avanço da tecnologia especializada
-              em nosso país.
+              O atendimento médico é, normalmente, cercado por
+              uma série de procedimentos reguladores, definidos pela Agência
+              Reguladora de Saúde, que contribuem para a organização
+              do processo. É preciso experiência para entender o trâmite.
+              E experiência na área, a Ajax tem de sobra!
             </p>
           </div>
           <div class="content-bottom">
             <div class="title">
               <h5 class="title-content">
-                Tecnologia para o
+                Tecnologia para a
               </h5>
               <h5 class="title-content text-right">
-                Avanço
+                Vida
               </h5>
             </div>
             <div class="know-more">
               <p class="know-more-text">
-                Mais sobre engenharia?
-                <a href="#">
+                Mais sobre os procedimentos
+                estabelcidos pela ANS:
+                TISS, DIOPS, TPS, SIB e SIP?
+                <a href="#" class="know-more-link">
                   Clique aqui
                 </a>
               </p>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="second-content">
+      <div class="container">
+        <p class="second-text">
+          Além do gerenciamento dos processos, desenvolvemos
+          milhares de soluções corporativas que atendem à área da
+          saúde e que se conectam entre si para criar uma ambiente
+          tecnologicamente mais dinâmicos.
+        </p>
       </div>
     </div>
   </section>
@@ -57,7 +69,7 @@
     display: block;
     position: relative;
     height: 700px;
-    background: url('../../assets/img/engenharia-banner.png') 0 0/cover no-repeat;
+    background: url('../../assets/img/saude-banner-1.png') 0 0/cover no-repeat;
   }
 
   .text-top-right {
@@ -98,5 +110,14 @@
     right: 15px;
     bottom: 20px;
     width: 250px;
+  }
+
+  .second-content {
+    display: block;
+    position: relative;
+    padding: 200px 0;
+    font-size: 2rem;
+    line-height: 1.5;
+    background: url('../../assets/img/corredor.png') 0 0/cover no-repeat;
   }
 </style>

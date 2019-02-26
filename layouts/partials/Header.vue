@@ -87,13 +87,14 @@
     data() {
       return {
         menus: [
-          { name: 'HOME',            href: '/' },
-          { name: 'SOLUÇÕES',        href: '/solucoes' },
-          { name: 'INDÚSTRIA 4.0',   href: '/industria' },
-          { name: 'ENGENHARIA',      href: '/engenharia' },
-          { name: 'OUTSOURCING 4.0', href: '/outsorcing' },
-          { name: 'BLOG',            href: '/blog' },
-          { name: 'CONTATO',         href: '/contato' },
+          { name: 'HOME',            href: '/'},
+          { name: 'SOLUÇÕES',        href: '#1'},
+          { name: 'INDÚSTRIA 4.0',   href: '/industria'},
+          { name: 'SAÚDE',           href: '/saude'},
+          { name: 'ENGENHARIA',      href: '#2' },
+          { name: 'OUTSOURCING 4.0', href: '/outsorcing'},
+          { name: 'BLOG',            href: '#3'},
+          { name: 'CONTATO',         href: '#4'},
         ],
         isVisible: false,
       }
