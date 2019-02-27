@@ -17,8 +17,9 @@
         slot="img"
         width="100%"
         height="550"
+        class="img-slide"
         src="../assets/img/foto_das_perninhas.png"
-        alt="image slot"
+        alt="Image Slide"
       />
     </b-carousel-slide>
   </b-carousel>

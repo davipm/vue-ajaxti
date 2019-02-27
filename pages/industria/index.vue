@@ -62,18 +62,18 @@
               <img src="../../assets/img/industria-img-2.png" class="img-fluid" alt="">
               <div class="card-body">
                 <p class="card-text">
-                  Acumulamos mais
-                  de 50.000 horas
-                  de desenvolvimento
-                  de soluções para a
-                  Companhia
-                  Siderúrgica
-                  do Pecém,
-                  atuando em projetos
-                  capilares para a
-                  otimização dos
-                  processos de
-                  produção da empresa.
+                  Atendemos por
+                  meio de parcerias,
+                  ao segmento
+                  petrolífero, propondo
+                  inovações tecnológicas,
+                  ajudando a
+                  elevar o processo
+                  de extração mineral
+                  de empresas como
+                  a Braskem
+                  para um patamar
+                  mais elevado.
                 </p>
               </div>
             </div>
@@ -83,18 +83,18 @@
               <img src="../../assets/img/industria-img-3.png" class="img-fluid" alt="">
               <div class="card-body">
                 <p class="card-text">
-                  Acumulamos mais
-                  de 50.000 horas
-                  de desenvolvimento
-                  de soluções para a
-                  Companhia
-                  Siderúrgica
-                  do Pecém,
-                  atuando em projetos
-                  capilares para a
-                  otimização dos
-                  processos de
-                  produção da empresa.
+                  TI e
+                  Engenharia Civil.
+                  Um encontro mais
+                  que perfeito que
+                  tem construído
+                  maravilhas das
+                  técnicas da
+                  construção.
+                  Diagonal, Souza
+                  Reis são algumas
+                  das empresas
+                  atendidas na área.
                 </p>
               </div>
             </div>
@@ -104,18 +104,18 @@
               <img src="../../assets/img/industria-img-4.png" class="img-fluid" alt="">
               <div class="card-body">
                 <p class="card-text">
-                  Acumulamos mais
-                  de 50.000 horas
-                  de desenvolvimento
-                  de soluções para a
-                  Companhia
-                  Siderúrgica
-                  do Pecém,
-                  atuando em projetos
-                  capilares para a
-                  otimização dos
-                  processos de
-                  produção da empresa.
+                  Linhas e mais linhas
+                  de código para
+                  ajudar os sistemas
+                  que alimentam
+                  linhas e mais linhas
+                  de transmissão
+                  de energia elétrica para
+                  todo o País!
+                  Desenvolvemos algorítimos
+                  que rodam, no ONS,
+                  por exemplo.
+                  Estamos juntos!
                 </p>
               </div>
             </div>
@@ -128,7 +128,22 @@
 
 <script>
   export default {
-    name: 'index'
+    name: 'index',
+    data() {
+      return {
+        title: 'Industria',
+        description: ''
+      }
+    },
+
+    head () {
+      return {
+        title: `${this.title} - AjaxTI`,
+        meta: [
+          { hid: 'description', name: 'description', content: this.description }
+        ]
+      }
+    }
   }
 </script>
 
@@ -163,6 +178,7 @@
 
   .content-bottom {
     position: absolute;
+    left: 15px;
     bottom: 0;
     width: calc(100% - 30px);
   }

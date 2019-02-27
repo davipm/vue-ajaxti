@@ -71,7 +71,7 @@
 
 <script>
   export default {
-    name: 'Products'
+    name: 'Products',
   }
 </script>
 
@@ -111,6 +111,7 @@
     display: inline-block;
     width: 215px;
     margin-right: 15px;
+    margin-bottom: 15px;
     padding: 7px 30px;
     color: #FFF;
     font-weight: 600;

@@ -50,7 +50,22 @@
 
 <script>
   export default {
-    name: 'index'
+    name: 'index',
+    data() {
+      return {
+        title: 'Saúde',
+        description: 'Sobre Saúde'
+      }
+    },
+
+    head () {
+      return {
+        title: `${this.title} - AjaxTI`,
+        meta: [
+          { hid: 'description', name: 'description', content: this.description }
+        ]
+      }
+    }
   }
 </script>
 
@@ -85,6 +100,7 @@
 
   .content-bottom {
     position: absolute;
+    left: 15px;
     bottom: 0;
     width: calc(100% - 30px);
   }
