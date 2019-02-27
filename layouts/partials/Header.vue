@@ -7,30 +7,44 @@
           <div class="links">
             <ul class="social">
               <li class="social-item">
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-twitter"></i>
+                </a>
               </li>
               <li class="social-item">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
               </li>
               <li class="social-item">
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-instagram"></i>
+                </a>
               </li>
             </ul>
             <ul class="contact">
               <li class="contact-item">
-                <span class="contact-icon"><i class="fas fa-phone"></i></span>
+                <span class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </span>
                  55 852180.2773
               </li>
               <li class="contact-item">
-                <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+                <span class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </span>
                  contato@ajaxti.com.br
               </li>
               <li class="contact-item">
-                <span class="contact-icon"><i class="fas fa-comments"></i></span>
+                <span class="contact-icon">
+                  <i class="fas fa-comments"></i>
+                </span>
                  chat
               </li>
               <li class="contact-item">
-                <span class="contact-icon"><i class="fas fa-question"></i></span>
+                <span class="contact-icon">
+                  <i class="fas fa-question"></i>
+                </span>
                  suporte
               </li>
             </ul>
@@ -250,10 +264,10 @@
 
   .show-search {
     display: block;
-    -webkit-animation: fadeInFromNone 0.5s ease-out;
-    -moz-animation: fadeInFromNone 0.5s ease-out;
-    -o-animation: fadeInFromNone 0.5s ease-out;
-    animation: fadeInFromNone 0.5s ease-out;
+    -webkit-animation: fadeInFromNone .15s ease-out;
+    -moz-animation: fadeInFromNone .15s ease-out;
+    -o-animation: fadeInFromNone .15s ease-out;
+    animation: fadeInFromNone .15s ease-out;
   }
 
   @-webkit-keyframes fadeInFromNone {

@@ -19,16 +19,16 @@
               <h5 class="title-content">
                 Tecnologia para a
               </h5>
-              <h5 class="title-content text-right">
+              <h5 class="title-content second-title text-right">
                 Parceria
               </h5>
             </div>
             <div class="know-more">
               <p class="know-more-text">
                 Conhece a modalidade de
-                Outsourcing 4.0? Não?
+                <strong>Outsourcing 4.0</strong>? Não?
                 <a href="#">
-                  Clique aqui
+                  <strong>Clique aqui</strong>
                 </a> para saber mais.
               </p>
             </div>
@@ -154,6 +154,8 @@
     background-color: #ff4500;
   }
 
+
+
   .first-content {
     display: block;
     position: relative;
@@ -199,13 +201,20 @@
     right: 15px;
     bottom: 20px;
     width: 250px;
+    color: #333;
+    font-size: 1.2rem;
+    a {
+      color: #333;
+      text-decoration: underline;
+    }
   }
 
   // page content
   .page-title {
-    text-align: center;
     margin-bottom: 40px;
+    text-align: center;
     font-size: 2.1rem;
+    color: #EA071E;
   }
 
   // item
@@ -238,22 +247,32 @@
     opacity: 0.6;
   }
 
+  .mark {
+    display: inline-block;
+    color: #F8880B;
+    background-color: transparent;
+  }
+
   // col items
   .row .col-md-3 {
     &:nth-child(even) {
       margin-top: 60px;
     }
     &:nth-child(1) {
-      color: dodgerblue;
+      color: #5190FC;
     }
     &:nth-child(2) {
-      color: green;
+      color: #AADF8D;
     }
     &:nth-child(3) {
-      color: mediumpurple;
+      color: #BC9BF7;
     }
     &:nth-child(4) {
-      color: orangered;
+      color: #EB6B1E;
     }
+  }
+
+  .second-title {
+    font-size: 5.2rem;
   }
 </style>

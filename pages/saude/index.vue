@@ -9,7 +9,7 @@
               uma série de procedimentos reguladores, definidos pela Agência
               Reguladora de Saúde, que contribuem para a organização
               do processo. É preciso experiência para entender o trâmite.
-              E experiência na área, a Ajax tem de sobra!
+              E experiência na área, a <strong>Ajax</strong> tem de sobra!
             </p>
           </div>
           <div class="content-bottom">
@@ -17,7 +17,7 @@
               <h5 class="title-content">
                 Tecnologia para a
               </h5>
-              <h5 class="title-content text-right">
+              <h5 class="title-content second-title text-right">
                 Vida
               </h5>
             </div>
@@ -62,7 +62,7 @@
     position: relative;
     width: 100%;
     height: 10px;
-    background-color: #ff4500;
+    background-color: #67C6BC;
   }
 
   .first-content {
@@ -80,6 +80,7 @@
     font-size: 1.6rem;
     line-height: 1;
     text-align: right;
+    color: #00655A;
   }
 
   .content-bottom {
@@ -110,6 +111,12 @@
     right: 15px;
     bottom: 20px;
     width: 250px;
+    color: #67C6BC;
+    font-size: 1rem;
+    a {
+      color: #67C6BC;
+      text-decoration: underline;
+    }
   }
 
   .second-content {
@@ -117,7 +124,13 @@
     position: relative;
     padding: 200px 0;
     font-size: 2rem;
+    font-weight: 600;
+    color: #00655A;
     line-height: 1.5;
     background: url('../../assets/img/corredor.png') 0 0/cover no-repeat;
+  }
+
+  .second-title {
+    font-size: 5.2rem;
   }
 </style>

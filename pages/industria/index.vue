@@ -17,7 +17,7 @@
               <h5 class="title-content">
                 Tecnologia para o
               </h5>
-              <h5 class="title-content text-right">
+              <h5 class="title-content second-title text-right">
                 Avanço
               </h5>
             </div>
@@ -28,6 +28,96 @@
                   Clique aqui
                 </a>
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card">
+              <img src="../../assets/img/industria-img-1.png" class="img-fluid" alt="">
+              <div class="card-body">
+                <p class="card-text">
+                  Acumulamos mais
+                  de 50.000 horas
+                  de desenvolvimento
+                  de soluções para a
+                  Companhia
+                  Siderúrgica
+                  do Pecém,
+                  atuando em projetos
+                  capilares para a
+                  otimização dos
+                  processos de
+                  produção da empresa.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <img src="../../assets/img/industria-img-2.png" class="img-fluid" alt="">
+              <div class="card-body">
+                <p class="card-text">
+                  Acumulamos mais
+                  de 50.000 horas
+                  de desenvolvimento
+                  de soluções para a
+                  Companhia
+                  Siderúrgica
+                  do Pecém,
+                  atuando em projetos
+                  capilares para a
+                  otimização dos
+                  processos de
+                  produção da empresa.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <img src="../../assets/img/industria-img-3.png" class="img-fluid" alt="">
+              <div class="card-body">
+                <p class="card-text">
+                  Acumulamos mais
+                  de 50.000 horas
+                  de desenvolvimento
+                  de soluções para a
+                  Companhia
+                  Siderúrgica
+                  do Pecém,
+                  atuando em projetos
+                  capilares para a
+                  otimização dos
+                  processos de
+                  produção da empresa.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <img src="../../assets/img/industria-img-4.png" class="img-fluid" alt="">
+              <div class="card-body">
+                <p class="card-text">
+                  Acumulamos mais
+                  de 50.000 horas
+                  de desenvolvimento
+                  de soluções para a
+                  Companhia
+                  Siderúrgica
+                  do Pecém,
+                  atuando em projetos
+                  capilares para a
+                  otimização dos
+                  processos de
+                  produção da empresa.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -68,6 +158,7 @@
     font-size: 1.6rem;
     line-height: 1;
     text-align: right;
+    color: #FFF;
   }
 
   .content-bottom {
@@ -98,5 +189,32 @@
     right: 15px;
     bottom: 20px;
     width: 250px;
+    color: yellow;
+    a {
+      color: yellow;
+      text-decoration: underline;
+    }
+  }
+
+  // page content
+  .page-content {
+    margin: 50px 0 80px 0;
+  }
+
+  .card {
+    border: none;
+    border-radius: 0;
+    background-color: #EEE;
+    padding: 10px;
+    &-body {
+      padding-right: 40px;
+      padding-left: 40px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  }
+
+  .second-title {
+    font-size: 5.2rem;
   }
 </style>
