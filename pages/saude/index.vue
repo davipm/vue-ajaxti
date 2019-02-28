@@ -107,7 +107,7 @@
 
   .title {
     position: relative;
-    padding-right: 33rem;
+    padding-right: 41rem;
     bottom: 0;
     width: 65rem;
     height: 15rem;
@@ -118,7 +118,7 @@
       top: 2rem;
       left: 3rem;
       color: #FFF;
-      font-size: 4rem;
+      font-size: 3rem;
     }
   }
 
@@ -148,7 +148,7 @@
 
   .second-title {
     text-align: right;
-    font-size: 5.2rem;
+    font-size: 4rem;
   }
 
   @media (max-width: 576px) {
