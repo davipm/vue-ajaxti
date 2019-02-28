@@ -19,7 +19,7 @@
               <h5 class="title-content">
                 Tecnologia para a
               </h5>
-              <h5 class="title-content second-title text-right">
+              <h5 class="title-content second-title">
                 Parceria
               </h5>
             </div>
@@ -291,6 +291,7 @@
   }
 
   .second-title {
+    text-align: right;
     font-size: 5.2rem;
   }
 

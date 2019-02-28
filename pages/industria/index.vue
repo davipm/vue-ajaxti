@@ -17,7 +17,7 @@
               <h5 class="title-content">
                 Tecnologia para o
               </h5>
-              <h5 class="title-content second-title text-right">
+              <h5 class="title-content second-title">
                 Avanço
               </h5>
             </div>
@@ -241,6 +241,7 @@
   }
 
   .second-title {
+    text-align: right;
     font-size: 5.2rem;
   }
 
