@@ -224,6 +224,7 @@
   .page-content {
     margin: 50px 0 80px 0;
     overflow-x: hidden;
+    overflow-y: hidden;
   }
 
   .card {
