@@ -83,7 +83,7 @@
   .first-content {
     display: block;
     position: relative;
-    height: 700px;
+    height: 550px;
     background: url('../../assets/img/saude-banner-1.png') 0 0/cover no-repeat;
   }
 

@@ -172,7 +172,7 @@
   .first-content {
     display: block;
     position: relative;
-    height: 700px;
+    height: 550px;
     background: url('../../assets/img/outsorcing-banner.png') 0 0/cover no-repeat;
   }
 
