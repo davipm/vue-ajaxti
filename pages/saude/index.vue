@@ -17,7 +17,7 @@
               <h5 class="title-content">
                 Tecnologia para a
               </h5>
-              <h5 class="title-content second-title text-right">
+              <h5 class="title-content second-title">
                 Vida
               </h5>
             </div>
@@ -147,6 +147,29 @@
   }
 
   .second-title {
+    text-align: right;
     font-size: 5.2rem;
+  }
+
+  @media (max-width: 576px) {
+    .text-top-right {
+      font-size: 1rem;
+      text-align: left;
+      right: auto;
+      width: auto;
+    }
+
+    .title {
+      padding-right: 0;
+      width: auto;
+      height: auto;
+      background: none;
+      text-align: left;
+      bottom: 7rem;
+      &-content {
+        top: auto;
+        left: auto;
+      }
+    }
   }
 </style>

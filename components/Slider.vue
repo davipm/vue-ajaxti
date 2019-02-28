@@ -48,8 +48,22 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .carousel-item {
     height: 550px;
+  }
+
+  @media (min-width: 1800px) {
+    .carousel-item,
+    .img-slide {
+      height: 800px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .carousel-item,
+    .img-slide {
+      height: 255px;
+    }
   }
 </style>

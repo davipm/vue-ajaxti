@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row container-menu">
         <div class="col-md-1 col-lg-2"></div>
         <div class="col-md-12 col-lg-8">
           <div class="links">
@@ -58,7 +58,7 @@
         <nuxt-link class="navbar-brand" to="/">
           <img src="../../assets/img/logo.svg" class="img-fluid" alt="logo">
         </nuxt-link>
-        <button class="navbar-toggler"
+        <button class="navbar-toggler d-none"
                 type="button"
                 data-toggle="collapse"
                 data-target="#navbarNav"
@@ -84,6 +84,7 @@
         </div>
       </div>
     </nav>
+    <NavMobile/>
     <div class="search-box shadow" :class="{ 'show-search': isVisible }">
       <form>
         <input type="text" class="form-control" placeholder="Pesquisar">
@@ -96,8 +97,13 @@
 </template>
 
 <script>
+  import NavMobile from '../../components/NavMobile.vue'
   export default {
     name: 'Header',
+    components: {
+      NavMobile
+    },
+
     data() {
       return {
         menus: [
@@ -350,6 +356,10 @@
       padding-top: 0;
       background-position: 51% -10px;
       background-size: 160%;
+    }
+
+    .container-menu {
+      background-color: #212934;
     }
   }
 </style>

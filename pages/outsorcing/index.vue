@@ -256,6 +256,7 @@
     }
   }
 
+  // number for items
   .title-number {
     display: block;
     position: relative;
@@ -263,6 +264,7 @@
     opacity: 0.6;
   }
 
+  // marks title
   .mark {
     display: inline-block;
     color: #F8880B;
@@ -290,5 +292,27 @@
 
   .second-title {
     font-size: 5.2rem;
+  }
+
+  @media (max-width: 576px) {
+    .text-top-right {
+      font-size: 1rem;
+      text-align: left;
+      right: auto;
+      width: auto;
+    }
+
+    .title {
+      padding-right: 0;
+      width: auto;
+      height: auto;
+      background: none;
+      text-align: left;
+      bottom: 7rem;
+      &-content {
+        top: auto;
+        left: auto;
+      }
+    }
   }
 </style>

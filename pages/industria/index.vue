@@ -38,7 +38,9 @@
         <div class="row">
           <div class="col-md-3">
             <div class="card">
-              <img src="../../assets/img/industria-img-1.png" class="img-fluid" alt="">
+              <div class="image-wrap">
+                <img src="../../assets/img/industria-img-1.png" class="img-fluid" alt="">
+              </div>
               <div class="card-body">
                 <p class="card-text">
                   Acumulamos mais
@@ -59,7 +61,9 @@
           </div>
           <div class="col-md-3">
             <div class="card">
-              <img src="../../assets/img/industria-img-2.png" class="img-fluid" alt="">
+              <div class="image-wrap">
+                <img src="../../assets/img/industria-img-2.png" class="img-fluid" alt="">
+              </div>
               <div class="card-body">
                 <p class="card-text">
                   Atendemos por
@@ -80,7 +84,9 @@
           </div>
           <div class="col-md-3">
             <div class="card">
-              <img src="../../assets/img/industria-img-3.png" class="img-fluid" alt="">
+              <div class="image-wrap">
+                <img src="../../assets/img/industria-img-3.png" class="img-fluid" alt="">
+              </div>
               <div class="card-body">
                 <p class="card-text">
                   TI e
@@ -101,7 +107,9 @@
           </div>
           <div class="col-md-3">
             <div class="card">
-              <img src="../../assets/img/industria-img-4.png" class="img-fluid" alt="">
+              <div class="image-wrap">
+                <img src="../../assets/img/industria-img-4.png" class="img-fluid" alt="">
+              </div>
               <div class="card-body">
                 <p class="card-text">
                   Linhas e mais linhas
@@ -215,6 +223,7 @@
   // page content
   .page-content {
     margin: 50px 0 80px 0;
+    overflow-x: hidden;
   }
 
   .card {
@@ -227,10 +236,54 @@
       padding-left: 40px;
       font-size: 1.2rem;
       text-align: center;
+      height: 300px;
     }
   }
 
   .second-title {
     font-size: 5.2rem;
+  }
+
+  .img-fluid {
+    display: block;
+    margin: 15px auto 20px auto;
+  }
+
+  .image-wrap:before,
+  .image-wrap:after {
+    content: '';
+    position: relative;
+    display: block;
+    width: 2000%;
+    height: 3px;
+    right: 1000%;
+    background-color: red;
+    box-shadow: 0 -2px orange;
+  }
+
+  @media (max-width: 576px) {
+    .card {
+      margin-bottom: 20px;
+    }
+
+    .text-top-right {
+      font-size: 1rem;
+      text-align: left;
+      right: auto;
+      width: auto;
+    }
+
+    .title {
+      padding-right: 0;
+      width: auto;
+      height: auto;
+      background: none;
+      text-align: left;
+      bottom: 7rem;
+      &-content {
+        top: auto;
+        left: auto;
+      }
+    }
   }
 </style>
