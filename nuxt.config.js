@@ -1,6 +1,5 @@
 const pkg = require('./package');
 
-
 module.exports = {
   mode: 'universal',
 
@@ -13,6 +12,7 @@ module.exports = {
       lang: 'pt_BR',
       amp: undefined // "amp" has no value
     },
+
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -59,6 +59,15 @@ module.exports = {
   loading: { color: '#fff' },
 
   /*
+  ** Forcing the scroll position to the top for every route
+  */
+  router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
+  },
+
+  /*
   ** Global CSS
   */
   css: [
@@ -75,7 +84,9 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    ['@nuxtjs/axios', {
+      baseURL: 'https://crunvik.000webhostapp.com/wp-json'
+    }],
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
     '@nuxtjs/pwa',

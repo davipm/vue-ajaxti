@@ -54,7 +54,19 @@
     data() {
       return {
         title: 'Saúde',
-        description: 'Sobre Saúde'
+        description: 'Sobre Saúde',
+        posts: {},
+      }
+    },
+
+    created() {
+      this.fetchSomething();
+    },
+
+    methods: {
+      async fetchSomething() {
+        this.posts = await this.$axios.$get('/wp/v2/posts');
+        console.log(this.posts);
       }
     },
 

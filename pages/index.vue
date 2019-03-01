@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <Slider/>
+    <Video/>
+    <!--<Slider/>-->
     <ContactSite/>
     <Solution/>
     <Products/>
@@ -18,6 +19,7 @@
   import Number from '@/components/Number.vue'
   import Woman from '@/components/Woman.vue'
   import Products from '@/components/Products.vue'
+  import Video from '../components/VideoComponent.vue'
   export default {
     components: {
       Slider,
@@ -26,7 +28,8 @@
       Client,
       Number,
       Woman,
-      Products
+      Products,
+      Video
     }
   }
 </script>
