@@ -41,7 +41,7 @@
     }
 
     @media (max-width: 576px) {
-      height: 13rem;
+      height: 12rem;
     }
   }
 </style>
