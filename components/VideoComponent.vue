@@ -24,6 +24,7 @@
     position: relative;
     width: 100%;
     height: 800px;
+    overflow: hidden;
 
     &-content {
       display: block;
@@ -33,7 +34,14 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      height: 27rem;
+    }
+
+    @media (max-width: 576px) {
+      height: 13rem;
     }
   }
 </style>
