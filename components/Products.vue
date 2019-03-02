@@ -1,26 +1,15 @@
 <template>
   <section class="section products">
     <div class="container">
-      <div class="products-item">
-        <div class="row">
+      <div v-for="(item, index) in items" :key="index" class="products-item">
+        <div v-if="index % 2 === 0" class="row">
           <div class="col-md-6">
-            <img src="../assets/img/ipad_stok.png" class="img-fluid" alt="">
+            <img :src="item.image" class="img-fluid" :alt="item.title">
           </div>
           <div class="col-md-6">
             <div class="products-content">
-              <h5 class="products-title">
-                revolucione a forma
-                de organizar seu
-                estoque!
-              </h5>
-              <p class="products-text">
-                Modernize seu depósito/armazém, usando a ferramenta de
-                estoque da Ajax. Com ela, você tem várias vantagens, como
-                internação inteligente, conferência com nota cega e o melhor,
-                o exclusivo sistema de convocação ativa, que distribui, automaticamente as demandas para os colaboradores.
-                Dê adeus ás perdas por vencimento e elimine a ociosidade
-                em campo de trabalho.
-              </p>
+              <h5 class="products-title">{{ item.title }}</h5>
+              <p class="products-text" v-text="item.text"></p>
             </div>
             <div class="products-buttons">
               <nuxt-link to="/" class="btn btn-primary">
@@ -32,24 +21,11 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="products-item">
-        <div class="row">
+        <div v-else class="row">
           <div class="col-md-6">
             <div class="products-content">
-              <h5 class="products-title">
-                inventariar é sempre
-                aquela dificuldade?
-                vamos mudar isso
-              </h5>
-              <p class="products-text">
-                O Catalog da Ajax, é o sistema de leitura automática
-                que agiliza a catalogação dos ativos da empresa.
-                O aplicativo, tem interface web, e decodifica
-                etiquetas NFC, códigos de barra e QR Code.
-                Chega de dor de cabeça, na hora de realizar
-                a listagem de seu patrimônio.
-              </p>
+              <h5 class="products-title">{{ item.title }}</h5>
+              <p class="products-text" v-text="item.text"></p>
             </div>
             <div class="products-buttons">
               <nuxt-link to="/" class="btn btn-primary">
@@ -61,7 +37,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <img src="../assets/img/iphone_catalog.png" class="img-fluid" alt="">
+            <img :src="item.image" class="img-fluid" :alt="item.title">
           </div>
         </div>
       </div>
@@ -72,11 +48,51 @@
 <script>
   export default {
     name: 'Products',
+    data() {
+      return {
+        items: [
+          {
+            title: `
+              revolucione a forma
+              de organizar seu
+              estoque!
+            `,
+            text: `
+              Modernize seu depósito/armazém, usando a ferramenta de
+              estoque da Ajax. Com ela, você tem várias vantagens, como
+              internação inteligente, conferência com nota cega e o melhor,
+              o exclusivo sistema de convocação ativa, que distribui, automaticamente as demandas para os colaboradores.
+              Dê adeus ás perdas por vencimento e elimine a ociosidade
+              em campo de trabalho.
+            `,
+            image: '/_nuxt/assets/img/ipad_stok.png',
+          },
+          {
+            title: `
+              inventariar é sempre
+              aquela dificuldade?
+              vamos mudar isso
+            `,
+            text: `
+              O Catalog da Ajax, é o sistema de leitura automática
+              que agiliza a catalogação dos ativos da empresa.
+              O aplicativo, tem interface web, e decodifica
+              etiquetas NFC, códigos de barra e QR Code.
+              Chega de dor de cabeça, na hora de realizar
+              a listagem de seu patrimônio.
+            `,
+            image: '/_nuxt/assets/img/iphone_catalog.png',
+          },
+        ]
+      }
+    }
   }
 </script>
 
 <style scoped lang="scss">
   .products {
+    position: relative;
+    display: block;
     background: url('../assets/img/transparencia_produtos.png') center/cover no-repeat ;
 
     &-item {

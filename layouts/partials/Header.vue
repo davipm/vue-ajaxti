@@ -146,7 +146,6 @@
           .$get('/menus/v1/menus/header_menu')
           .then((res) => {
             this.menus = res.items;
-            console.log(this.menus);
           })
           .catch(() => {
             this.error = true;

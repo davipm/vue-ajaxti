@@ -11,8 +11,8 @@
       </label>
       <ul class="menu-sidebar">
         <li v-for="(item, index) in menus" :key="index">
-          <nuxt-link :to="item.href">
-            {{ item.name }}
+          <nuxt-link :to="`${item.url}`">
+            {{ item.title }}
           </nuxt-link>
         </li>
         <!--
@@ -57,17 +57,25 @@
     name: 'NavMobile',
     data() {
       return {
-        menus: [
-          { name: 'HOME',            href: '/'},
-          { name: 'SOLUÇÕES',        href: '#1'},
-          { name: 'INDÚSTRIA 4.0',   href: '/industria'},
-          { name: 'SAÚDE',           href: '/saude'},
-          { name: 'ENGENHARIA',      href: '#2' },
-          { name: 'OUTSOURCING 4.0', href: '/outsorcing'},
-          { name: 'BLOG',            href: '#3'},
-          { name: 'CONTATO',         href: '#4'},
-        ],
+        menus: [],
       }
+    },
+
+    created() {
+      this.getMenu();
+    },
+
+    methods: {
+      async getMenu() {
+        await this.$axios
+          .$get('/menus/v1/menus/header_menu')
+          .then((res) => {
+            this.menus = res.items;
+          })
+          .catch(() => {
+            this.error = true;
+          });
+      },
     }
   }
 </script>

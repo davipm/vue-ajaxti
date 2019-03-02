@@ -1,74 +1,19 @@
 <template>
   <section class="section solution">
     <div class="container-fluid">
-      <h3 class="title">A Palavra é: <u>Solução</u></h3>
+      <!-- heading -->
+      <h3 class="title" v-html="title"></h3>
+      <!-- content -->
       <div class="row solution-content">
-        <div class="col-lg-3 col-md-6">
+        <div v-for="item in solutions"
+             :key="item.id"
+             class="col-lg-3 col-md-6"
+        >
           <div class="solution-item">
-            <img src="../assets/img/web.svg" class="solution-img" alt="">
+            <img :src="item.image" class="solution-img" alt="">
             <div class="solution-body">
-              <h5 class="solution-title">WEB</h5>
-              <p class="solution-text">
-                Diversas soluções em ambiente web
-                que ajudarão a fazer a diferença
-                para sua corporação
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="solution-item">
-            <img src="../assets/img/industria.svg" class="solution-img" alt="">
-            <div class="solution-body">
-              <h5 class="solution-title">INDÚSTRIA 4.0</h5>
-              <p class="solution-text">
-                Expertise em desenvolvimento de soluções
-                para a indústria, de qualquer segmento:
-                siderúrgica, construção, alimentícia,
-                beneficiamento, etc.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="solution-item">
-            <img src="../assets/img/desenvolvimento.svg" class="solution-img" alt="">
-            <div class="solution-body">
-              <h5 class="solution-title">DESENVOLVIMENTO</h5>
-              <p class="solution-text">
-                Linhas e linhas de códigos, elaboram
-                sistemas eficazes que solucionam os mais
-                variados problemas das empresas
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="solution-item">
-            <img src="../assets/img/saude.svg" class="solution-img" alt="">
-            <div class="solution-body">
-              <h5 class="solution-title">SAÚDE</h5>
-              <p class="solution-text">
-                Entendemos por dentro, os sistemas de
-                gestão de saúde. Conte com nossa
-                experiência para tornar os processos
-                mais eficientes
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="solution-item">
-            <img src="../assets/img/outsourcing.svg" class="solution-img" alt="">
-            <div class="solution-body">
-              <h5 class="solution-title">OUTSOURCING 4.0</h5>
-              <p class="solution-text">
-                Vamos conversar sobre colaboração!
-                Podemos dar suporte à área de
-                TI de sua empresa, desenvolvendo
-                projetos de dentro, com profissionais
-                qualificados, à sua disposição
-              </p>
+              <h5 class="solution-title">{{ item.title }}</h5>
+              <p class="solution-text" v-text="item.description"></p>
             </div>
           </div>
         </div>
@@ -79,7 +24,35 @@
 
 <script>
   export default {
-    name: 'Solution'
+    name: 'Solution',
+    data() {
+      return {
+        title: `A Palavra é: <u>Solução</u>`,
+        error: false,
+        loading: true,
+        solutions: [],
+      }
+    },
+
+    created() {
+      this.getSolutions();
+    },
+
+    methods: {
+      async getSolutions() {
+        await this.$axios
+          .$get('/api/v1/solutions')
+          .then((res) => {
+            this.solutions = res;
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      }
+    }
   }
 </script>
 

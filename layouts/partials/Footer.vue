@@ -113,42 +113,39 @@
     data() {
       return {
         solution: [
-          { name: 'AD Experience',  href: '/'},
-          { name: 'Estoque',        href: '/'},
-          { name: 'Inventário',     href: '/'},
-          { name: 'Outsorcing',     href: '/'},
+          { name: 'AD Experience', href: '/'},
+          { name: 'Estoque',       href: '/'},
+          { name: 'Inventário',    href: '/'},
+          { name: 'Outsorcing',    href: '/'},
         ],
 
         information: [
-          { name: 'Licença',                  href: '/'},
-          { name: 'Politica de Privacidade',  href: '/'},
-          { name: 'Uso de Cookies',           href: '/'},
-          { name: 'FAQ',                      href: '/'},
+          { name: 'Licença',                 href: '/'},
+          { name: 'Politica de Privacidade', href: '/'},
+          { name: 'Uso de Cookies',          href: '/'},
+          { name: 'FAQ',                     href: '/'},
         ],
 
         about: [
-          { name: 'AD Experience',  href: '/'},
-          { name: 'Team',           href: '/'},
-          { name: 'Soporte',        href: '/'},
+          { name: 'AD Experience', href: '/'},
+          { name: 'Team',          href: '/'},
+          { name: 'Soporte',       href: '/'},
         ],
       }
     },
 
     created() {
-      /*
       this.getMenuSolution();
       this.getMenuInformation();
       this.getMenuAbout();
-      */
     },
 
     methods: {
-      /*
       async getMenuSolution() {
         await this.$axios
           .$get('/api/v1/clients')
           .then((res) => {
-            this.solution = res;
+            //this.solution = res;
           })
           .catch(() => {
             this.error = true;
@@ -159,7 +156,7 @@
         await this.$axios
           .$get('/api/v1/clients')
           .then((res) => {
-            this.solution = res;
+            //this.solution = res;
           })
           .catch(() => {
             this.error = true;
@@ -170,13 +167,12 @@
         await this.$axios
           .$get('/api/v1/clients')
           .then((res) => {
-            this.solution = res;
+            //this.solution = res;
           })
           .catch(() => {
             this.error = true;
           });
       },
-      */
     }
   }
 </script>

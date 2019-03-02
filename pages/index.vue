@@ -29,7 +29,7 @@
       Number,
       Woman,
       Products,
-      Video
+      Video,
     }
   }
 </script>
