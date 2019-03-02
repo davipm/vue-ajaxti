@@ -19,7 +19,7 @@
   import Number from '@/components/Number.vue'
   import Woman from '@/components/Woman.vue'
   import Products from '@/components/Products.vue'
-  import Video from '../components/VideoComponent.vue'
+  import Video from '@/components/VideoComponent.vue'
   export default {
     components: {
       Slider,
@@ -33,7 +33,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-
-</style>

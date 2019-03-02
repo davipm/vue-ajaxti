@@ -69,10 +69,33 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item" v-for="(item, index) in menus" :key="index">
-              <nuxt-link class="nav-link" :to="item.href">
-                {{ item.name }}
+          <ul v-if="loading" class="navbar-nav">
+            <li class="nav-item mr-3">
+              <div class="shine line"></div>
+            </li>
+            <li class="nav-item mr-3">
+              <div class="shine line"></div>
+            </li>
+            <li class="nav-item mr-3">
+              <div class="shine line"></div>
+            </li>
+            <li class="nav-item mr-3">
+              <div class="shine line"></div>
+            </li>
+            <li class="nav-item mr-3">
+              <div class="shine line"></div>
+            </li>
+            <li class="nav-item mr-3">
+              <div class="shine line"></div>
+            </li>
+          </ul>
+          <ul v-else class="navbar-nav">
+            <li v-for="(item, index) in menus"
+                :key="index"
+                class="nav-item"
+            >
+              <nuxt-link class="nav-link" :to="`${item.url}`">
+                {{ item.title }}
               </nuxt-link>
             </li>
           </ul>
@@ -86,7 +109,7 @@
     </nav>
     <NavMobile/>
     <div class="search-box shadow" :class="{ 'show-search': isVisible }">
-      <form>
+      <form class="form">
         <input type="text" class="form-control" placeholder="Pesquisar">
         <button class="button-search">
           <i class="fas fa-search"></i>
@@ -97,7 +120,7 @@
 </template>
 
 <script>
-  import NavMobile from '../../components/NavMobile.vue'
+  import NavMobile from '~/components/NavMobile.vue'
   export default {
     name: 'Header',
     components: {
@@ -106,21 +129,33 @@
 
     data() {
       return {
-        menus: [
-          { name: 'HOME',            href: '/'},
-          { name: 'SOLUÇÕES',        href: '#1'},
-          { name: 'INDÚSTRIA 4.0',   href: '/industria'},
-          { name: 'SAÚDE',           href: '/saude'},
-          { name: 'ENGENHARIA',      href: '#2' },
-          { name: 'OUTSOURCING 4.0', href: '/outsorcing'},
-          { name: 'BLOG',            href: '#3'},
-          { name: 'CONTATO',         href: '#4'},
-        ],
+        menus: [],
+        loading: true,
+        error: false,
         isVisible: false,
       }
     },
 
+    created() {
+      this.getMenu();
+    },
+
     methods: {
+      async getMenu() {
+        await this.$axios
+          .$get('/menus/v1/menus/header_menu')
+          .then((res) => {
+            this.menus = res.items;
+            console.log(this.menus);
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      },
+
       showSearch() {
         this.isVisible = !this.isVisible;
       }
@@ -274,6 +309,18 @@
     -moz-animation: fadeInFromNone .15s ease-out;
     -o-animation: fadeInFromNone .15s ease-out;
     animation: fadeInFromNone .15s ease-out;
+  }
+
+  .nav-link-loading {
+    padding: 0;
+    &:hover {
+      color: inherit;
+      background: inherit;
+    }
+  }
+
+  .line {
+    padding: 16px 55px;
   }
 
   @-webkit-keyframes fadeInFromNone {

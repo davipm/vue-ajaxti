@@ -36,24 +36,12 @@
                   <li class="footer-nav-item footer-nav-title">
                     SOLUÇÕES
                   </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      AD Experience
-                    </nuxt-link>
-                  </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      Estoque
-                    </nuxt-link>
-                  </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      Inventário
-                    </nuxt-link>
-                  </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      Outsorcing
+                  <li v-for="(menu, index) in solution"
+                      :key="index"
+                      class="footer-nav-item"
+                  >
+                    <nuxt-link :to="menu.href" class="footer-nav-link">
+                      {{ menu.name }}
                     </nuxt-link>
                   </li>
                 </ul>
@@ -65,24 +53,12 @@
                   <li class="footer-nav-item footer-nav-title">
                     INFORMAÇÕES
                   </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      Licença
-                    </nuxt-link>
-                  </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      Politica de Privacidade
-                    </nuxt-link>
-                  </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      Uso de Cookies
-                    </nuxt-link>
-                  </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                     FAQ
+                  <li v-for="(menu, index) in information"
+                      :key="index"
+                      class="footer-nav-item"
+                  >
+                    <nuxt-link :to="menu.href" class="footer-nav-link">
+                      {{ menu.name }}
                     </nuxt-link>
                   </li>
                 </ul>
@@ -94,19 +70,12 @@
                   <li class="footer-nav-item footer-nav-title">
                     SOBRE
                   </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      AD Experience
-                    </nuxt-link>
-                  </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      Team
-                    </nuxt-link>
-                  </li>
-                  <li class="footer-nav-item">
-                    <nuxt-link to="/" class="footer-nav-link">
-                      Soporte
+                  <li v-for="(menu, index) in about"
+                      :key="index"
+                      class="footer-nav-item"
+                  >
+                    <nuxt-link :to="menu.href" class="footer-nav-link">
+                      {{ menu.name }}
                     </nuxt-link>
                   </li>
                 </ul>
@@ -140,7 +109,75 @@
 
 <script>
   export default {
-    name: 'Footer'
+    name: 'Footer',
+    data() {
+      return {
+        solution: [
+          { name: 'AD Experience',  href: '/'},
+          { name: 'Estoque',        href: '/'},
+          { name: 'Inventário',     href: '/'},
+          { name: 'Outsorcing',     href: '/'},
+        ],
+
+        information: [
+          { name: 'Licença',                  href: '/'},
+          { name: 'Politica de Privacidade',  href: '/'},
+          { name: 'Uso de Cookies',           href: '/'},
+          { name: 'FAQ',                      href: '/'},
+        ],
+
+        about: [
+          { name: 'AD Experience',  href: '/'},
+          { name: 'Team',           href: '/'},
+          { name: 'Soporte',        href: '/'},
+        ],
+      }
+    },
+
+    created() {
+      /*
+      this.getMenuSolution();
+      this.getMenuInformation();
+      this.getMenuAbout();
+      */
+    },
+
+    methods: {
+      /*
+      async getMenuSolution() {
+        await this.$axios
+          .$get('/api/v1/clients')
+          .then((res) => {
+            this.solution = res;
+          })
+          .catch(() => {
+            this.error = true;
+          });
+      },
+
+      async getMenuInformation() {
+        await this.$axios
+          .$get('/api/v1/clients')
+          .then((res) => {
+            this.solution = res;
+          })
+          .catch(() => {
+            this.error = true;
+          });
+      },
+
+      async getMenuAbout() {
+        await this.$axios
+          .$get('/api/v1/clients')
+          .then((res) => {
+            this.solution = res;
+          })
+          .catch(() => {
+            this.error = true;
+          });
+      },
+      */
+    }
   }
 </script>
 

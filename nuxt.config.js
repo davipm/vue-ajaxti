@@ -56,7 +56,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#FF0000' },
 
   /*
   ** Forcing the scroll position to the top for every route
@@ -70,8 +70,7 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css: [ '@assets/css/_loading.scss', ],
 
   /*
   ** Plugins to load before mounting the App
@@ -85,7 +84,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     ['@nuxtjs/axios', {
-      baseURL: 'https://crunvik.000webhostapp.com/wp-json'
+      baseURL: 'http://ajaxtiapi.local/wp-json'
     }],
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',

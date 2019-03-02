@@ -35,13 +35,7 @@
       left: 0;
       width: 100%;
     }
-
-    @media (max-width: 768px) {
-      height: 27rem;
-    }
-
-    @media (max-width: 576px) {
-      height: 12rem;
-    }
+    @media (max-width: 768px) { height: 27rem; }
+    @media (max-width: 576px) { height: 12rem; }
   }
 </style>

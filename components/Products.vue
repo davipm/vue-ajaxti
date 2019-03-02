@@ -23,12 +23,12 @@
               </p>
             </div>
             <div class="products-buttons">
-              <a href="#" class="btn btn-primary">
+              <nuxt-link to="/" class="btn btn-primary">
                 Saiba mais
-              </a>
-              <a href="#" class="btn btn-secondary">
+              </nuxt-link>
+              <nuxt-link to="/" class="btn btn-secondary">
                 Peça um orçamento
-              </a>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -52,12 +52,12 @@
               </p>
             </div>
             <div class="products-buttons">
-              <a href="#" class="btn btn-primary">
+              <nuxt-link to="/" class="btn btn-primary">
                 Saiba mais
-              </a>
-              <a href="#" class="btn btn-secondary">
+              </nuxt-link>
+              <nuxt-link to="/" class="btn btn-secondary">
                 Peça um orçamento
-              </a>
+              </nuxt-link>
             </div>
           </div>
           <div class="col-md-6">
