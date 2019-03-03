@@ -64,7 +64,7 @@
 
       backToTop() {
         window.smoothscroll();
-        //this.$emit('scrolled');
+        this.$emit('scrolled');
       }
     }
   }

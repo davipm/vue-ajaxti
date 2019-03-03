@@ -3,7 +3,7 @@
     <Header/>
     <nuxt/>
     <Footer/>
-    <BackToTop/>
+    <!--<BackToTop/>-->
   </div>
 </template>
 

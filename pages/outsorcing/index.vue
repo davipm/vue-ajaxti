@@ -1,128 +1,137 @@
 <template>
   <section class="page">
-    <div class="wrap">
-      <div class="first-content">
-        <div class="container-fluid">
-          <!--
-          <div class="text-top-right">
-            <p class="text">
-              O atendimento médico é, normalmente, cercado por
-              uma série de procedimentos reguladores, definidos pela Agência
-              Reguladora de Saúde, que contribuem para a organização
-              do processo. É preciso experiência para entender o trâmite.
-              E experiência na área, a Ajax tem de sobra!
-            </p>
-          </div>
-          -->
-          <div class="content-bottom">
-            <div class="title">
-              <h5 class="title-content">
-                Tecnologia para a
-              </h5>
-              <h5 class="title-content second-title">
-                Parceria
-              </h5>
-            </div>
-            <div class="know-more">
-              <p class="know-more-text">
-                Conhece a modalidade de
-                <strong>Outsourcing 4.0</strong>? Não?
-                <a href="#">
-                  <strong>Clique aqui</strong>
-                </a> para saber mais.
+    <div v-if="loading"  class="loading">
+      <div class="clear-loading loading-effect-1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div v-else>
+      <div class="wrap">
+        <div class="first-content">
+          <div class="container-fluid">
+            <!--
+            <div class="text-top-right">
+              <p class="text">
+                O atendimento médico é, normalmente, cercado por
+                uma série de procedimentos reguladores, definidos pela Agência
+                Reguladora de Saúde, que contribuem para a organização
+                do processo. É preciso experiência para entender o trâmite.
+                E experiência na área, a Ajax tem de sobra!
               </p>
+            </div>
+            -->
+            <div class="content-bottom">
+              <div class="title">
+                <h5 class="title-content">
+                  Tecnologia para a
+                </h5>
+                <h5 class="title-content second-title">
+                  Parceria
+                </h5>
+              </div>
+              <div class="know-more">
+                <p class="know-more-text">
+                  Conhece a modalidade de
+                  <strong>Outsourcing 4.0</strong>? Não?
+                  <a href="#">
+                    <strong>Clique aqui</strong>
+                  </a> para saber mais.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="page-content">
-      <div class="container">
-        <h3 class="page-title">
-          Você conhece as vantagens do <span class="mark">outsourcing</span>? Listamos 4 bem legais:
-        </h3>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="item">
-              <div class="item-number">
-                <h1 class="item-title title-number">1</h1>
-                <h1 class="item-title">Experiência</h1>
-              </div>
-              <img src="../../assets/img/out-experiencia.png" class="item-img" alt="">
-              <div class="item-body">
-                <p class="item-text">
-                  Sua empresa contará com
-                  o know-how da <strong>Ajax</strong>,
-                  que ficará inteiramente a
-                  disposição de suas
-                  demandas. Estamos
-                  prontos para oferecer
-                  as melhores soluções,
-                  personalizadas às suas
-                  necessidades.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item">
-              <div class="item-number">
-                <h1 class="item-title title-number">2</h1>
-                <h1 class="item-title">Garantia</h1>
-              </div>
-              <img src="../../assets/img/out-garantia.png" class="item-img" alt="">
-              <div class="item-body">
-                <p class="item-text">
-                  Uma grande vantagem do
-                  sistema de <strong>outsorcing</strong> é
-                  a garantia dos riscos
-                  operacionais, ou seja,
-                  a <strong>Ajax</strong> garante que seu
-                  projeto será feito com a
-                  máxima expertise.
-                </p>
+      <div class="page-content">
+        <div class="container">
+          <h3 class="page-title">
+            Você conhece as vantagens do <span class="mark">outsourcing</span>? Listamos 4 bem legais:
+          </h3>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="item">
+                <div class="item-number">
+                  <h1 class="item-title title-number">1</h1>
+                  <h1 class="item-title">Experiência</h1>
+                </div>
+                <img src="../../assets/img/out-experiencia.png" class="item-img" alt="">
+                <div class="item-body">
+                  <p class="item-text">
+                    Sua empresa contará com
+                    o know-how da <strong>Ajax</strong>,
+                    que ficará inteiramente a
+                    disposição de suas
+                    demandas. Estamos
+                    prontos para oferecer
+                    as melhores soluções,
+                    personalizadas às suas
+                    necessidades.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item">
-              <div class="item-number">
-                <h1 class="item-title title-number">3</h1>
-                <h1 class="item-title">Liberdade</h1>
-              </div>
-              <img src="../../assets/img/out-liberdade.png" class="item-img" alt="">
-              <div class="item-body">
-                <p class="item-text">
-                  Sua empresa terá liberdade
-                  para ficar 100% focada em
-                  suas atividades principais.
-                  Ao invés de criar mais
-                  departamentos, com custos
-                  de contratação de funcionários,
-                  o foco pode ser inteiramente
-                  aplicado na atividade-fim
-                  do negócio.
-                </p>
+            <div class="col-md-3">
+              <div class="item">
+                <div class="item-number">
+                  <h1 class="item-title title-number">2</h1>
+                  <h1 class="item-title">Garantia</h1>
+                </div>
+                <img src="../../assets/img/out-garantia.png" class="item-img" alt="">
+                <div class="item-body">
+                  <p class="item-text">
+                    Uma grande vantagem do
+                    sistema de <strong>outsorcing</strong> é
+                    a garantia dos riscos
+                    operacionais, ou seja,
+                    a <strong>Ajax</strong> garante que seu
+                    projeto será feito com a
+                    máxima expertise.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item">
-              <div class="item-number">
-                <h1 class="item-title title-number">4</h1>
-                <h1 class="item-title">Economia</h1>
+            <div class="col-md-3">
+              <div class="item">
+                <div class="item-number">
+                  <h1 class="item-title title-number">3</h1>
+                  <h1 class="item-title">Liberdade</h1>
+                </div>
+                <img src="../../assets/img/out-liberdade.png" class="item-img" alt="">
+                <div class="item-body">
+                  <p class="item-text">
+                    Sua empresa terá liberdade
+                    para ficar 100% focada em
+                    suas atividades principais.
+                    Ao invés de criar mais
+                    departamentos, com custos
+                    de contratação de funcionários,
+                    o foco pode ser inteiramente
+                    aplicado na atividade-fim
+                    do negócio.
+                  </p>
+                </div>
               </div>
-              <img src="../../assets/img/out-img-1.png" class="item-img" alt="">
-              <div class="item-body">
-                <p class="item-text">
-                  A economia é perceptível e
-                  imediata, já que a empresa
-                  fica apenas com o custo de
-                  manutenção do serviço.
-                  Todas as obrigações
-                  trabalhistas ficam a cargo
-                  da <strong>Ajax</strong>.
-                </p>
+            </div>
+            <div class="col-md-3">
+              <div class="item">
+                <div class="item-number">
+                  <h1 class="item-title title-number">4</h1>
+                  <h1 class="item-title">Economia</h1>
+                </div>
+                <img src="../../assets/img/out-img-1.png" class="item-img" alt="">
+                <div class="item-body">
+                  <p class="item-text">
+                    A economia é perceptível e
+                    imediata, já que a empresa
+                    fica apenas com o custo de
+                    manutenção do serviço.
+                    Todas as obrigações
+                    trabalhistas ficam a cargo
+                    da <strong>Ajax</strong>.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -138,8 +147,15 @@
     data() {
       return {
         title: 'Outsourcing',
-        description: ''
+        description: '',
+        loading: true,
       }
+    },
+
+    created() {
+      setTimeout(() => {
+        this.loading = false;
+      }, 1500);
     },
 
     head () {

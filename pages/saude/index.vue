@@ -1,48 +1,57 @@
 <template>
   <section class="page">
-    <div class="wrap">
-      <div class="first-content">
-        <div class="container-fluid">
-          <div class="text-top-right">
-            <p class="text">
-              O atendimento médico é, normalmente, cercado por
-              uma série de procedimentos reguladores, definidos pela Agência
-              Reguladora de Saúde, que contribuem para a organização
-              do processo. É preciso experiência para entender o trâmite.
-              E experiência na área, a <strong>Ajax</strong> tem de sobra!
-            </p>
-          </div>
-          <div class="content-bottom">
-            <div class="title">
-              <h5 class="title-content">
-                Tecnologia para a
-              </h5>
-              <h5 class="title-content second-title">
-                Vida
-              </h5>
-            </div>
-            <div class="know-more">
-              <p class="know-more-text">
-                Mais sobre os procedimentos
-                estabelcidos pela ANS:
-                TISS, DIOPS, TPS, SIB e SIP?
-                <a href="#" class="know-more-link">
-                  Clique aqui
-                </a>
+    <div v-if="loading"  class="loading">
+      <div class="clear-loading loading-effect-1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div v-else>
+      <div class="wrap">
+        <div class="first-content">
+          <div class="container-fluid">
+            <div class="text-top-right">
+              <p class="text">
+                O atendimento médico é, normalmente, cercado por
+                uma série de procedimentos reguladores, definidos pela Agência
+                Reguladora de Saúde, que contribuem para a organização
+                do processo. É preciso experiência para entender o trâmite.
+                E experiência na área, a <strong>Ajax</strong> tem de sobra!
               </p>
+            </div>
+            <div class="content-bottom">
+              <div class="title">
+                <h5 class="title-content">
+                  Tecnologia para a
+                </h5>
+                <h5 class="title-content second-title">
+                  Vida
+                </h5>
+              </div>
+              <div class="know-more">
+                <p class="know-more-text">
+                  Mais sobre os procedimentos
+                  estabelcidos pela ANS:
+                  TISS, DIOPS, TPS, SIB e SIP?
+                  <a href="#" class="know-more-link">
+                    Clique aqui
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="second-content">
-      <div class="container">
-        <p class="second-text">
-          Além do gerenciamento dos processos, desenvolvemos
-          milhares de soluções corporativas que atendem à área da
-          saúde e que se conectam entre si para criar uma ambiente
-          tecnologicamente mais dinâmicos.
-        </p>
+      <div class="second-content">
+        <div class="container">
+          <p class="second-text">
+            Além do gerenciamento dos processos, desenvolvemos
+            milhares de soluções corporativas que atendem à área da
+            saúde e que se conectam entre si para criar uma ambiente
+            tecnologicamente mais dinâmicos.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -56,10 +65,14 @@
         title: 'Saúde',
         description: 'Sobre Saúde',
         posts: {},
+        loading: true,
       }
     },
 
     created() {
+      setTimeout(() => {
+        //this.loading = false;
+      }, 1500);
       this.fetchSomething();
     },
 

@@ -1,130 +1,43 @@
 <template>
   <section class="page">
-    <div class="wrap">
-      <div class="first-content">
-        <div class="container-fluid">
-          <div class="text-top-right">
-            <p class="text">
-              Sua empresa contará com a competência de especialistas na
-              área da Engenharia Elétrica, Química e de Automação Industrial
-              que, aliados à expertise dos Analistas da área de TI,
-              colaboram para o avanço da tecnologia especializada
-              em nosso país.
-            </p>
-          </div>
-          <div class="content-bottom">
-            <div class="title">
-              <h5 class="title-content">
-                Tecnologia para o
-              </h5>
-              <h5 class="title-content second-title">
-                Avanço
-              </h5>
-            </div>
-            <div class="know-more">
-              <p class="know-more-text">
-                Mais sobre engenharia?
-                <a href="#">
-                  Clique aqui
-                </a>
-              </p>
+    <div v-if="loading"  class="loading">
+      <div class="clear-loading loading-effect-1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div v-else v-for="item in page" :key="item.id">
+      <div class="wrap">
+        <div class="first-content" :style="{ backgroundImage: `url(${item.acf.image_bg})`}">
+          <div class="container-fluid">
+            <div class="text-top-right" v-html="item.acf.text_top_right"></div>
+            <div class="content-bottom">
+              <div class="title">
+                <h5 class="title-content">
+                  {{ item.title.rendered }}
+                </h5>
+                <h5 class="title-content second-title">
+                  {{ item.acf.second_title }}
+                </h5>
+              </div>
+              <div class="know-more" v-html="item.acf.text_bottom_right"></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="page-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="card">
-              <div class="image-wrap">
-                <img src="../../assets/img/industria-img-1.png" class="img-fluid" alt="">
-              </div>
-              <div class="card-body">
-                <p class="card-text">
-                  Acumulamos mais
-                  de 50.000 horas
-                  de desenvolvimento
-                  de soluções para a
-                  Companhia
-                  Siderúrgica
-                  do Pecém,
-                  atuando em projetos
-                  capilares para a
-                  otimização dos
-                  processos de
-                  produção da empresa.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="image-wrap">
-                <img src="../../assets/img/industria-img-2.png" class="img-fluid" alt="">
-              </div>
-              <div class="card-body">
-                <p class="card-text">
-                  Atendemos por
-                  meio de parcerias,
-                  ao segmento
-                  petrolífero, propondo
-                  inovações tecnológicas,
-                  ajudando a
-                  elevar o processo
-                  de extração mineral
-                  de empresas como
-                  a Braskem
-                  para um patamar
-                  mais elevado.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="image-wrap">
-                <img src="../../assets/img/industria-img-3.png" class="img-fluid" alt="">
-              </div>
-              <div class="card-body">
-                <p class="card-text">
-                  TI e
-                  Engenharia Civil.
-                  Um encontro mais
-                  que perfeito que
-                  tem construído
-                  maravilhas das
-                  técnicas da
-                  construção.
-                  Diagonal, Souza
-                  Reis são algumas
-                  das empresas
-                  atendidas na área.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="image-wrap">
-                <img src="../../assets/img/industria-img-4.png" class="img-fluid" alt="">
-              </div>
-              <div class="card-body">
-                <p class="card-text">
-                  Linhas e mais linhas
-                  de código para
-                  ajudar os sistemas
-                  que alimentam
-                  linhas e mais linhas
-                  de transmissão
-                  de energia elétrica para
-                  todo o País!
-                  Desenvolvemos algorítimos
-                  que rodam, no ONS,
-                  por exemplo.
-                  Estamos juntos!
-                </p>
+      <!-- page content cards -->
+      <div class="page-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3" v-for="(card, index) in item.acf.crards">
+              <div class="card">
+                <div class="image-wrap">
+                  <img :src="card.card_image" class="img-fluid" alt="">
+                </div>
+                <div class="card-body">
+                  <p class="card-text" v-text="card.description"></p>
+                </div>
               </div>
             </div>
           </div>
@@ -139,16 +52,44 @@
     name: 'index',
     data() {
       return {
-        title: 'Industria',
-        description: ''
+        page: [],
+        title: '',
+        secondTitle: '',
+        loading: true,
       }
+    },
+
+    created() {
+      this.getMenuSolution();
+    },
+
+    methods: {
+      async getMenuSolution() {
+        await this.$axios
+          .$get('/wp/v2/pages', {
+            params: {
+              slug: 'industria'
+            }
+          })
+          .then((res) => {
+            this.page = res;
+            this.title = res[0].title.rendered;
+            this.secondTitle = res[0].acf.second_title;
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      },
     },
 
     head () {
       return {
-        title: `${this.title} - AjaxTI`,
+        title: `${this.title} ${this.secondTitle} - AjaxTI`,
         meta: [
-          { hid: 'description', name: 'description', content: this.description }
+          { hid: 'description', name: 'description', content: `${this.title} ${this.secondTitle}` }
         ]
       }
     }
@@ -170,7 +111,7 @@
     display: block;
     position: relative;
     height: 550px;
-    background: url('../../assets/img/engenharia-banner.png') 0 0/cover no-repeat;
+    background: 0 0/cover no-repeat;
   }
 
   .text-top-right {
@@ -214,10 +155,6 @@
     bottom: 20px;
     width: 250px;
     color: yellow;
-    a {
-      color: yellow;
-      text-decoration: underline;
-    }
   }
 
   // page content
@@ -287,5 +224,12 @@
         left: auto;
       }
     }
+  }
+</style>
+
+<style lang="scss">
+  .know-more a {
+    color: yellow;
+    text-decoration: underline;
   }
 </style>
