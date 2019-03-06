@@ -36,12 +36,12 @@
                   <li class="footer-nav-item footer-nav-title">
                     SOLUÇÕES
                   </li>
-                  <li v-for="(menu, index) in solution"
+                  <li class="footer-nav-item"
+                      v-for="(menu, index) in solution"
                       :key="index"
-                      class="footer-nav-item"
                   >
-                    <nuxt-link :to="menu.href" class="footer-nav-link">
-                      {{ menu.name }}
+                    <nuxt-link :to="menu.url" class="footer-nav-link">
+                      {{ menu.post_title }}
                     </nuxt-link>
                   </li>
                 </ul>
@@ -57,8 +57,8 @@
                       :key="index"
                       class="footer-nav-item"
                   >
-                    <nuxt-link :to="menu.href" class="footer-nav-link">
-                      {{ menu.name }}
+                    <nuxt-link :to="menu.url" class="footer-nav-link">
+                      {{ menu.post_title }}
                     </nuxt-link>
                   </li>
                 </ul>
@@ -74,8 +74,8 @@
                       :key="index"
                       class="footer-nav-item"
                   >
-                    <nuxt-link :to="menu.href" class="footer-nav-link">
-                      {{ menu.name }}
+                    <nuxt-link :to="menu.url" class="footer-nav-link">
+                      {{ menu.post_title }}
                     </nuxt-link>
                   </li>
                 </ul>
@@ -112,25 +112,9 @@
     name: 'Footer',
     data() {
       return {
-        solution: [
-          { name: 'AD Experience', href: '/'},
-          { name: 'Estoque',       href: '/'},
-          { name: 'Inventário',    href: '/'},
-          { name: 'Outsorcing',    href: '/'},
-        ],
-
-        information: [
-          { name: 'Licença',                 href: '/'},
-          { name: 'Politica de Privacidade', href: '/'},
-          { name: 'Uso de Cookies',          href: '/'},
-          { name: 'FAQ',                     href: '/'},
-        ],
-
-        about: [
-          { name: 'AD Experience', href: '/'},
-          { name: 'Team',          href: '/'},
-          { name: 'Soporte',       href: '/'},
-        ],
+        solution: [],
+        information: [],
+        about: [],
       }
     },
 
@@ -143,9 +127,9 @@
     methods: {
       async getMenuSolution() {
         await this.$axios
-          .$get('/api/v1/clients')
+          .$get('/menus/v1/menus/footer_menu1')
           .then((res) => {
-            //this.solution = res;
+            this.solution = res.items;
           })
           .catch(() => {
             this.error = true;
@@ -154,9 +138,9 @@
 
       async getMenuInformation() {
         await this.$axios
-          .$get('/api/v1/clients')
+          .$get('/menus/v1/menus/footer_menu2')
           .then((res) => {
-            //this.solution = res;
+            this.information = res.items;
           })
           .catch(() => {
             this.error = true;
@@ -165,15 +149,15 @@
 
       async getMenuAbout() {
         await this.$axios
-          .$get('/api/v1/clients')
+          .$get('/menus/v1/menus/footer_menu3')
           .then((res) => {
-            //this.solution = res;
+            this.about = res.items;
           })
           .catch(() => {
             this.error = true;
           });
       },
-    }
+    },
   }
 </script>
 

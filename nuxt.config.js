@@ -48,6 +48,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400,500' },
     ],
     script: [
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.8/SmoothScroll.min.js' },
       { src: '//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js' },
       { src: '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js' },
     ]
@@ -70,7 +71,10 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [ '@assets/css/_loading.scss', ],
+  css: [
+    '@/assets/css/_loading.scss',
+    '@/assets/css/_main.scss',
+  ],
 
   /*
   ** Plugins to load before mounting the App

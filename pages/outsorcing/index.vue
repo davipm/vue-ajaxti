@@ -1,15 +1,23 @@
 <template>
   <section class="page">
-    <div v-if="loading"  class="loading">
+    <!-- loading -->
+    <div v-if="loading" class="loading">
       <div class="clear-loading loading-effect-1">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
-    <div v-else>
+    <!-- /loading -->
+
+    <!-- content -->
+    <div v-else v-for="item in page"
+         :key="item.id"
+    >
       <div class="wrap">
-        <div class="first-content">
+        <div class="first-content"
+             :style="{ backgroundImage: `url(${item.acf.image_bg})` }"
+        >
           <div class="container-fluid">
             <!--
             <div class="text-top-right">
@@ -25,119 +33,47 @@
             <div class="content-bottom">
               <div class="title">
                 <h5 class="title-content">
-                  Tecnologia para a
+                  {{ item.title.rendered }}
                 </h5>
                 <h5 class="title-content second-title">
-                  Parceria
+                  {{ item.acf.second_title }}
                 </h5>
               </div>
-              <div class="know-more">
-                <p class="know-more-text">
-                  Conhece a modalidade de
-                  <strong>Outsourcing 4.0</strong>? Não?
-                  <a href="#">
-                    <strong>Clique aqui</strong>
-                  </a> para saber mais.
-                </p>
-              </div>
+              <div class="know-more" v-html="item.acf.text_bottom_right"></div>
             </div>
           </div>
         </div>
       </div>
       <div class="page-content">
         <div class="container">
-          <h3 class="page-title">
-            Você conhece as vantagens do <span class="mark">outsourcing</span>? Listamos 4 bem legais:
-          </h3>
+          <!-- title -->
+          <div v-html="item.acf.title_content"></div>
+          <!-- grid -->
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" v-for="(card, index) in item.acf.items" :key="index">
               <div class="item">
                 <div class="item-number">
-                  <h1 class="item-title title-number">1</h1>
-                  <h1 class="item-title">Experiência</h1>
+                  <h1 class="item-title title-number">
+                    {{ card.number }}
+                  </h1>
+                  <h1 class="item-title">
+                    {{ card.title }}
+                  </h1>
                 </div>
-                <img src="../../assets/img/out-experiencia.png" class="item-img" alt="">
-                <div class="item-body">
-                  <p class="item-text">
-                    Sua empresa contará com
-                    o know-how da <strong>Ajax</strong>,
-                    que ficará inteiramente a
-                    disposição de suas
-                    demandas. Estamos
-                    prontos para oferecer
-                    as melhores soluções,
-                    personalizadas às suas
-                    necessidades.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="item">
-                <div class="item-number">
-                  <h1 class="item-title title-number">2</h1>
-                  <h1 class="item-title">Garantia</h1>
-                </div>
-                <img src="../../assets/img/out-garantia.png" class="item-img" alt="">
-                <div class="item-body">
-                  <p class="item-text">
-                    Uma grande vantagem do
-                    sistema de <strong>outsorcing</strong> é
-                    a garantia dos riscos
-                    operacionais, ou seja,
-                    a <strong>Ajax</strong> garante que seu
-                    projeto será feito com a
-                    máxima expertise.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="item">
-                <div class="item-number">
-                  <h1 class="item-title title-number">3</h1>
-                  <h1 class="item-title">Liberdade</h1>
-                </div>
-                <img src="../../assets/img/out-liberdade.png" class="item-img" alt="">
-                <div class="item-body">
-                  <p class="item-text">
-                    Sua empresa terá liberdade
-                    para ficar 100% focada em
-                    suas atividades principais.
-                    Ao invés de criar mais
-                    departamentos, com custos
-                    de contratação de funcionários,
-                    o foco pode ser inteiramente
-                    aplicado na atividade-fim
-                    do negócio.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="item">
-                <div class="item-number">
-                  <h1 class="item-title title-number">4</h1>
-                  <h1 class="item-title">Economia</h1>
-                </div>
-                <img src="../../assets/img/out-img-1.png" class="item-img" alt="">
-                <div class="item-body">
-                  <p class="item-text">
-                    A economia é perceptível e
-                    imediata, já que a empresa
-                    fica apenas com o custo de
-                    manutenção do serviço.
-                    Todas as obrigações
-                    trabalhistas ficam a cargo
-                    da <strong>Ajax</strong>.
-                  </p>
-                </div>
+                <img :src="card.icon"
+                     :alt="card.title"
+                     class="item-img"
+                >
+                <div class="item-body"
+                     v-html="card.texto"
+                ></div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- /content -->
   </section>
 </template>
 
@@ -146,16 +82,38 @@
     name: 'index',
     data() {
       return {
-        title: 'Outsourcing',
+        page: [],
+        title: '',
+        secondTitle: '',
         description: '',
         loading: true,
       }
     },
 
     created() {
-      setTimeout(() => {
-        this.loading = false;
-      }, 1500);
+      this.pageOutsourcing();
+    },
+
+    methods: {
+      async pageOutsourcing() {
+        await this.$axios
+          .$get('/wp/v2/pages', {
+            params: {
+              slug: 'outsorcing'
+            }
+          })
+          .then((res) => {
+            this.page = res;
+            this.title = res[0].title.rendered;
+            this.secondTitle = res[0].acf.second_title;
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      },
     },
 
     head () {
@@ -189,7 +147,7 @@
     display: block;
     position: relative;
     height: 550px;
-    background: url('../../assets/img/outsorcing-banner.png') 0 0/cover no-repeat;
+    background: 0 0/cover no-repeat;
   }
 
   .text-top-right {

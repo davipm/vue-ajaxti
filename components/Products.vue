@@ -64,7 +64,6 @@
           .$get('/api/v1/products')
           .then((res) => {
             this.products = res;
-            console.table(res);
           })
           .catch((error) => {
             console.log(error)

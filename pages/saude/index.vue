@@ -1,5 +1,6 @@
 <template>
   <section class="page">
+    <!-- loading -->
     <div v-if="loading"  class="loading">
       <div class="clear-loading loading-effect-1">
         <span></span>
@@ -7,6 +8,9 @@
         <span></span>
       </div>
     </div>
+    <!-- /loading -->
+
+    <!-- content -->
     <div v-else>
       <div class="wrap">
         <div class="first-content">
@@ -54,6 +58,7 @@
         </div>
       </div>
     </div>
+    <!-- /content -->
   </section>
 </template>
 
@@ -71,7 +76,7 @@
 
     created() {
       setTimeout(() => {
-        //this.loading = false;
+        this.loading = false;
       }, 1500);
       this.fetchSomething();
     },
