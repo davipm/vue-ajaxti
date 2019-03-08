@@ -7,20 +7,22 @@
           <div class="links">
             <ul class="social">
               <li class="social-item">
-                <a href="#" class="social-link">
+                <a href="https://twitter.com/ajaxti" target="_blank" class="social-link">
                   <i class="fab fa-twitter"></i>
                 </a>
               </li>
               <li class="social-item">
-                <a href="#" class="social-link">
+                <a href="https://www.facebook.com/ajaxti" target="_blank" class="social-link">
                   <i class="fab fa-facebook-f"></i>
                 </a>
               </li>
+              <!--
               <li class="social-item">
                 <a href="#" class="social-link">
                   <i class="fab fa-instagram"></i>
                 </a>
               </li>
+              -->
             </ul>
             <ul class="contact">
               <li class="contact-item">
@@ -151,7 +153,7 @@
             this.error = true;
           })
           .finally(() => {
-            //this.loading = false;
+            this.loading = false;
           });
       },
 

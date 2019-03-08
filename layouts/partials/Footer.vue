@@ -11,20 +11,22 @@
             <div class="social-footer">
               <ul class="social-list">
                 <li class="social-item">
-                  <a href="#" class="social-link">
+                  <a href="https://twitter.com/ajaxti" target="_blank" class="social-link">
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li class="social-item">
-                  <a href="#" class="social-link">
+                  <a href="https://www.facebook.com/ajaxti" target="_blank" class="social-link">
                     <i class="fab fa-facebook-f"></i>
                   </a>
                 </li>
+                <!--
                 <li class="social-item">
-                  <a href="#" class="social-link">
+                  <a href="#" target="_blank" class="social-link">
                     <i class="fab fa-instagram"></i>
                   </a>
                 </li>
+                -->
               </ul>
             </div>
           </div>
@@ -249,6 +251,9 @@
 
   .form-control {
     height: 50px;
+    &:focus {
+      box-shadow: none;
+    }
   }
 
   .btn-secondary {
