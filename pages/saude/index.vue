@@ -1,7 +1,7 @@
 <template>
   <section class="page">
     <!-- loading -->
-    <div v-if="loading"  class="loading">
+    <div v-if="loading"  class="loading-content">
       <div class="clear-loading loading-effect-1">
         <span></span>
         <span></span>
@@ -11,51 +11,42 @@
     <!-- /loading -->
 
     <!-- content -->
-    <div v-else>
+    <div v-else
+         v-for="item in page"
+         :key="item.id"
+    >
       <div class="wrap">
-        <div class="first-content">
+        <div class="first-content"
+             :style="{ backgroundImage: `url(${item.acf.image_bg})` }"
+        >
           <div class="container-fluid">
-            <div class="text-top-right">
-              <p class="text">
-                O atendimento médico é, normalmente, cercado por
-                uma série de procedimentos reguladores, definidos pela Agência
-                Reguladora de Saúde, que contribuem para a organização
-                do processo. É preciso experiência para entender o trâmite.
-                E experiência na área, a <strong>Ajax</strong> tem de sobra!
-              </p>
-            </div>
+            <div class="text-top-right"
+                 v-html="item.acf.text_top_right"
+            ></div>
             <div class="content-bottom">
               <div class="title">
                 <h5 class="title-content">
-                  Tecnologia para a
+                  {{ item.title.rendered }}
                 </h5>
                 <h5 class="title-content second-title">
-                  Vida
+                  {{ secondTitle }}
                 </h5>
               </div>
-              <div class="know-more">
-                <p class="know-more-text">
-                  Mais sobre os procedimentos
-                  estabelcidos pela ANS:
-                  TISS, DIOPS, TPS, SIB e SIP?
-                  <a href="#" class="know-more-link">
-                    Clique aqui
-                  </a>
-                </p>
-              </div>
+              <div class="know-more"
+                   v-html="item.acf.text_bottom_right"
+              ></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="second-content">
-        <div class="container">
-          <p class="second-text">
-            Além do gerenciamento dos processos, desenvolvemos
-            milhares de soluções corporativas que atendem à área da
-            saúde e que se conectam entre si para criar uma ambiente
-            tecnologicamente mais dinâmicos.
-          </p>
-        </div>
+
+      <!-- page content -->
+      <div class="second-content"
+           :style="{ backgroundImage: `url(${item.acf.image_bg_content})` }"
+      >
+        <div class="container"
+             v-html="item.content.rendered"
+        ></div>
       </div>
     </div>
     <!-- /content -->
@@ -67,24 +58,39 @@
     name: 'index',
     data() {
       return {
-        title: 'Saúde',
-        description: 'Sobre Saúde',
-        posts: {},
+        page: [],
+        title: '',
+        secondTitle: '',
+        description: '',
         loading: true,
       }
     },
 
     created() {
-      setTimeout(() => {
-        this.loading = false;
-      }, 1500);
-      this.fetchSomething();
+      this.pageHealth();
     },
 
     methods: {
-      async fetchSomething() {
-        this.posts = await this.$axios.$get('/wp/v2/posts');
-      }
+      async pageHealth() {
+        await this.$axios
+          .$get('/wp/v2/pages', {
+            params: {
+              slug: 'saude'
+            }
+          })
+          .then((res) => {
+            this.page = res;
+            this.title = res[0].title.rendered;
+            this.secondTitle = res[0].acf.second_title;
+            console.log(res);
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      },
     },
 
     head () {
@@ -113,7 +119,7 @@
     display: block;
     position: relative;
     height: 550px;
-    background: url('../../assets/img/saude-banner-1.png') 0 0/cover no-repeat;
+    background: 0 0/cover no-repeat;
   }
 
   .text-top-right {
@@ -172,7 +178,7 @@
     font-weight: 600;
     color: #00655A;
     line-height: 1.5;
-    background: url('../../assets/img/corredor.png') 0 0/cover no-repeat;
+    background: 0 0/cover no-repeat;
   }
 
   .second-title {

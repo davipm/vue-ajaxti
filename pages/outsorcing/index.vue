@@ -1,7 +1,7 @@
 <template>
   <section class="page">
     <!-- loading -->
-    <div v-if="loading" class="loading">
+    <div v-if="loading" class="loading-content">
       <div class="clear-loading loading-effect-1">
         <span></span>
         <span></span>
@@ -116,6 +116,7 @@
       },
     },
 
+    // meta tags header
     head () {
       return {
         title: `${this.title} - AjaxTI`,
@@ -149,7 +150,7 @@
     height: 550px;
     background: 0 0/cover no-repeat;
   }
-
+  /*
   .text-top-right {
     position: absolute;
     top: 3rem;
@@ -159,7 +160,7 @@
     line-height: 1;
     text-align: right;
   }
-
+  */
   .content-bottom {
     position: absolute;
     left: 15px;
@@ -268,13 +269,14 @@
   }
 
   @media (max-width: 576px) {
+    /*
     .text-top-right {
       font-size: 1rem;
       text-align: left;
       right: auto;
       width: auto;
     }
-
+    */
     .title {
       padding-right: 0;
       width: auto;

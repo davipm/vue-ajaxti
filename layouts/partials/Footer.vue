@@ -1,11 +1,12 @@
 <template>
   <footer class="footer">
+    <!-- footer content -->
     <div class="container-fluid footer-content">
       <div class="row">
         <div class="col-md-12 col-lg-3 border-right">
           <div class="logo-footer">
             <nuxt-link to="/" class="logo-link">
-              <img src="../../assets/clients/logo_branca.svg" class="img-fluid" alt="">
+              <img src="../../assets/img/logo_branca.svg" class="img-fluid" alt="">
             </nuxt-link>
             <div class="social-footer">
               <ul class="social-list">
@@ -94,6 +95,7 @@
         </div>
       </div>
     </div>
+    <!-- footer copyright -->
     <div class="footer-bottom">
       <div class="container-fluid footer-bottom-content">
         <h5 class="footer-bottom-title">
@@ -193,7 +195,7 @@
     width: 45px;
     height: 45px;
     margin-right: 20px;
-    padding-top: 5px;
+    padding-top: .37rem;
     text-align: center;
     font-size: 1.4rem;
     color: #212934;

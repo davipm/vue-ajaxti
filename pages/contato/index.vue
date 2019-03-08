@@ -1,17 +1,30 @@
 <template>
   <section class="section page">
     <div class="container">
-      <h3>Page</h3>
+      <iframe src="http://ajaxtiapi.local/contato/"
+              frameborder="0"
+      ></iframe>
     </div>
   </section>
 </template>
 
 <script>
   export default {
-    name: 'index'
+    name: 'index',
+    data() {
+      return {
+
+      }
+    },
   }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+  iframe {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 570px;
+    border: none;
+  }
 </style>

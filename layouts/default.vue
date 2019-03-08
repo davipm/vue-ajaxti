@@ -1,7 +1,10 @@
 <template>
   <div id="app">
+    <!-- header -->
     <Header/>
+    <!-- content -->
     <nuxt/>
+    <!-- footer -->
     <Footer/>
     <!--<BackToTop/>-->
   </div>

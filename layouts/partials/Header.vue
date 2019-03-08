@@ -151,7 +151,7 @@
             this.error = true;
           })
           .finally(() => {
-            this.loading = false;
+            //this.loading = false;
           });
       },
 
@@ -290,6 +290,9 @@
       height: 60px;
       border: none;
       border-radius: 0;
+      &:focus {
+        box-shadow: none;
+      }
     }
 
     .button-search {
