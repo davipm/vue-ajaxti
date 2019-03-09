@@ -1,5 +1,5 @@
 <template>
-  <section class="section solution">
+  <section class="section solution" v-if="!loading">
     <div class="container-fluid">
       <!-- heading -->
       <h3 class="title" v-html="title"></h3>

@@ -159,7 +159,7 @@
             this.error = true;
           })
           .finally(() => {
-            //this.loading = false;
+            this.loading = false;
           });
       },
 

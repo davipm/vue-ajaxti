@@ -5,19 +5,12 @@
         <div class="col-md-12 col-lg-8"></div>
         <div class="col-md-12 col-lg-4">
           <h4 class="title text-center">
-            Gostou né?
+            {{ title }}
           </h4>
           <h4 class="title mb-3">
-            É que pra gente, desenvolver
-            avanços tecnológicos é uma
-            verdadeira paixão!
+            {{ secondTitle }}
           </h4>
-          <p class="text">
-            Quer ler nosso E-book, <strong>"Os Dez Sinais de que sua Empresa ainda
-            Não Entrou no Futuro da Tecnologia"?</strong> Clique aqui para recebê-lo
-            completamente grátis! Será um prazer compartilhar experiências
-            com você.
-          </p>
+          <p class="text" v-html="text"></p>
         </div>
       </div>
     </div>
@@ -26,7 +19,22 @@
 
 <script>
   export default {
-    name: 'Woman'
+    name: 'Woman',
+    data() {
+      return {
+        title: 'Gostou né?',
+        secondTitle: `
+          É que pra gente, desenvolver
+          avanços tecnológicos é uma
+          verdadeira paixão!`,
+        text: `
+          Quer ler nosso E-book, <strong>"Os Dez Sinais de que sua Empresa ainda
+          Não Entrou no Futuro da Tecnologia"?</strong> <a href="#">Clique aqui</a> para recebê-lo
+          completamente grátis! Será um prazer compartilhar experiências
+          com você.
+        `,
+      }
+    }
   }
 </script>
 

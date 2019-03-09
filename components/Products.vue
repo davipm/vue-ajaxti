@@ -1,5 +1,5 @@
 <template>
-  <section class="section products">
+  <section class="section products" v-if="!loading">
     <div class="container">
       <div v-for="(item, index) in products" :key="index" class="products-item">
         <div v-if="index % 2 === 0" class="row">
@@ -51,6 +51,7 @@
     data() {
       return {
         products: [],
+        loading: true,
       }
     },
 
@@ -67,6 +68,9 @@
           })
           .catch((error) => {
             console.log(error)
+          })
+          .finally(() => {
+            this.loading = false;
           })
       }
     }
