@@ -64,13 +64,16 @@
       <!-- page content -->
       <div v-else class="client-content">
         <div class="row">
+          <!-- client item -->
           <div v-for="client in clients"
                :key="client.id"
                class="col-md-2"
           >
+            <!-- client img -->
             <div class="client-item">
               <img :src="client.icon"
                    :alt="client.title"
+                   :title="client.title"
                    class="client-img"
               >
             </div>

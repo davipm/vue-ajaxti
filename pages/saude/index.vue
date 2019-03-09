@@ -24,6 +24,7 @@
                  v-html="item.acf.text_top_right"
             ></div>
             <div class="content-bottom">
+              <!-- title page -->
               <div class="title">
                 <h5 class="title-content">
                   {{ item.title.rendered }}
@@ -32,6 +33,7 @@
                   {{ secondTitle }}
                 </h5>
               </div>
+              <!-- content bottom -->
               <div class="know-more"
                    v-html="item.acf.text_bottom_right"
               ></div>
@@ -82,7 +84,6 @@
             this.page = res;
             this.title = res[0].title.rendered;
             this.secondTitle = res[0].acf.second_title;
-            console.log(res);
           })
           .catch(() => {
             this.error = true;

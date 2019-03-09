@@ -1,13 +1,11 @@
 <template>
   <section class="section contact-site">
     <div class="container">
-      <h2 class="title">Vai desenvolvimento aí?</h2>
-      <h5 class="subtitle">
-        O quanto a Tecnologia da Informação, está
-        transformando, <span class="highlight">efetivamente</span>, sua empresa?
-      </h5>
+      <h2 class="title">{{ title }}</h2>
+      <h5 class="subtitle" v-html="subtitle"></h5>
       <div class="contact-form">
-        <form>
+        <!-- form verify -->
+        <form class="form">
           <div class="row">
             <div class="col-md-6 col-lg-4 mb-2">
               <input type="text" class="form-control" placeholder="http://">
@@ -17,12 +15,17 @@
             </div>
             <div class="col-md-12 col-lg-4">
               <div class="send-btn">
-                <a href="#" class="btn btn-primary">Checar agora</a>
-                <a href="#" class="btn btn-secondary">Não tenho site</a>
+                <a href="#" class="btn btn-primary">
+                  {{ btnPrimary }}
+                </a>
+                <a href="#" class="btn btn-secondary">
+                  {{ btnSecondary }}
+                </a>
               </div>
             </div>
           </div>
         </form>
+        <!-- /form verify -->
       </div>
     </div>
   </section>
@@ -30,7 +33,17 @@
 
 <script>
   export default {
-    name: 'ContactSite'
+    name: 'ContactSite',
+    data() {
+      return {
+        title: 'Vai desenvolvimento aí?',
+        subtitle: `
+          O quanto a Tecnologia da Informação, está
+          transformando, <span class="highlight">efetivamente</span>, sua empresa?`,
+        btnPrimary: 'Checar agora',
+        btnSecondary: 'Não tenho site',
+      }
+    }
   }
 </script>
 
