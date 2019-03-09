@@ -6,7 +6,7 @@
     <nuxt/>
     <!-- footer -->
     <Footer/>
-    <!--<BackToTop/>-->
+    <BackToTop/>
   </div>
 </template>
 

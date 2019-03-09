@@ -1,7 +1,7 @@
 <template>
   <transition name="back-to-top-fade">
     <div class="btn-back-to-top" id="BackToTop"
-         :style="`bottom:${this.bottom};right:${this.right};`"
+         :style="styleObject"
          v-show="visible"
          @click="backToTop"
     >
@@ -39,6 +39,10 @@
     data() {
       return {
         visible: false,
+        styleObject: {
+          bottom: this.bottom,
+          right: this.right
+        }
       }
     },
 
