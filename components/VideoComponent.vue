@@ -10,11 +10,6 @@
 <script>
   export default {
     name: 'VideoComponent',
-    data() {
-      return {
-
-      }
-    }
   }
 </script>
 
