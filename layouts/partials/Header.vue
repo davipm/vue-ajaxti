@@ -77,6 +77,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- menu loading -->
           <ul v-if="loading" class="navbar-nav">
             <li class="nav-item mr-3">
               <div class="shine line"></div>
@@ -97,6 +98,7 @@
               <div class="shine line"></div>
             </li>
           </ul>
+          <!-- menu -->
           <ul v-else class="navbar-nav">
             <li v-for="(item, index) in menus"
                 :key="index"
@@ -115,7 +117,9 @@
         </div>
       </div>
     </nav>
+    <!-- menu mobile -->
     <NavMobile/>
+    <!-- search form -->
     <div class="search-box shadow" :class="{ 'show-search': isVisible }">
       <form class="form">
         <input type="text" class="form-control" placeholder="Pesquisar">
@@ -124,6 +128,7 @@
         </button>
       </form>
     </div>
+    <!-- /search form -->
   </header>
 </template>
 

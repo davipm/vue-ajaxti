@@ -6,7 +6,7 @@
         <div class="col-md-12 col-lg-3 border-right">
           <div class="logo-footer">
             <nuxt-link to="/" class="logo-link">
-              <img src="../../assets/img/logo_branca.svg" class="img-fluid" alt="">
+              <img src="../../assets/img/logo_branca.svg" class="img-fluid" alt="Logo Footer">
             </nuxt-link>
             <div class="social-footer">
               <ul class="social-list">
@@ -33,6 +33,7 @@
         </div>
         <div class="col-md-12 col-lg-6 border-right">
           <div class="row">
+            <!-- menu item -->
             <div class="col-md-4">
               <nav class="menu-footer">
                 <ul class="footer-nav">
@@ -50,6 +51,7 @@
                 </ul>
               </nav>
             </div>
+            <!-- menu item -->
             <div class="col-md-4">
               <nav class="menu-footer">
                 <ul class="footer-nav">
@@ -67,6 +69,7 @@
                 </ul>
               </nav>
             </div>
+            <!-- menu item -->
             <div class="col-md-4">
               <nav class="menu-footer">
                 <ul class="footer-nav">
@@ -86,12 +89,22 @@
             </div>
           </div>
         </div>
+        <!-- newsletter form -->
         <div class="col-md-12 col-lg-3">
           <div class="subscribe">
-            <h5 class="subscribe-title">INSCREVA-SE</h5>
+            <h5 class="subscribe-title">
+              {{ newsletterTitle }}
+            </h5>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Enter email address">
-              <a href="#" class="btn btn-secondary"><i class="fas fa-angle-right"></i></a>
+              <input type="text"
+                     class="form-control"
+                     placeholder="Enter email address"
+              >
+              <button type="submit"
+                      class="btn btn-secondary"
+              >
+                <i class="fas fa-angle-right"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -116,6 +129,7 @@
     name: 'Footer',
     data() {
       return {
+        newsletterTitle: 'INSCREVA-SE',
         solution: [],
         information: [],
         about: [],
