@@ -81,6 +81,7 @@ module.exports = {
   */
   plugins: [
     { src: '~plugins/ga.js', ssr: false },
+    '~/plugins/axios.js',
   ],
 
   /*
