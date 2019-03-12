@@ -89,7 +89,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     ['@nuxtjs/axios', {
-      baseURL: 'http://ajaxtiapi.local/wp-json'
+      baseURL: 'http://ajaxwebapp.azurewebsites.net/wp-json',
     }],
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
