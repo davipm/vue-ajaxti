@@ -147,7 +147,7 @@
     bottom: 0;
     width: 65rem;
     height: 15rem;
-    background: url('../../assets/img/bg-title.svg') center/cover no-repeat;
+    background: url('../../assets/img/bg-title2.svg') center/cover no-repeat;
 
     &-content {
       position: relative;
