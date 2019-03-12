@@ -1,7 +1,7 @@
 <template>
   <section class="section page">
     <div class="container">
-      <iframe src="https://ajaxwebapp.azurewebsites.net/contato/"
+      <iframe src="http://ajaxwebapp.azurewebsites.net/contato/"
               frameborder="0"
       ></iframe>
     </div>
