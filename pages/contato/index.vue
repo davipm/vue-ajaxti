@@ -1,7 +1,7 @@
 <template>
   <section class="section page">
     <div class="container">
-      <iframe src="https://ajaxtiapi.local/contato/"
+      <iframe src="http://ajaxtiapi.local/contato/"
               frameborder="0"
       ></iframe>
     </div>
