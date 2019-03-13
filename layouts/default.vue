@@ -3,7 +3,9 @@
     <!-- header -->
     <Header/>
     <!-- content -->
-    <nuxt/>
+    <transition name="page">
+      <nuxt/>
+    </transition>
     <!-- footer -->
     <Footer/>
     <!-- back to top button -->

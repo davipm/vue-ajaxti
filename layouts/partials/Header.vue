@@ -266,7 +266,13 @@
     }
   }
 
-  .nuxt-link-exact-active {
+  .nav-item:first-child .nuxt-link-active {
+    color: inherit;
+    background-color: inherit;
+  }
+
+  .nuxt-link-exact-active,
+  .nuxt-link-active {
     color: #FFF;
     background-color: #212934;
   }

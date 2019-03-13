@@ -4,7 +4,10 @@ body {
   padding: 0;
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-style: normal;
   color: #0E1B32;
+  background-color: #FFF;
   overflow-x: hidden;
 }
 
@@ -21,4 +24,14 @@ body {
 
 .container-fluid {
   max-width: 1536px;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity .5s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
 }

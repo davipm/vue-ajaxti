@@ -47,10 +47,10 @@
     },
 
     mounted() {
-      window.smoothscroll = () => {
+      window.smoothScroll = () => {
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
         if (currentScroll > 0) {
-          window.requestAnimationFrame(window.smoothscroll);
+          window.requestAnimationFrame(window.smoothScroll);
           window.scrollTo(0, Math.floor(currentScroll - (currentScroll / 5)))
         }
       };
@@ -67,8 +67,8 @@
       },
 
       backToTop() {
-        window.smoothscroll();
-        this.$emit('scrolled');
+        window.smoothScroll();
+        //this.$emit('scrolled');
       }
     }
   }
