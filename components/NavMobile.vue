@@ -3,14 +3,23 @@
     <li></li>
     <li class="menu-container">
       <input id="menu-toggle" type="checkbox">
-      <label for="menu-toggle" class="menu-button">
+      <label for="menu-toggle"
+             class="menu-button"
+             :class="{ 'remove-after': !isActive, 'put-after': isActive }"
+             @click="isActive = !isActive"
+      >
         <svg class="icon-open" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
         <svg class="icon-close" viewBox="0 0 100 100">
           <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z"/>
         </svg>
       </label>
-      <ul class="menu-sidebar">
-        <li v-for="(item, index) in menus" :key="index">
+      <ul class="menu-sidebar"
+          :class="{ 'menu-close': !isActive, 'menu-open': isActive }"
+      >
+        <li v-for="(item, index) in menus"
+            :key="index"
+            @click="isActive = !isActive"
+        >
           <nuxt-link :to="`${item.url}`">
             {{ item.title }}
           </nuxt-link>
@@ -58,6 +67,7 @@
     data() {
       return {
         menus: [],
+        isActive: false,
       }
     },
 
@@ -145,8 +155,8 @@
       display: none;
       &.active ~ .menu-button,
       &:checked ~ .menu-button {
-        .icon-close { display: block; }
-        .icon-open { display: none; }
+        //.icon-close { display: block; }
+        //.icon-open { display: none; }
         &:after {
           opacity: 1;
           pointer-events: auto;
@@ -173,7 +183,7 @@
         background: #7B451A;
         color: #333;
         position: fixed;
-        transform: translateX(-405px);
+        //transform: translateX(-405px);
         transition: transform 0.3s cubic-bezier(0,0,0.3,1);
         top: 45px;
         z-index: 10;
@@ -237,6 +247,39 @@
         }
       }
     }
+  }
+
+  .nav-mobile .menu-open {
+    -webkit-transform: translateX(0) !important;
+    -moz-transform: translateX(0) !important;
+    -ms-transform: translateX(0) !important;
+    -o-transform: translateX(0) !important;
+    transform: translateX(0) !important;
+  }
+
+  .nav-mobile .menu-close {
+    -webkit-transform: translateX(-405px) !important;
+    -moz-transform: translateX(-405px) !important;
+    -ms-transform: translateX(-405px) !important;
+    -o-transform: translateX(-405px) !important;
+    transform: translateX(-405px) !important;
+  }
+
+  .nav-mobile.remove-after:after,
+  .nav-mobile #menu-toggle:checked ~ .remove-after:after{
+    opacity: 0!important;
+    pointer-events: auto;
+    transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+    z-index: 9;
+    display: none!important;
+  }
+
+  .nav-mobile .put-after:after {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+    z-index: 9;
+    display: block!important;
   }
 
   @media (max-width: 768px) {
