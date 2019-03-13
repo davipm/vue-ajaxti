@@ -120,7 +120,9 @@
     <!-- menu mobile -->
     <NavMobile/>
     <!-- search form -->
-    <div class="search-box shadow" :class="{ 'show-search': isVisible }">
+    <div class="search-box shadow"
+         :class="{ 'show-search': isVisible }"
+    >
       <form class="form">
         <input type="text" class="form-control" placeholder="Pesquisar">
         <button class="button-search">
@@ -187,9 +189,7 @@
   .navbar {
     padding-top: 30px;
     padding-bottom: 30px;
-    &-nav {
-      margin-left: auto;
-    }
+    &-nav { margin-left: auto; }
   }
 
   .links {
@@ -242,9 +242,7 @@
       font-size: .8rem;
     }
 
-    @media (max-width: 768px) {
-      display: none;
-    }
+    @media (max-width: 768px) { display: none; }
   }
 
   .nav-link {
@@ -266,13 +264,18 @@
     }
   }
 
+  .nuxt-link-exact-active,
+  .nuxt-link-active {
+    color: #FFF;
+    background-color: #212934;
+  }
+
   .nav-item:first-child .nuxt-link-active {
     color: inherit;
     background-color: inherit;
   }
 
-  .nuxt-link-exact-active,
-  .nuxt-link-active {
+  .nav-item:first-child .nuxt-link-exact-active {
     color: #FFF;
     background-color: #212934;
   }
@@ -309,9 +312,7 @@
       height: 60px;
       border: none;
       border-radius: 0;
-      &:focus {
-        box-shadow: none;
-      }
+      &:focus { box-shadow: none; }
     }
 
     .button-search {
@@ -340,9 +341,7 @@
     }
   }
 
-  .line {
-    padding: 16px 55px;
-  }
+  .line { padding: 16px 55px; }
 
   @-webkit-keyframes fadeInFromNone {
     0% {
@@ -426,8 +425,6 @@
       background-size: 160%;
     }
 
-    .container-menu {
-      background-color: #212934;
-    }
+    .container-menu { background-color: #212934; }
   }
 </style>

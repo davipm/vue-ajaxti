@@ -2,9 +2,9 @@
   <figure class="figure effect-romeo">
     <img :src="image" :alt="alt">
     <figcaption>
+      <h6 v-if="category === 1">Noticia</h6>
       <h2>{{ title }}</h2>
-      <h6>{{ category }}</h6>
-      <p>{{ text }}</p>
+      <div v-html="text" class="text"></div>
       <nuxt-link :to="`/blog/${url}`">
         View more
       </nuxt-link>
@@ -19,74 +19,26 @@
       title: {
         type: String,
         required: false,
-        validator: function (value) {
-          return [
-            'syncing',
-            'synced',
-            'version-conflict',
-            'error'
-          ].indexOf(value) !== -1
-        }
       },
       category: {
-        type: String,
+        type: Number,
         required: false,
-        validator: function (value) {
-          return [
-            'syncing',
-            'synced',
-            'version-conflict',
-            'error'
-          ].indexOf(value) !== -1
-        }
       },
       text: {
         type: String,
         required: false,
-        validator: function (value) {
-          return [
-            'syncing',
-            'synced',
-            'version-conflict',
-            'error'
-          ].indexOf(value) !== -1
-        }
       },
       url: {
         type: String,
         required: false,
-        validator: function (value) {
-          return [
-            'syncing',
-            'synced',
-            'version-conflict',
-            'error'
-          ].indexOf(value) !== -1
-        }
       },
       image: {
         type: String,
         required: false,
-        validator: function (value) {
-          return [
-            'syncing',
-            'synced',
-            'version-conflict',
-            'error'
-          ].indexOf(value) !== -1
-        }
       },
       alt: {
         type: String,
         required: false,
-        validator: function (value) {
-          return [
-            'syncing',
-            'synced',
-            'version-conflict',
-            'error'
-          ].indexOf(value) !== -1
-        }
       },
     }
   }
@@ -151,9 +103,9 @@
     }
 
     h2,
-    p { margin: 0; }
+    .text { margin: 0; }
 
-    p {
+    .text {
       letter-spacing: 1px;
       font-size: 68.5%;
     }
@@ -221,7 +173,7 @@
     }
 
     h2,
-    p {
+    .text {
       position: absolute;
       top: 50%;
       left: 0;
@@ -241,7 +193,7 @@
       transform: translate3d(0, -50%, 0) translate3d(0, -150%, 0);
     }
 
-    p {
+    .text {
       padding: .25em 2em;
       -webkit-transform: translate3d(0, 250%, 0) translate3d(0, -150%, 0);
       -moz-transform: translate3d(0, 250%, 0) translate3d(0, -150%, 0);
@@ -258,7 +210,7 @@
       transform: translate3d(0, -50%, 0) translate3d(0, -100%, 0);
     }
 
-    &:hover p {
+    &:hover .text {
       -webkit-transform: translate3d(0, -50%, 0) translate3d(0, 100%, 0);
       -moz-transform: translate3d(0, -50%, 0) translate3d(0, 100%, 0);
       -ms-transform: translate3d(0, -50%, 0) translate3d(0, 100%, 0);

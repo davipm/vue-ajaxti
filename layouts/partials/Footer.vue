@@ -6,17 +6,23 @@
         <div class="col-md-12 col-lg-3 border-right">
           <div class="logo-footer">
             <nuxt-link to="/" class="logo-link">
-              <img src="../../assets/img/logo_branca.svg" class="img-fluid" alt="Logo Footer">
+              <img src="../../assets/img/logo_branca.svg" alt="Logo Footer" class="img-fluid">
             </nuxt-link>
             <div class="social-footer">
               <ul class="social-list">
                 <li class="social-item">
-                  <a href="https://twitter.com/ajaxti" target="_blank" class="social-link">
+                  <a href="https://twitter.com/ajaxti"
+                     target="_blank"
+                     class="social-link"
+                  >
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li class="social-item">
-                  <a href="https://www.facebook.com/ajaxti" target="_blank" class="social-link">
+                  <a href="https://www.facebook.com/ajaxti"
+                     target="_blank"
+                     class="social-link"
+                  >
                     <i class="fab fa-facebook-f"></i>
                   </a>
                 </li>

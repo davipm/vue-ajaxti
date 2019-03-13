@@ -18,12 +18,12 @@
              :key="index"
         >
           <card-effect
-            :title="item.title"
-            :category="item.category"
-            :text="item.text"
-            :url="item.url"
-            :image="item.image"
-            :alt="item.alt"
+            :category="item.categories[0]"
+            :title="item.title.rendered"
+            :text="item.excerpt.rendered"
+            :url="item.slug"
+            :image="item.acf.featured_image.sizes.medium"
+            :alt="item.title.rendered"
           />
         </div>
       </div>
@@ -35,57 +35,38 @@
 <script>
   import CardEffect from '~/components/CardEffect.vue'
   export default {
-    name: 'index',
-    components: {
-      CardEffect
-    },
-
+    components: { CardEffect },
     data() {
       return {
         title: 'blog',
         loading: true,
         error: false,
-        items: [
-          {
-            title: 'Test',
-            category: 'Categoria',
-            text: 'Conteudo',
-            url: 'url-test',
-            image: 'https://tympanus.net/Development/HoverEffectIdeas/img/17.jpg',
-            alt: 'Alt test',
-          },
-          {
-            title: 'Test',
-            category: 'Categoria',
-            text: 'Conteudo',
-            url: 'url-test',
-            image: 'https://tympanus.net/Development/HoverEffectIdeas/img/17.jpg',
-            alt: 'Alt test',
-          },
-          {
-            title: 'Test',
-            category: 'Categoria',
-            text: 'Conteudo',
-            url: 'url-test',
-            image: 'https://tympanus.net/Development/HoverEffectIdeas/img/17.jpg',
-            alt: 'Alt test',
-          },
-          {
-            title: 'Test',
-            category: 'Categoria',
-            text: 'Conteudo',
-            url: 'url-test',
-            image: 'https://tympanus.net/Development/HoverEffectIdeas/img/17.jpg',
-            alt: 'Alt test',
-          },
-        ]
+        items: [],
       }
     },
 
     created() {
+      /*
       setTimeout(() => {
         this.loading = false;
-      }, 1000);
+      }, 1000);*/
+      this.getPosts();
+    },
+
+    methods: {
+      async getPosts() {
+        await this.$axios
+          .$get('/wp/v2/posts')
+          .then((res) => {
+            this.items = res;
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      },
     }
   }
 </script>
