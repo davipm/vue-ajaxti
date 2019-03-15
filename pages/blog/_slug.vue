@@ -34,13 +34,19 @@
     <!-- page content -->
     <div v-else
          v-for="(item, index) in post"
+         :key="index"
          class="container"
     >
       <div class="row">
         <div class="col-md-9">
-          <h3 class="single-title">
-            {{ item.title.rendered }}
-          </h3>
+          <div class="page-header">
+            <h3 class="single-title">
+              {{ item.title.rendered }}
+            </h3>
+            <ul class="info">
+              <li class="info-item"></li>
+            </ul>
+          </div>
           <div class="single-content"
                v-html="item.content.rendered"
           ></div>

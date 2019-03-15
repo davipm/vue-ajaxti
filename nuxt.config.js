@@ -1,4 +1,5 @@
 const pkg = require('./package');
+import axios from 'axios'
 
 module.exports = {
   mode: 'universal',
@@ -101,6 +102,19 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  generate: {
+    routes: function () {
+      return axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/posts')
+        .then((res) => {
+          return res.data.map((user) => {
+            //return console.log(user.slug);
+            return `/blog/${user.slug}`;
+            //return '/users/' + user.id
+          })
+        })
+    }
   },
 
   /*

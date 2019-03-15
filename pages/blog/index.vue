@@ -72,9 +72,7 @@
               page: number = this.currentPage,
             }
           })
-          .then((res) => {
-            this.items = res;
-          })
+          .then((res) => { this.items = res; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });
       },
