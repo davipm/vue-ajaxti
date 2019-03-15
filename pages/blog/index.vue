@@ -53,7 +53,8 @@
         error: false,
         items: [],
         pages: 1,
-        currentPage: 1
+        currentPage: 1,
+        paginationAll: '',
       }
     },
 
@@ -71,14 +72,16 @@
               page: number = this.currentPage,
             }
           })
-          .then((res) => { this.items = res; })
+          .then((res) => {
+            this.items = res;
+          })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });
       },
 
       linkGen(pageNum) {
         return this.getPosts(pageNum);
-      }
+      },
     }
   }
 </script>

@@ -195,11 +195,11 @@
 
     .text {
       padding: .25em 2em;
-      -webkit-transform: translate3d(0, 250%, 0) translate3d(0, -150%, 0);
-      -moz-transform: translate3d(0, 250%, 0) translate3d(0, -150%, 0);
-      -ms-transform: translate3d(0, 250%, 0) translate3d(0, -150%, 0);
-      -o-transform: translate3d(0, 250%, 0) translate3d(0, -150%, 0);
-      transform: translate3d(0, 250%, 0) translate3d(0, -150%, 0);
+      -webkit-transform: translate3d(0, 180%, 0) translate3d(0, -150%, 0);
+      -moz-transform: translate3d(0, 180%, 0) translate3d(0, -150%, 0);
+      -ms-transform: translate3d(0, 180%, 0) translate3d(0, -150%, 0);
+      -o-transform: translate3d(0, 180%, 0) translate3d(0, -150%, 0);
+      transform: translate3d(0, 180%, 0) translate3d(0, -150%, 0);
     }
 
     &:hover h2 {
