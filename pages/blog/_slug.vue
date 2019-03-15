@@ -43,9 +43,6 @@
             <h3 class="single-title">
               {{ item.title.rendered }}
             </h3>
-            <ul class="info">
-              <li class="info-item"></li>
-            </ul>
           </div>
           <div class="single-content"
                v-html="item.content.rendered"
