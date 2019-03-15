@@ -10,7 +10,10 @@
              class="col-lg-3 col-md-6"
         >
           <div class="solution-item">
-            <img :src="item.image" class="solution-img" alt="">
+            <img :src="item.image"
+                 :alt="item.title"
+                 class="solution-img"
+            >
             <div class="solution-body">
               <h5 class="solution-title">{{ item.title }}</h5>
               <p class="solution-text" v-text="item.description"></p>
@@ -42,15 +45,9 @@
       async getSolutions() {
         await this.$axios
           .$get('/api/v1/solutions')
-          .then((res) => {
-            this.solutions = res;
-          })
-          .catch(() => {
-            this.error = true;
-          })
-          .finally(() => {
-            this.loading = false;
-          });
+          .then((res) => { this.solutions = res; })
+          .catch(()   => { this.error = true; })
+          .finally(() => { this.loading = false; });
       }
     }
   }

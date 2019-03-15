@@ -31,11 +31,9 @@
       </div>
     </div>
     <!-- /loading -->
-
     <!-- page content -->
     <div v-else
          v-for="(item, index) in post"
-         :key="index"
          class="container"
     >
       <div class="row">
@@ -48,13 +46,33 @@
           ></div>
         </div>
       </div>
+
+      <!-- pagination -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <nuxt-link
+              class="page-link"
+              :to="`/blog`"
+              tabindex="-1"
+            >
+              Voltar para lista
+            </nuxt-link>
+          </li>
+        </ul>
+      </nav>
+      <!-- /pagination -->
+
     </div>
     <!-- page content -->
+    <!--<pagination></pagination>-->
   </section>
 </template>
 
 <script>
+  import Pagination from '~/components/Pagination.vue'
   export default {
+    components: { Pagination },
     data() {
       return {
         post: [],
@@ -71,26 +89,17 @@
     },
 
     created() {
+      this.loading = true;
       this.getPost(this.$route.params.slug);
     },
 
     methods: {
       async getPost( slug ) {
         await this.$axios
-          .$get('/wp/v2/posts', {
-            params: {
-              slug: slug
-            }
-          })
-          .then((res) => {
-            this.post = res;
-          })
-          .catch(() => {
-            this.error = true;
-          })
-          .finally(() => {
-            this.loading = false;
-          });
+          .$get(`/wp/v2/posts?slug=${slug}`)
+          .then((res) => { this.post = res; })
+          .catch(()   => { this.error = true; })
+          .finally(() => { this.loading = false; });
       },
     }
   }

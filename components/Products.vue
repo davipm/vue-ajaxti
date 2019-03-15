@@ -52,26 +52,21 @@
       return {
         products: [],
         loading: true,
+        error: false,
       }
     },
 
     created() {
-      this.getProducts()
+      this.getProducts();
     },
 
     methods: {
       async getProducts() {
         await this.$axios
           .$get('/api/v1/products')
-          .then((res) => {
-            this.products = res;
-          })
-          .catch((error) => {
-            console.log(error)
-          })
-          .finally(() => {
-            this.loading = false;
-          })
+          .then((res) => { this.products = res; })
+          .catch(()   => { this.error = true })
+          .finally(() => { this.loading = false; })
       }
     }
   }

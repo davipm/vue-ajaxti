@@ -29,6 +29,16 @@
       </div>
     </div>
     <!-- content -->
+    <div class="container overflow-auto">
+      <div class="mt-3">
+        <b-pagination-nav
+          v-if="items.length > 6"
+          :link-gen="linkGen"
+          :number-of-pages="pages"
+          v-model="currentPage"
+        />
+      </div>
+    </div>
   </section>
 </template>
 
@@ -42,31 +52,33 @@
         loading: true,
         error: false,
         items: [],
+        pages: 1,
+        currentPage: 1
       }
     },
 
     created() {
-      /*
-      setTimeout(() => {
-        this.loading = false;
-      }, 1000);*/
       this.getPosts();
     },
 
     methods: {
-      async getPosts() {
+      async getPosts(number) {
+        this.loading = true;
         await this.$axios
-          .$get('/wp/v2/posts')
-          .then((res) => {
-            this.items = res;
+          .$get('/wp/v2/posts', {
+            params: {
+              per_page: 6,
+              page: number = this.currentPage,
+            }
           })
-          .catch(() => {
-            this.error = true;
-          })
-          .finally(() => {
-            this.loading = false;
-          });
+          .then((res) => { this.items = res; })
+          .catch(()   => { this.error = true; })
+          .finally(() => { this.loading = false; });
       },
+
+      linkGen(pageNum) {
+        return this.getPosts(pageNum);
+      }
     }
   }
 </script>

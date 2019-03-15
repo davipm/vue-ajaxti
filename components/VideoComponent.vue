@@ -16,11 +16,8 @@
 <style scoped lang="scss">
   .video {
     display: block;
-    //position: relative;
     width: 100%;
-    //height: 800px;
     overflow: hidden;
-
     &-content {
       display: block;
       position: relative;

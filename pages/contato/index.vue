@@ -22,7 +22,7 @@
         <textarea name="message" id="message" cols="30" rows="10" class="form-control"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="submit" class="btn btn-primary btn-send">Enviar</button>
       <!--
       <iframe src="http://ajaxwebapp.azurewebsites.net/contato/"
               frameborder="0"
@@ -81,16 +81,15 @@
     font-weight: 500;
   }
 
-  .btn-primary {
+  .btn-send {
     background-color: #D8D9DA;
     border: 1px solid #D8D9DA;
     color: #808184;
     padding: 6px 8px;
-  }
-
-  .btn-primary:hover {
-    background-color: #808184;
-    border: 1px solid #D8D9DA;
-    color: #D8D9DA;
+    &:hover {
+      background-color: #808184;
+      border: 1px solid #D8D9DA;
+      color: #D8D9DA;
+    }
   }
 </style>

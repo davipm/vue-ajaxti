@@ -66,16 +66,7 @@
         <nuxt-link class="navbar-brand" to="/">
           <img src="../../assets/img/logo.svg" class="img-fluid" alt="logo">
         </nuxt-link>
-        <button class="navbar-toggler d-none"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
           <!-- menu loading -->
           <ul v-if="loading" class="navbar-nav">
@@ -124,7 +115,9 @@
          :class="{ 'show-search': isVisible }"
     >
       <form class="form">
-        <input type="text" class="form-control" placeholder="Pesquisar">
+        <input type="text"
+               class="form-control"
+               placeholder="Pesquisar">
         <button class="button-search">
           <i class="fas fa-search"></i>
         </button>
@@ -138,10 +131,7 @@
   import NavMobile from '~/components/NavMobile.vue'
   export default {
     name: 'Header',
-    components: {
-      NavMobile
-    },
-
+    components: { NavMobile },
     data() {
       return {
         menus: [],
@@ -159,20 +149,12 @@
       async getMenu() {
         await this.$axios
           .$get('/menus/v1/menus/header_menu')
-          .then((res) => {
-            this.menus = res.items;
-          })
-          .catch(() => {
-            this.error = true;
-          })
-          .finally(() => {
-            this.loading = false;
-          });
+          .then((res) => { this.menus = res.items; })
+          .catch(()   => { this.error = true; })
+          .finally(() => { this.loading = false; });
       },
 
-      showSearch() {
-        this.isVisible = !this.isVisible;
-      }
+      showSearch() { this.isVisible = !this.isVisible; }
     }
   }
 </script>
@@ -302,17 +284,20 @@
     z-index: 9999;
     border-top: 1px solid #eee;
 
-    .form-control {
-      display: block;
-      position: relative;
-      padding-left: 20px;
-      font-size: 2rem;
-      font-weight: 600;
-      color: #676767;
-      height: 60px;
-      border: none;
-      border-radius: 0;
-      &:focus { box-shadow: none; }
+    .form {
+      padding: 0;
+      &-control {
+        display: block;
+        position: relative;
+        padding-left: 20px;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #676767;
+        height: 60px;
+        border: none;
+        border-radius: 0;
+        &:focus { box-shadow: none; }
+      }
     }
 
     .button-search {
@@ -424,7 +409,6 @@
       background-position: 51% -10px;
       background-size: 160%;
     }
-
     .container-menu { background-color: #212934; }
   }
 </style>
