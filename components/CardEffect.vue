@@ -1,12 +1,15 @@
 <template>
   <figure class="figure effect-romeo">
-    <img :src="image" :alt="alt">
+    <img :src="image" :alt="alt" :title="alt">
     <figcaption>
-      <h6 v-if="category === 1">Noticia</h6>
+      <h6 v-if="category === 1">Sem Categoria</h6>
+      <h6 v-if="category === 7">INDÚSTRIA 4.0</h6>
+      <h6 v-if="category === 6">SAÚDE</h6>
+      <h6 v-if="category === 8">WMS</h6>
       <h2>{{ title }}</h2>
       <div v-html="text" class="text"></div>
       <nuxt-link :to="`/blog/${url}`">
-        View more
+        Veja Mais
       </nuxt-link>
     </figcaption>
   </figure>
@@ -48,7 +51,7 @@
   .figure {
     position: relative;
     width: 100%;
-    height: auto;
+    height: 300px;
     overflow: hidden;
     background: #3085a3;
     text-align: center;
@@ -152,6 +155,9 @@
       -ms-transition: all .3s ease;
       -o-transition: all .3s ease;
       transition: all .3s ease;
+      @media (max-width: 576px) {
+        top: 40%;
+      }
     }
 
     &:hover figcaption::before {
@@ -216,6 +222,21 @@
       -ms-transform: translate3d(0, -50%, 0) translate3d(0, 100%, 0);
       -o-transform: translate3d(0, -50%, 0) translate3d(0, 100%, 0);
       transform: translate3d(0, -50%, 0) translate3d(0, 100%, 0);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .figure { height: auto; }
+    .figure figcaption { padding: 1rem; }
+
+    .effect-romeo h2 {
+      top: 50%;
+      font-size: 1.5rem;
+    }
+
+    .effect-romeo .text {
+      top: 40%;
+      font-size: 12px;
     }
   }
 </style>

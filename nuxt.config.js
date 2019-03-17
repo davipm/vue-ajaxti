@@ -1,5 +1,6 @@
 const pkg = require('./package');
 import axios from 'axios'
+axios.defaults.baseURL = 'https://ajaxwebapp.azurewebsites.net/wp-json';
 
 module.exports = {
   mode: 'universal',
@@ -104,14 +105,14 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
+  // generate blog routes
   generate: {
     routes: function () {
-      return axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/posts')
+      return axios
+        .get('/wp/v2/posts')
         .then((res) => {
-          return res.data.map((user) => {
-            //return console.log(user.slug);
-            return `/blog/${user.slug}`;
-            //return '/users/' + user.id
+          return res.data.map((blog) => {
+            return `/blog/${blog.slug}`;
           })
         })
     }

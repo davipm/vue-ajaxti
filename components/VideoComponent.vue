@@ -21,10 +21,6 @@
     &-content {
       display: block;
       position: relative;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
       width: 100%;
     }
     @media (max-width: 768px) { height: 27rem; }
