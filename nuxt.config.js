@@ -23,24 +23,24 @@ module.exports = {
       // The list of types is available here: http://ogp.me/#types
       {property: 'og:type', content: 'website'},
       // Should the the same as your canonical link, see below.
-      {property: 'og:url', content: 'https://ajaxti.netlify.com'},
-      {property: 'og:image', content: 'https://www.ajaxti.com.br/images/seo/index.jpg'},
+      {property: 'og:url', content: 'https://ajaxtiwp.netlify.com'},
+      {property: 'og:image', content: 'https://ajaxtiwp.netlify.com/_nuxt/img/0a96f1f.svg'},
       // Often the same as your meta description, but not always.
       {property: 'og:description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
 
       // Twitter card
       {name: 'twitter:card', content: 'summary'},
-      {name: 'twitter:site', content: 'https://ajaxti.netlify.com'},
+      {name: 'twitter:site', content: 'https://ajaxtiwp.netlify.com'},
       {name: 'twitter:title', content: 'Ajax Tecnologia & Inovação'},
       {name: 'twitter:description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
       // Your twitter handle, if you have one.
       {name: 'twitter:creator', content: '@davipmdev'},
-      {name: 'twitter:image:src', content: 'https://www.ajaxti.com.br/images/seo/index.jpg'},
+      {name: 'twitter:image:src', content: 'https://ajaxtiwp.netlify.com/_nuxt/img/0a96f1f.svg'},
 
       // Google / Schema.org markup:
       {itemprop: 'name', content: 'Ajax Tecnologia & Inovação'},
       {itemprop: 'description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
-      {itemprop: 'image', content: 'https://www.ajaxti.com.br/images/seo/index.jpg'}
+      {itemprop: 'image', content: 'https://ajaxtiwp.netlify.com/_nuxt/img/0a96f1f.svg'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
