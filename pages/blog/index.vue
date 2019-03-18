@@ -9,34 +9,54 @@
       </div>
     </div>
     <!-- /loading -->
+    <!-- category list -->
+    <div class="categories">
+      <ul class="categories-list">
+        <li class="categories-item">
+          <button
+            @click="getPosts('', '')"
+            :class="{ active: currentID === '' }"
+            class="btn categories-link hvr-underline-from-center"
+          >
+            Todas
+          </button>
+        </li>
+        <li
+          v-for="categorie in categories"
+          :key="categorie.id"
+          class="categories-item"
+        >
+          <button
+            @click="getPosts('', categorie.id)"
+            :class="{ active: currentID === categorie.id }"
+            class="btn categories-link hvr-underline-from-center"
+          >
+            {{ categorie.name }}
+          </button>
+        </li>
+      </ul>
+    </div>
+    <!-- /category list -->
+    <!-- box loading -->
+    <div v-if="searchLoading" class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="shine box"></div>
+        </div>
+        <div class="col-md-6">
+          <div class="shine box"></div>
+        </div>
+        <div class="col-md-6">
+          <div class="shine box"></div>
+        </div>
+        <div class="col-md-6">
+          <div class="shine box"></div>
+        </div>
+      </div>
+    </div>
+    <!-- /box loading -->
     <!-- content -->
     <div v-else class="container">
-      <div class="categories">
-        <ul class="categories-list">
-          <li class="categories-item">
-            <button
-              @click="getPosts('', '')"
-              :class="{ active: currentID === '' }"
-              class="btn categories-link hvr-underline-from-center"
-            >
-              Todas
-            </button>
-          </li>
-          <li
-            v-for="categorie in categories"
-            :key="categorie.id"
-            class="categories-item"
-          >
-            <button
-              @click="getPosts('', categorie.id)"
-              :class="{ active: currentID === categorie.id }"
-              class="btn categories-link hvr-underline-from-center"
-            >
-             {{ categorie.name }}
-            </button>
-          </li>
-        </ul>
-      </div>
       <h3 class="title">
         {{ title }}
       </h3>
@@ -88,7 +108,7 @@
         paginationAll: '',
         categories: [],
         currentID: '',
-        searchLoading: false,
+        searchLoading: true,
       }
     },
     created() {
@@ -99,12 +119,13 @@
     },
     methods: {
       async getPosts(number, id) {
+        this.searchLoading = true;
         this.currentID = id;
         await axios.get(`/wp/v2/posts?categories=${id}`, { params: { per_page: 6, page: number = this.currentPage, }
         })
           .then((res) => { this.pages = res.headers['x-wp-totalpages']; this.items = res.data; })
           .catch(()   => { this.error = true; })
-          .finally(() => { this.loading = false; })
+          .finally(() => { this.loading = false; this.searchLoading = false; })
       },
 
       async getCategory() {
@@ -185,6 +206,13 @@
     font-weight: 300;
     text-transform: uppercase;
   }
+
+  .box {
+    width: 100%;
+    height: 300px;
+  }
+
+  .shine { background-size: 800px 300px; }
 
   @media (max-width: 576px) {
     .categories-list { display: block; }
