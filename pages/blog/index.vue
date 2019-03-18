@@ -57,9 +57,11 @@
     <!-- /box loading -->
     <!-- content -->
     <div v-else class="container">
+      <!--
       <h3 class="title">
         {{ title }}
       </h3>
+      -->
       <div class="row">
         <div class="col-md-6"
              v-for="(item, index) in items"
@@ -145,7 +147,7 @@
   .categories {
     display: block;
     position: relative;
-    margin: 0;
+    margin-bottom: 1.2rem;
     padding: 5px;
 
     &-list {
