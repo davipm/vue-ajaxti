@@ -29,7 +29,7 @@
           verdadeira paixão!`,
         text: `
           Quer ler nosso E-book, <strong>"Os Dez Sinais de que sua Empresa ainda
-          Não Entrou no Futuro da Tecnologia"?</strong> <a href="#">Clique aqui</a> para recebê-lo
+          Não Entrou no Futuro da Tecnologia"?</strong> <nuxt-link to="/">Clique aqui</nuxt-link> para recebê-lo
           completamente grátis! Será um prazer compartilhar experiências
           com você.
         `,

@@ -1,7 +1,16 @@
 <template>
   <div class="video">
-    <video autoplay muted loop playsinline class="video-content">
-      <source src="../assets/img/ajaxti-video.mp4" type="video/mp4">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="video-content"
+    >
+      <source
+        src="http://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/03/ajaxti-video.mp4"
+        type="video/mp4"
+      >
       Your browser does not support HTML5 video.
     </video>
   </div>

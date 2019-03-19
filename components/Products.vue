@@ -4,7 +4,11 @@
       <div v-for="(item, index) in products" :key="index" class="products-item">
         <div v-if="index % 2 === 0" class="row">
           <div class="col-md-6">
-            <img :src="item.image" class="img-fluid" :alt="item.title">
+            <img
+              :src="item.image"
+              :alt="item.title"
+              class="img-fluid"
+            >
           </div>
           <div class="col-md-6">
             <div class="products-content">
@@ -12,10 +16,10 @@
               <div class="products-text" v-html="item.description"></div>
             </div>
             <div class="products-buttons">
-              <nuxt-link to="/" class="btn btn-primary">
+              <nuxt-link :to="item.know_more" class="btn btn-primary">
                 Saiba mais
               </nuxt-link>
-              <nuxt-link to="/" class="btn btn-secondary">
+              <nuxt-link :to="item.prices_url" class="btn btn-secondary">
                 Peça um orçamento
               </nuxt-link>
             </div>
@@ -28,16 +32,20 @@
               <div class="products-text" v-html="item.description"></div>
             </div>
             <div class="products-buttons">
-              <nuxt-link to="/" class="btn btn-primary">
+              <nuxt-link :to="item.know_more" class="btn btn-primary">
                 Saiba mais
               </nuxt-link>
-              <nuxt-link to="/" class="btn btn-secondary">
+              <nuxt-link :to="item.prices_url" class="btn btn-secondary">
                 Peça um orçamento
               </nuxt-link>
             </div>
           </div>
           <div class="col-md-6">
-            <img :src="item.image" class="img-fluid" :alt="item.title">
+            <img
+              :src="item.image"
+              :alt="item.title"
+              class="img-fluid"
+            >
           </div>
         </div>
       </div>
