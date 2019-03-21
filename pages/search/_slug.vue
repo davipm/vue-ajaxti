@@ -23,7 +23,7 @@
                 Donec lacinia congue felis in faucibus.
               </div>
             </div>
-            <div class="media" v-for="(post, index) in searchPage" :key="index">
+            <div class="media" v-for="(page, index) in searchPage" :key="index">
               <img
                 src="https://via.placeholder.com/300x220"
                 class="align-self-center mr-3"

@@ -98,11 +98,25 @@
               <nuxt-link class="nav-link" :to="`${item.url}`">
                 {{ item.title }}
               </nuxt-link>
-              <!--
-              <ul class="submenu" v-if="item.ID === 23">
-                <li>Test</li>
+              <!-- sub menu -->
+              <ul class="subnav" v-if="item.ID === 23">
+                <li class="subnav-item">
+                  <nuxt-link to="/item-1" class="subnav-link">
+                    Item 1
+                  </nuxt-link>
+                </li>
+                <li class="subnav-item">
+                  <nuxt-link to="/item-2" class="subnav-link">
+                    Item 1
+                  </nuxt-link>
+                </li>
+                <li class="subnav-item">
+                  <nuxt-link to="/item-3" class="subnav-link">
+                    Item 1
+                  </nuxt-link>
+                </li>
               </ul>
-              -->
+              <!-- /sub menu -->
             </li>
           </ul>
         </div>
@@ -281,6 +295,45 @@
       padding-right: 1rem;
       padding-left: 1rem;
     }
+  }
+
+  .subnav {
+    display: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    min-width: 200px;
+    list-style: none;
+    z-index: 1;
+    &-link {
+      display: block;
+      position: relative;
+      margin: 0;
+      padding: .5rem 2rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: .9rem;
+      color: #FFF;
+      background-color: #FF6B3A;
+      -webkit-transition: all .15s ease-in-out;
+      -moz-transition: all .15s ease-in-out;
+      -ms-transition: all .15s ease-in-out;
+      -o-transition: all .15s ease-in-out;
+      transition: all .15s ease-in-out;
+      &:hover {
+        color: #FFF;
+        background-color: #994023;
+      }
+    }
+  }
+
+  .nav-item:hover .nav-link {
+    color: #FFF;
+    background-color: #212934;
+  }
+
+  .nav-item:hover > .subnav {
+    display: block;
   }
 
   .navbar-brand {
