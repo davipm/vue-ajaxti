@@ -59,8 +59,6 @@
           axios.get(`/wp/v2/posts`)
             .then(( res ) => {
               this.searchPost = res.data;
-              this.pageTitle = `Resultado da pesquisa para:`;
-              console.log(res.data)
             })
             .catch(()   => { this.error = true; })
             .finally(() => { this.loading = false; })
@@ -69,8 +67,6 @@
           axios.get(`/wp/v2/posts?search=${slug}`)
             .then(( res ) => {
               this.searchPost = res.data;
-              this.pageTitle = `Resultado da pesquisa para: ${slug}`;
-              console.log(res.data)
             })
             .catch(()   => { this.error = true; })
             .finally(() => { this.loading = false; })

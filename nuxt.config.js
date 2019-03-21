@@ -109,15 +109,34 @@ module.exports = {
 
   // generate blog routes
   generate: {
+    routes: [
+      '/blog/categories/industria-4-0',
+      '/blog/categories/saude',
+      '/blog/categories/uncategorized',
+      '/blog/categories/wms',
+      '/blog/blog-2',
+      '/blog/hello-world',
+      '/blog/saude',
+    ]
+    /*
     routes: function () {
+      return axios
+        .get('/wp/v2/categories')
+        .then((res) => {
+          return res.data.map((blog) => {
+            return `/blog/categories/${blog.slug}`;
+          });
+        });
+
       return axios
         .get('/wp/v2/posts')
         .then((res) => {
           return res.data.map((blog) => {
             return `/blog/${blog.slug}`;
-          })
+          });
         })
-    }
+    },
+    */
   },
 
   /*

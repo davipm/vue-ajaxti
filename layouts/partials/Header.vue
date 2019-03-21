@@ -137,7 +137,10 @@
         <input v-model="search"
                type="text"
                class="form-control"
-               placeholder="Pesquisar">
+               placeholder="Pesquisar"
+               ref="search"
+               autofocus
+        >
         <button @click.prevent="getSearch" class="button-search">
           <i class="fas fa-search"></i>
         </button>
@@ -175,11 +178,16 @@
           .finally(() => { this.loading = false; });
       },
 
-      showSearch() { this.isVisible = !this.isVisible; },
+      showSearch() {
+        this.$refs.search.focus();
+        this.isVisible = !this.isVisible;
+      },
 
       getSearch() {
         this.$router.push('/');
         this.$router.push(`/search/${this.search.toLowerCase()}`);
+        this.isVisible = !this.isVisible;
+        this.search = '';
       }
     }
   }
