@@ -115,10 +115,11 @@
          :class="{ 'show-search': isVisible }"
     >
       <form class="form">
-        <input type="text"
+        <input v-model="search"
+               type="text"
                class="form-control"
                placeholder="Pesquisar">
-        <button class="button-search">
+        <button @click.prevent="getSearch" class="button-search">
           <i class="fas fa-search"></i>
         </button>
       </form>
@@ -138,6 +139,7 @@
         loading: true,
         error: false,
         isVisible: false,
+        search: '',
       }
     },
 
@@ -154,7 +156,12 @@
           .finally(() => { this.loading = false; });
       },
 
-      showSearch() { this.isVisible = !this.isVisible; }
+      showSearch() { this.isVisible = !this.isVisible; },
+
+      getSearch() {
+        this.$router.push('/');
+        this.$router.push(`/search/${this.search.toLowerCase()}`);
+      }
     }
   }
 </script>

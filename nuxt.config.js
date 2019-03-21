@@ -76,6 +76,8 @@ module.exports = {
   css: [
     '@/assets/css/_loading.scss',
     '@/assets/css/_main.scss',
+    'bootstrap/dist/css/bootstrap.css',
+    'bootstrap-vue/dist/bootstrap-vue.css',
   ],
 
   /*

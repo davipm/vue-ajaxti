@@ -113,12 +113,12 @@
         searchLoading: true,
       }
     },
+
     created() {
       axios.all([this.getPosts('', ''), this.getCategory()])
-        .then(axios.spread(function (acct, perms) {
-          // Both requests are now complete
-        }));
+        .then(axios.spread(function (acct, perms) {  }));
     },
+
     methods: {
       async getPosts(number, id) {
         this.searchLoading = true;
