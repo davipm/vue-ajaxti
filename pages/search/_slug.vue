@@ -6,39 +6,19 @@
         <div class="row">
           <div class="col-md-9">
             <div class="media" v-for="(post, index) in searchPost" :key="index">
-              <img
-                src="https://via.placeholder.com/300x220"
-                class="align-self-center mr-3"
-                alt="..."
-                title=""
-              >
               <div class="media-body">
-                <nuxt-link to="/">
-                  <h5 class="mt-0">Media heading</h5>
+                <nuxt-link :to="`/blog/${post.slug}`">
+                  <h5 class="mt-0">{{ post.title.rendered }}</h5>
                 </nuxt-link>
-                Cras sit amet nibh libero, in gravida nulla. Nulla
-                vel metus scelerisque ante sollicitudin. Cras purus
-                odio, vestibulum in vulputate at, tempus viverra turpis.
-                Fusce condimentum nunc ac nisi vulputate fringilla.
-                Donec lacinia congue felis in faucibus.
+                <div v-html="post.excerpt.rendered"></div>
               </div>
             </div>
             <div class="media" v-for="(page, index) in searchPage" :key="index">
-              <img
-                src="https://via.placeholder.com/300x220"
-                class="align-self-center mr-3"
-                alt="..."
-                title=""
-              >
               <div class="media-body">
-                <nuxt-link to="/">
-                  <h5 class="mt-0">Media heading</h5>
+                <nuxt-link :to="`/${page.slug}`">
+                  <h5 class="mt-0">{{page.title.rendered}}</h5>
                 </nuxt-link>
-                Cras sit amet nibh libero, in gravida nulla. Nulla
-                vel metus scelerisque ante sollicitudin. Cras purus
-                odio, vestibulum in vulputate at, tempus viverra turpis.
-                Fusce condimentum nunc ac nisi vulputate fringilla.
-                Donec lacinia congue felis in faucibus.
+                <div v-html="page.excerpt.rendered"></div>
               </div>
             </div>
           </div>

@@ -1,4 +1,3 @@
-/*
 export default function ({ $axios, redirect }) {
   $axios.onRequest(config => {
     $axios.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,4 +17,4 @@ export default function ({ $axios, redirect }) {
       redirect('/500');
     }
   });
-}*/
+}

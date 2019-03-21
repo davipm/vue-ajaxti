@@ -1,28 +1,8 @@
 <template>
   <section class="section page">
     <div class="container">
-      <form name="contact" method="POST" data-netlify="true">
-        <p>
-          <label>Your Name: <input type="text" name="name" /></label>
-        </p>
-        <p>
-          <label>Your Email: <input type="email" name="email" /></label>
-        </p>
-        <p>
-          <label>Your Role: <select name="role[]" multiple>
-            <option value="leader">Leader</option>
-            <option value="follower">Follower</option>
-          </select></label>
-        </p>
-        <p>
-          <label>Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
       <!--
-      <form @submit.prevent="">
+      <form>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputEmail4">Email</label>
@@ -45,14 +25,12 @@
           <textarea v-model="form.message" name="message" required id="message" cols="30" rows="10" class="form-control"></textarea>
         </div>
 
-        <button type="submit" @submit.prevent="sendEmail" class="btn btn-primary btn-send">Enviar</button>
+        <button type="submit" @submit="sendEmail" class="btn btn-primary btn-send">Enviar</button>
       </form>
       -->
-      <!--
       <iframe src="http://ajaxwebapp.azurewebsites.net/contato/"
               frameborder="0"
       ></iframe>
-      -->
     </div>
   </section>
 </template>
