@@ -65,7 +65,6 @@
         </ul>
       </nav>
       <!-- /pagination -->
-
     </div>
     <!-- page content -->
     <!--<pagination></pagination>-->
@@ -75,6 +74,7 @@
 <script>
   import Pagination from '~/components/Pagination.vue'
   export default {
+    name: 'slug',
     components: { Pagination },
     data() {
       return {

@@ -49,10 +49,7 @@
   axios.defaults.baseURL = 'https://ajaxwebapp.azurewebsites.net/wp-json';
   export default {
     name: 'categories',
-    components: {
-      CardEffect
-    },
-
+    components: { CardEffect },
     data() {
       return {
         loading: true,
