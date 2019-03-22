@@ -100,19 +100,9 @@
               </nuxt-link>
               <!-- sub menu -->
               <ul class="subnav" v-if="item.ID === 23">
-                <li class="subnav-item">
-                  <nuxt-link to="/item-1" class="subnav-link">
-                    Item 1
-                  </nuxt-link>
-                </li>
-                <li class="subnav-item">
-                  <nuxt-link to="/item-2" class="subnav-link">
-                    Item 1
-                  </nuxt-link>
-                </li>
-                <li class="subnav-item">
-                  <nuxt-link to="/item-3" class="subnav-link">
-                    Item 1
+                <li class="subnav-item" v-for="(item, index) in subMenu" :key="index">
+                  <nuxt-link :to="`${item.url}`" class="subnav-link">
+                    {{ item.title }}
                   </nuxt-link>
                 </li>
               </ul>
@@ -158,6 +148,7 @@
     data() {
       return {
         menus: [],
+        subMenu: [],
         loading: true,
         error: false,
         isVisible: false,
@@ -167,6 +158,7 @@
 
     created() {
       this.getMenu();
+      this.getSubMenu();
     },
 
     methods: {
@@ -174,6 +166,14 @@
         await this.$axios
           .$get('/menus/v1/menus/header_menu')
           .then((res) => { this.menus = res.items; })
+          .catch(()   => { this.error = true; })
+          .finally(() => { this.loading = false; });
+      },
+
+      async getSubMenu() {
+        await this.$axios
+          .$get('/menus/v1/menus/sub_menu')
+          .then((res) => { this.subMenu = res.items; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });
       },

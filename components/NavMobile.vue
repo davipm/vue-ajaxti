@@ -16,13 +16,35 @@
       <ul class="menu-sidebar"
           :class="{ 'menu-close': !isActive, 'menu-open': isActive }"
       >
-        <li v-for="(item, index) in menus"
-            :key="index"
-            @click="isActive = !isActive"
+        <li
+          v-for="(item, index) in menus"
+          :key="index"
+          v-if="item.ID !== 23"
+          @click="isActive = !isActive"
         >
           <nuxt-link :to="`${item.url}`">
             {{ item.title }}
           </nuxt-link>
+        </li>
+        <li v-else>
+          <input type="checkbox" id="sub-one" class="submenu-toggle">
+          <label class="submenu-label" for="sub-one">{{ item.title }}</label>
+          <div class="arrow right">&#8250;</div>
+          <ul class="menu-sub">
+            <li class="menu-sub-title">
+              <label class="submenu-label" for="sub-one">Voltar</label>
+              <div class="arrow left">&#8249;</div>
+            </li>
+            <li
+              v-for="(item, index) in subMenu"
+              :key="index"
+              @click="isActive = !isActive"
+            >
+              <nuxt-link :to="`${item.url}`">
+                {{ item.title }}
+              </nuxt-link>
+            </li>
+          </ul>
         </li>
         <!--
         <li>
@@ -67,12 +89,14 @@
     data() {
       return {
         menus: [],
+        subMenu: [],
         isActive: false,
       }
     },
 
     created() {
       this.getMenu();
+      this.getSubMenu();
     },
 
     methods: {
@@ -85,6 +109,14 @@
           .catch(() => {
             this.error = true;
           });
+      },
+
+      async getSubMenu() {
+        await this.$axios
+          .$get('/menus/v1/menus/sub_menu')
+          .then((res) => { this.subMenu = res.items; })
+          .catch(()   => { this.error = true; })
+          .finally(() => { this.loading = false; });
       },
     }
   }
@@ -219,7 +251,7 @@
             background: #7B451A;
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0,0,0.3,1);
-            border-left: 1px solid #ccc;
+            //border-left: 1px solid #ccc;
             list-style-type: none;
             padding: 0;
             margin: 0;
@@ -247,6 +279,11 @@
         }
       }
     }
+  }
+
+  label {
+    color: #FFF;
+    font-weight: 400;
   }
 
   .nav-mobile .menu-open {
