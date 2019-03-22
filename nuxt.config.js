@@ -117,7 +117,10 @@ module.exports = {
       '/blog/blog-2',
       '/blog/hello-world',
       '/blog/saude',
-    ]
+      '/item-1',
+      '/item-2',
+      '/item-3',
+    ],
     /*
     routes: function () {
       return axios
