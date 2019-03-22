@@ -319,9 +319,5 @@
     display: block!important;
   }
 
-  @media (max-width: 768px) {
-    .nav-mobile {
-      display: block;
-    }
-  }
+  @media (max-width: 768px) { .nav-mobile { display: block; } }
 </style>

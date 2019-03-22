@@ -28,14 +28,22 @@
         <div v-else class="row">
           <div class="col-md-6">
             <div class="products-content">
-              <h5 class="products-title">{{ item.title }}</h5>
+              <h5 class="products-title">
+                {{ item.title }}
+              </h5>
               <div class="products-text" v-html="item.description"></div>
             </div>
             <div class="products-buttons">
-              <nuxt-link :to="item.know_more" class="btn btn-primary">
+              <nuxt-link
+                :to="item.know_more"
+                class="btn btn-primary"
+              >
                 Saiba mais
               </nuxt-link>
-              <nuxt-link :to="item.prices_url" class="btn btn-secondary">
+              <nuxt-link
+                :to="item.prices_url"
+                class="btn btn-secondary"
+              >
                 Peça um orçamento
               </nuxt-link>
             </div>
@@ -111,6 +119,9 @@
       position: relative;
       margin-top: 30px;
       text-align: center;
+      @media (max-width: 576px) {
+        margin-bottom: 20px;
+      }
     }
   }
 

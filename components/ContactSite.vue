@@ -85,6 +85,18 @@
     justify-content: space-between;
   }
 
+  @media (max-width: 576px) {
+    form { padding: 0; }
+    .btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      width: 200px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
   .btn-primary,
   .btn-secondary {
     padding: 7px 30px;
