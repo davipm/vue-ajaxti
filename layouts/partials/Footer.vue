@@ -12,7 +12,7 @@
               <ul class="social-list">
                 <li class="social-item">
                   <a href="https://twitter.com/ajaxti"
-                     rel="noopener"
+                     rel="noopener noreferrer"
                      target="_blank"
                      class="social-link"
                   >
@@ -21,20 +21,22 @@
                 </li>
                 <li class="social-item">
                   <a href="https://www.facebook.com/ajaxti"
-                     rel="noopener"
+                     rel="noopener noreferrer"
                      target="_blank"
                      class="social-link"
                   >
                     <i class="fab fa-facebook-f"></i>
                   </a>
                 </li>
-                <!--
                 <li class="social-item">
-                  <a href="#" target="_blank" class="social-link">
+                  <a href="https://www.instagram.com/ajax_ti/"
+                     rel="noopener noreferrer"
+                     target="_blank"
+                     class="social-link"
+                  >
                     <i class="fab fa-instagram"></i>
                   </a>
                 </li>
-                -->
               </ul>
             </div>
           </div>

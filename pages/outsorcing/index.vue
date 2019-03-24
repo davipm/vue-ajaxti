@@ -47,7 +47,7 @@
       <div class="page-content">
         <div class="container">
           <!-- title -->
-          <div v-html="item.acf.title_content"></div>
+          <div v-html="item.acf.title_content" id="outsorcing"></div>
           <!-- grid -->
           <div class="row">
             <div class="col-md-3" v-for="(card, index) in item.acf.items" :key="index">
@@ -199,7 +199,7 @@
   }
 
   // page content
-  div .page-title {
+  .page-title {
     margin-bottom: 40px;
     text-align: center;
     font-size: 2.1rem;
@@ -289,5 +289,14 @@
         left: auto;
       }
     }
+  }
+</style>
+
+<style lang="scss">
+  #outsorcing .page-title {
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 2.1rem;
+    color: #EA071E;
   }
 </style>
