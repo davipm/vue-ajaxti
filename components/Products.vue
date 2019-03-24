@@ -1,7 +1,11 @@
 <template>
   <section class="section products" v-if="!loading">
     <div class="container">
-      <div v-for="(item, index) in products" :key="index" class="products-item">
+      <div
+        v-for="(item, index) in products"
+        :key="index"
+        class="products-item"
+      >
         <div v-if="index % 2 === 0" class="row">
           <div class="col-md-6">
             <img
@@ -13,7 +17,7 @@
           <div class="col-md-6">
             <div class="products-content">
               <h5 class="products-title">{{ item.title }}</h5>
-              <div class="products-text" v-html="item.description"></div>
+              <div v-html="item.description" class="products-text"></div>
             </div>
             <div class="products-buttons">
               <nuxt-link :to="item.know_more" class="btn btn-primary">
@@ -31,7 +35,7 @@
               <h5 class="products-title">
                 {{ item.title }}
               </h5>
-              <div class="products-text" v-html="item.description"></div>
+              <div v-html="item.description" class="products-text"></div>
             </div>
             <div class="products-buttons">
               <nuxt-link
@@ -140,10 +144,18 @@
   .btn-primary {
     background-color: #212934;
     box-shadow: 0 5px #151420;
+    &:hover {
+      background-color: #151420;
+      box-shadow: 0 5px #212934;
+    }
   }
 
   .btn-secondary {
     background-color: #FF6B3A;
     box-shadow: 0 5px #7B451A;
+    &:hover {
+      background-color: #7B451A;
+      box-shadow: 0 5px#FF6B3A;
+    }
   }
 </style>

@@ -2,10 +2,47 @@
   <section class="section search">
     <div class="container">
       <h3 class="title">Resultado da pesquisa para: {{ $route.params.slug }}</h3>
-      <div class="search-content">
+      <!-- loading -->
+      <div v-if="loading" class="loading-content">
         <div class="row">
           <div class="col-md-9">
-            <div class="media" v-for="(post, index) in searchPost" :key="index">
+            <div class="media">
+              <div class="media-body">
+                <div class="shine box"></div>
+                <div class="shine"></div>
+                <div class="shine"></div>
+                <div class="shine"></div>
+              </div>
+            </div>
+            <div class="media">
+              <div class="media-body">
+                <div class="shine box"></div>
+                <div class="shine"></div>
+                <div class="shine"></div>
+                <div class="shine"></div>
+              </div>
+            </div>
+            <div class="media">
+              <div class="media-body">
+                <div class="shine box"></div>
+                <div class="shine"></div>
+                <div class="shine"></div>
+                <div class="shine"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /loading -->
+      <!-- page content -->
+      <div v-else class="search-content">
+        <div class="row">
+          <div class="col-md-9">
+            <div
+              v-for="(post, index) in searchPost"
+              :key="index"
+              class="media"
+            >
               <div class="media-body">
                 <nuxt-link :to="`/blog/${post.slug}`">
                   <h5 class="mt-0">{{ post.title.rendered }}</h5>
@@ -13,7 +50,11 @@
                 <div v-html="post.excerpt.rendered"></div>
               </div>
             </div>
-            <div class="media" v-for="(page, index) in searchPage" :key="index">
+            <div
+              v-for="(page, index) in searchPage"
+              :key="index"
+              class="media"
+            >
               <div class="media-body">
                 <nuxt-link :to="`/${page.slug}`">
                   <h5 class="mt-0">{{page.title.rendered}}</h5>
@@ -24,6 +65,7 @@
           </div>
         </div>
       </div>
+      <!-- /page content -->
     </div>
   </section>
 </template>
@@ -50,26 +92,22 @@
           this.getPage(this.$route.params.slug)
         ]
       )
-        .then(axios.spread(function (acct, perms) {  }));
+        .then(axios.spread(function (acct, perms) { }));
     },
 
     methods: {
       getPost( slug ) {
         if ( slug === undefined ) {
           axios.get(`/wp/v2/posts`)
-            .then(( res ) => {
-              this.searchPost = res.data;
-            })
-            .catch(()   => { this.error = true; })
-            .finally(() => { this.loading = false; })
+            .then(( res ) => { this.searchPost = res.data; })
+            .catch(()     => { this.error = true; })
+            .finally(()   => { this.loading = false; })
         }
         else {
           axios.get(`/wp/v2/posts?search=${slug}`)
-            .then(( res ) => {
-              this.searchPost = res.data;
-            })
-            .catch(()   => { this.error = true; })
-            .finally(() => { this.loading = false; })
+            .then(( res ) => { this.searchPost = res.data; })
+            .catch(()     => { this.error = true; })
+            .finally(()   => { this.loading = false; })
         }
       },
 
@@ -77,14 +115,14 @@
         if (slug === undefined) {
           axios.get(`/wp/v2/pages`)
             .then(( res ) => { this.searchPage = res.data; })
-            .catch(() => { this.error = true; })
-            .finally(() => { this.loading = false; })
+            .catch(()     => { this.error = true; })
+            .finally(()   => { this.loading = false; })
         }
         else {
           axios.get(`/wp/v2/pages?search=${slug}`)
             .then(( res ) => { this.searchPage = res.data; })
-            .catch(() => { this.error = true; })
-            .finally(() => { this.loading = false; })
+            .catch(()     => { this.error = true; })
+            .finally(()   => { this.loading = false; })
         }
       },
     }
@@ -99,4 +137,9 @@
   }
 
   .media { margin-bottom: 20px; }
+
+  .box {
+    width: 50%;
+    height: 40px;
+  }
 </style>

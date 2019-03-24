@@ -206,6 +206,13 @@
     color: #EA071E;
   }
 
+  // marks title
+  .mark {
+    display: inline-block;
+    color: #F8880B;
+    background-color: transparent;
+  }
+
   // item
   .item {
     display: block;
@@ -237,30 +244,13 @@
     opacity: 0.6;
   }
 
-  // marks title
-  .mark {
-    display: inline-block;
-    color: #F8880B;
-    background-color: transparent;
-  }
-
   // col items
   .row .col-md-3 {
-    &:nth-child(even) {
-      margin-top: 60px;
-    }
-    &:nth-child(1) {
-      color: #5190FC;
-    }
-    &:nth-child(2) {
-      color: #AADF8D;
-    }
-    &:nth-child(3) {
-      color: #BC9BF7;
-    }
-    &:nth-child(4) {
-      color: #EB6B1E;
-    }
+    &:nth-child(even) { margin-top: 60px; }
+    &:nth-child(1) { color: #5190FC; }
+    &:nth-child(2) { color: #AADF8D; }
+    &:nth-child(3) { color: #BC9BF7; }
+    &:nth-child(4) { color: #EB6B1E; }
   }
 
   .second-title {
@@ -298,5 +288,11 @@
     text-align: center;
     font-size: 2.1rem;
     color: #EA071E;
+  }
+
+  #outsorcing .mark {
+    display: inline-block;
+    color: #F8880B;
+    background-color: transparent;
   }
 </style>

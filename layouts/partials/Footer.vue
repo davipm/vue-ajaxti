@@ -183,9 +183,7 @@
     position: relative;
     color: #FFF;
     background-color: #212934;
-    &-content {
-      padding: 15px 40px;
-    }
+    &-content { padding: 15px 40px; }
   }
 
   .logo-link {
@@ -230,9 +228,7 @@
       color: #FFF;
     }
 
-    &-item:nth-child(2) &-link {
-      margin-top: 0;
-    }
+    &-item:nth-child(2) &-link { margin-top: 0; }
   }
 
   .footer-bottom {
@@ -263,9 +259,7 @@
 
   .form-control {
     height: 50px;
-    &:focus {
-      box-shadow: none;
-    }
+    &:focus { box-shadow: none; }
   }
 
   .btn-secondary {
@@ -280,8 +274,6 @@
   }
 
   @media (max-width: 768px) {
-    .border-right {
-      border-right: 0!important;
-    }
+    .border-right { border-right: 0!important; }
   }
 </style>

@@ -45,7 +45,9 @@
                 <span class="contact-icon">
                   <i class="fas fa-envelope"></i>
                 </span>
-                 contato@ajaxti.com.br
+                <a href="mailto:contato@ajaxti.com.br" class="mailto">
+                  contato@ajaxti.com.br
+                </a>
               </li>
               <li class="contact-item">
                 <span class="contact-icon">
@@ -257,8 +259,18 @@
     }
 
     &-item {
+      display: flex;
+      align-items: center;
       margin-right: 20px;
       font-size: .8rem;
+    }
+
+    .mailto {
+      text-decoration: none;
+      color: #FFF;
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     @media (max-width: 768px) { display: none; }
@@ -315,7 +327,7 @@
     padding: 0;
     min-width: 200px;
     list-style: none;
-    z-index: 1;
+    z-index: 3;
     &-link {
       display: block;
       position: relative;
@@ -357,7 +369,7 @@
     display: none;
     position: absolute;
     width: 100%;
-    z-index: 9999;
+    z-index: 2;
     border-top: 1px solid #eee;
 
     .form {

@@ -110,16 +110,17 @@ module.exports = {
   // generate blog routes
   generate: {
     routes: [
+      '/item-1',
+      '/item-2',
+      '/item-3',
+      '/search',
+      '/blog/blog-2',
+      '/blog/hello-world',
+      '/blog/saude',
       '/blog/categories/industria-4-0',
       '/blog/categories/saude',
       '/blog/categories/uncategorized',
       '/blog/categories/wms',
-      '/blog/blog-2',
-      '/blog/hello-world',
-      '/blog/saude',
-      '/item-1',
-      '/item-2',
-      '/item-3',
     ],
     /*
     routes: function () {
