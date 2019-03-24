@@ -8,6 +8,7 @@
             <ul class="social">
               <li class="social-item">
                 <a href="https://twitter.com/ajaxti"
+                   rel="noopener"
                    target="_blank"
                    class="social-link"
                 >
@@ -16,6 +17,7 @@
               </li>
               <li class="social-item">
                 <a href="https://www.facebook.com/ajaxti"
+                   rel="noopener"
                    target="_blank"
                    class="social-link"
                 >
@@ -66,7 +68,6 @@
         <nuxt-link class="navbar-brand" to="/">
           <img src="../../assets/img/logo.svg" class="img-fluid" alt="logo">
         </nuxt-link>
-
         <div class="collapse navbar-collapse" id="navbarNav">
           <!-- menu loading -->
           <ul v-if="loading" class="navbar-nav">

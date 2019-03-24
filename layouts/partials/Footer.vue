@@ -12,6 +12,7 @@
               <ul class="social-list">
                 <li class="social-item">
                   <a href="https://twitter.com/ajaxti"
+                     rel="noopener"
                      target="_blank"
                      class="social-link"
                   >
@@ -20,6 +21,7 @@
                 </li>
                 <li class="social-item">
                   <a href="https://www.facebook.com/ajaxti"
+                     rel="noopener"
                      target="_blank"
                      class="social-link"
                   >

@@ -199,7 +199,7 @@
   }
 
   // page content
-  .page-title {
+  div .page-title {
     margin-bottom: 40px;
     text-align: center;
     font-size: 2.1rem;
