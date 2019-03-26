@@ -6,7 +6,8 @@
         :key="index"
         class="products-item"
       >
-        <div v-if="index % 2 === 0" class="row">
+        <!-- image right -->
+        <div v-if="item.id === 102" class="row">
           <div class="col-md-6">
             <img
               :src="item.image"
@@ -29,6 +30,7 @@
             </div>
           </div>
         </div>
+        <!-- image left -->
         <div v-else class="row">
           <div class="col-md-6">
             <div class="products-content">
@@ -75,11 +77,7 @@
         error: false,
       }
     },
-
-    created() {
-      this.getProducts();
-    },
-
+    created() { this.getProducts(); },
     methods: {
       async getProducts() {
         await this.$axios
@@ -97,35 +95,24 @@
     position: relative;
     display: block;
     background: url('../assets/img/transparencia_produtos.png') center/cover no-repeat ;
-
-    &-item {
-      margin-bottom: 30px;
-    }
-
+    &-item { margin-bottom: 30px; }
     &-content {
       display: block;
       margin-top: 80px;
     }
-
     &-title {
       display: block;
       font-size: 3rem;
       font-weight: 600;
       letter-spacing: 2px;
     }
-
-    &-text {
-      font-size: 1.2rem;
-    }
-
+    &-text { font-size: 1.2rem; }
     &-buttons {
       display: block;
       position: relative;
       margin-top: 30px;
       text-align: center;
-      @media (max-width: 576px) {
-        margin-bottom: 20px;
-      }
+      @media (max-width: 576px) { margin-bottom: 20px; }
     }
   }
 

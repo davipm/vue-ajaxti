@@ -90,29 +90,19 @@
       }
     },
 
-    created() {
-      this.pageOutsourcing();
-    },
+    created() { this.pageOutsourcing(); },
 
     methods: {
       async pageOutsourcing() {
         await this.$axios
-          .$get('/wp/v2/pages', {
-            params: {
-              slug: 'outsorcing'
-            }
-          })
+          .$get('/wp/v2/pages', { params: { slug: 'outsorcing' }})
           .then((res) => {
             this.page = res;
             this.title = res[0].title.rendered;
             this.secondTitle = res[0].acf.second_title;
           })
-          .catch(() => {
-            this.error = true;
-          })
-          .finally(() => {
-            this.loading = false;
-          });
+          .catch(()   => { this.error = true; })
+          .finally(() => { this.loading = false; });
       },
     },
 
@@ -231,9 +221,7 @@
       text-align: center;
     }
 
-    &-text {
-      font-size: 1.2rem;
-    }
+    &-text { font-size: 1.2rem; }
   }
 
   // number for items
