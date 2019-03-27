@@ -1,5 +1,5 @@
 const pkg = require('./package');
-import axios from 'axios'
+import axios from 'axios';
 axios.defaults.baseURL = 'https://ajaxwebapp.azurewebsites.net/wp-json';
 
 module.exports = {
@@ -110,6 +110,9 @@ module.exports = {
   // generate blog routes
   generate: {
     routes: function (callback) {
+      let staticPages = [
+        '/search',
+      ];
       axios.all([
         axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/posts'),
         axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/categories'),
@@ -117,18 +120,18 @@ module.exports = {
       ])
         .then(axios.spread(function (posts, categories, pages) {
           let routes1 = posts.data.map((post) => {
-            return '/blog/' + post.slug
+            return `/blog/${post.slug}`;
           });
 
           let routes2 = categories.data.map((category) => {
-            return '/blog/categories/' + category.slug
+            return `/blog/categories/${category.slug}`;
           });
 
           let routes3 = pages.data.map((pages) => {
-            return '/' + pages.slug
+            return `/${pages.slug}`;
           });
 
-          callback(null, routes1.concat(routes2).concat(routes3));
+          callback(null, routes1.concat(routes2).concat(routes3).concat(staticPages));
         }), function(err) {
           return next(err);
         });

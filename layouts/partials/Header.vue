@@ -318,10 +318,10 @@
     color: #FFF;
     background-color: #212934;
   }
-
+  // default padding between
   .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
     @media (max-width: 1366px) {
       padding-right: 1rem;
       padding-left: 1rem;

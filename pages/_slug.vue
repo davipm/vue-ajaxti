@@ -1,6 +1,14 @@
 <template>
   <section class="section single">
     <!-- loading -->
+    <div v-if="loading"  class="loading-content">
+      <div class="clear-loading loading-effect-1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!--
     <div v-if="loading" class="container">
       <div class="row">
         <div class="col-md-9">
@@ -30,6 +38,7 @@
         </div>
       </div>
     </div>
+    -->
     <!-- /loading -->
     <!-- page content -->
     <div v-else
@@ -49,35 +58,13 @@
           ></div>
         </div>
       </div>
-
-      <!-- pagination -->
-      <!--
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <nuxt-link
-              class="page-link"
-              :to="`/blog`"
-              tabindex="-1"
-            >
-              Voltar para lista
-            </nuxt-link>
-          </li>
-        </ul>
-      </nav>
-      -->
-      <!-- /pagination -->
     </div>
-    <!-- page content -->
-    <!--<pagination></pagination>-->
   </section>
 </template>
 
 <script>
-  import Pagination from '~/components/Pagination.vue'
   export default {
     name: 'slug',
-    components: { Pagination },
     data() {
       return {
         post: [],

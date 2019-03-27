@@ -1,7 +1,7 @@
 <template>
   <section class="page">
     <!-- loading -->
-    <div v-if="loading"  class="loading-content">
+    <div v-if="loading" class="loading-content">
       <div class="clear-loading loading-effect-1">
         <span></span>
         <span></span>
@@ -9,7 +9,6 @@
       </div>
     </div>
     <!-- /loading -->
-
     <!-- content -->
     <div v-else
          v-for="item in page"
@@ -41,7 +40,6 @@
           </div>
         </div>
       </div>
-
       <!-- page content -->
       <div class="second-content"
            :style="{ backgroundImage: `url(${item.acf.image_bg_content})` }"
@@ -101,7 +99,7 @@
           { hid: 'description', name: 'description', content: this.description }
         ]
       }
-    }
+    },
   }
 </script>
 
