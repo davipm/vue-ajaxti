@@ -51,6 +51,7 @@
       </div>
 
       <!-- pagination -->
+      <!--
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item">
@@ -64,6 +65,7 @@
           </li>
         </ul>
       </nav>
+      -->
       <!-- /pagination -->
     </div>
     <!-- page content -->
