@@ -227,7 +227,6 @@
       margin-top: 20px;
       color: #FFF;
     }
-
     &-item:nth-child(2) &-link { margin-top: 0; }
   }
 
@@ -235,14 +234,12 @@
     display: block;
     position: relative;
     border-top: 2px solid #FFF;
-
     &-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 40px;
     }
-
     &-title {
       margin-top: 10px;
       margin-bottom: 10px;

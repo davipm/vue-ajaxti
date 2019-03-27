@@ -59,7 +59,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#FF0000' },
+  loading: { color: '#EB6B1E' },
 
   /*
   ** Forcing the scroll position to the top for every route
@@ -109,6 +109,31 @@ module.exports = {
 
   // generate blog routes
   generate: {
+    routes: function (callback) {
+      axios.all([
+        axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/posts'),
+        axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/categories'),
+        axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/pages'),
+      ])
+        .then(axios.spread(function (posts, categories, pages) {
+          let routes1 = posts.data.map((post) => {
+            return '/blog/' + post.slug
+          });
+
+          let routes2 = categories.data.map((category) => {
+            return '/blog/categories/' + category.slug
+          });
+
+          let routes3 = pages.data.map((pages) => {
+            return '/' + pages.slug
+          });
+
+          callback(null, routes1.concat(routes2).concat(routes3));
+        }), function(err) {
+          return next(err);
+        });
+    }
+    /*
     routes: [
       '/item-1',
       '/item-2',
@@ -122,6 +147,7 @@ module.exports = {
       '/blog/categories/uncategorized',
       '/blog/categories/wms',
     ],
+    */
     /*
     routes: function () {
       return axios

@@ -99,7 +99,7 @@
     methods: {
       async getPost( slug ) {
         await this.$axios
-          .$get(`/wp/v2/posts?slug=${slug}`)
+          .$get(`/wp/v2/pages?slug=${slug}`)
           .then((res) => { this.post = res; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });

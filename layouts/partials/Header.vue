@@ -104,8 +104,15 @@
                 {{ item.title }}
               </nuxt-link>
               <!-- sub menu -->
-              <ul class="subnav" v-if="item.ID === 23">
-                <li class="subnav-item" v-for="(item, index) in subMenu" :key="index">
+              <ul
+                class="subnav"
+                v-if="item.title === 'SOLUÇÕES'"
+              >
+                <li
+                  class="subnav-item"
+                  v-for="(item, index) in subMenu"
+                  :key="index"
+                >
                   <nuxt-link :to="`${item.url}`" class="subnav-link">
                     {{ item.title }}
                   </nuxt-link>
@@ -114,6 +121,7 @@
               <!-- /sub menu -->
             </li>
           </ul>
+          <!-- /menu -->
         </div>
         <div class="search-content">
           <button class="btn btn-search" @click="showSearch">
@@ -355,9 +363,7 @@
     background-color: #212934;
   }
 
-  .nav-item:hover > .subnav {
-    display: block;
-  }
+  .nav-item:hover > .subnav { display: block; }
 
   .navbar-brand {
     width: 260px;
