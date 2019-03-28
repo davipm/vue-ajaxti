@@ -18,6 +18,7 @@
   import Footer from './partials/Footer.vue'
   import BackToTop from '@/components/BackToTop.vue'
   export default {
+    name: 'LayoutDefault',
     components: {
       Header,
       Footer,

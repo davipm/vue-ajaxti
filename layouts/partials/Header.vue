@@ -133,16 +133,18 @@
     <!-- menu mobile -->
     <NavMobile/>
     <!-- search form -->
-    <div class="search-box shadow"
-         :class="{ 'show-search': isVisible }"
+    <div
+      class="search-box shadow"
+      :class="{ 'show-search': isVisible }"
     >
       <form class="form">
-        <input v-model="search"
-               type="text"
-               class="form-control"
-               placeholder="Pesquisar"
-               ref="search"
-               autofocus
+        <input
+          v-model="search"
+          type="text"
+          class="form-control"
+          placeholder="Pesquisar"
+          ref="search"
+          autofocus
         >
         <button @click.prevent="getSearch" class="button-search">
           <i class="fas fa-search"></i>
@@ -236,7 +238,6 @@
     padding: 0;
     margin: 0;
     list-style: none;
-
     &-link {
       display: inline-block;
       width: 27px;
@@ -259,13 +260,11 @@
     padding: 0;
     list-style: none;
     color: #FFF;
-
     &-icon {
       font-size: 1rem;
       margin-right: 5px;
       color: #4E5661;
     }
-
     &-item {
       display: flex;
       align-items: center;
@@ -276,11 +275,8 @@
     .mailto {
       text-decoration: none;
       color: #FFF;
-      &:hover {
-        text-decoration: underline;
-      }
+      &:hover { text-decoration: underline; }
     }
-
     @media (max-width: 768px) { display: none; }
   }
 
