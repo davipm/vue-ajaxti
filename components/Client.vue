@@ -89,7 +89,7 @@
     name: 'Client',
     data() {
       return {
-        title: 'Testimonials',
+        title: 'Nossos Clientes',
         loading: true,
         error: false,
         clients: [],
