@@ -15,12 +15,14 @@
          :key="item.id"
     >
       <div class="wrap">
-        <div class="first-content"
-             :style="{ backgroundImage: `url(${item.acf.image_bg})` }"
+        <div
+          class="first-content"
+          :style="{ backgroundImage: `url(${item.acf.image_bg})` }"
         >
           <div class="container-fluid">
-            <div class="text-top-right"
-                 v-html="item.acf.text_top_right"
+            <div
+              class="text-top-right"
+              v-html="item.acf.text_top_right"
             ></div>
             <div class="content-bottom">
               <!-- title page -->
@@ -33,19 +35,22 @@
                 </h5>
               </div>
               <!-- content bottom -->
-              <div class="know-more"
-                   v-html="item.acf.text_bottom_right"
+              <div
+                class="know-more"
+                v-html="item.acf.text_bottom_right"
               ></div>
             </div>
           </div>
         </div>
       </div>
       <!-- page content -->
-      <div class="second-content"
-           :style="{ backgroundImage: `url(${item.acf.image_bg_content})` }"
+      <div
+        class="second-content"
+        :style="{ backgroundImage: `url(${item.acf.image_bg_content})` }"
       >
-        <div class="container"
-             v-html="item.content.rendered"
+        <div
+          class="container"
+          v-html="item.content.rendered"
         ></div>
       </div>
     </div>

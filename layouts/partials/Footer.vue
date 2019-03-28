@@ -50,9 +50,10 @@
                   <li class="footer-nav-item footer-nav-title">
                     SOLUÇÕES
                   </li>
-                  <li class="footer-nav-item"
-                      v-for="(menu, index) in solution"
-                      :key="index"
+                  <li
+                    class="footer-nav-item"
+                    v-for="(menu, index) in solution"
+                    :key="index"
                   >
                     <nuxt-link :to="menu.url" class="footer-nav-link">
                       {{ menu.post_title }}
@@ -68,9 +69,10 @@
                   <li class="footer-nav-item footer-nav-title">
                     INFORMAÇÕES
                   </li>
-                  <li v-for="(menu, index) in information"
-                      :key="index"
-                      class="footer-nav-item"
+                  <li
+                    v-for="(menu, index) in information"
+                    :key="index"
+                    class="footer-nav-item"
                   >
                     <nuxt-link :to="menu.url" class="footer-nav-link">
                       {{ menu.post_title }}
@@ -86,9 +88,10 @@
                   <li class="footer-nav-item footer-nav-title">
                     SOBRE
                   </li>
-                  <li v-for="(menu, index) in about"
-                      :key="index"
-                      class="footer-nav-item"
+                  <li
+                    v-for="(menu, index) in about"
+                    :key="index"
+                    class="footer-nav-item"
                   >
                     <nuxt-link :to="menu.url" class="footer-nav-link">
                       {{ menu.post_title }}
@@ -106,12 +109,14 @@
               {{ newsletterTitle }}
             </h5>
             <div class="form-group">
-              <input type="text"
-                     class="form-control"
-                     placeholder="Enter email address"
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter email address"
               >
-              <button type="submit"
-                      class="btn btn-secondary"
+              <button
+                type="submit"
+                class="btn btn-secondary"
               >
                 <i class="fas fa-angle-right"></i>
               </button>
