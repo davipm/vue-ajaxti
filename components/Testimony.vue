@@ -9,7 +9,10 @@
       <div class="section-content">
         <!-- no ssr -->
         <no-ssr>
-          <carousel :items="1">
+          <carousel :items="1" :nav="false" :autoplay="true">
+            <template slot="prev">
+              <span class="prev"><i class="fas fa-chevron-left"></i></span>
+            </template>
             <div
               v-for="(item, index) in items"
               :key="index"
@@ -26,6 +29,9 @@
                 <h6 class="mt-0"> {{ item.job }} </h6>
               </div>
             </div>
+            <template slot="next">
+              <span class="next"><i class="fas fa-chevron-right"></i></span>
+            </template>
           </carousel>
         </no-ssr>
         <!-- /no ssr -->
@@ -102,11 +108,60 @@
     text-align: center;
   }
 
+  .section-content {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
   // carousel
   .owl-carousel .owl-item img {
     display: inline-block;
     width: 150px;
     height: 150px;
     border-radius: 50%;
+  }
+
+  .owl-theme .owl-nav {
+    display: none;
+  }
+
+  .prev {
+    position: absolute;
+    display: inline-block;
+    padding: 5px 20px;
+    top: 50%;
+    left: -5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transform: translateY(-80%);
+    -webkit-transition: all .15s ease-in-out;
+    -moz-transition: all .15s ease-in-out;
+    -ms-transition: all .15s ease-in-out;
+    -o-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    &:hover {
+      font-size: 2.5rem;
+    }
+  }
+
+  .next {
+    position: absolute;
+    display: inline-block;
+    padding: 5px 20px;
+    top: 50%;
+    right: -5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transform: translateY(-80%);
+    -webkit-transition: all .15s ease-in-out;
+    -moz-transition: all .15s ease-in-out;
+    -ms-transition: all .15s ease-in-out;
+    -o-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    &:hover {
+      font-size: 2.5rem;
+    }
   }
 </style>

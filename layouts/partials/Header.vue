@@ -416,7 +416,10 @@
     }
   }
 
-  .line { padding: 16px 55px; }
+  .line {
+    padding: 16px 55px;
+    border-radius: 5px;
+  }
 
   @-webkit-keyframes fadeInFromNone {
     0% {

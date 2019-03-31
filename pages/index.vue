@@ -13,7 +13,7 @@
   import Solution from '@/components/Solution.vue'
   import Products from '@/components/Products.vue'
   import Client from '@/components/Client.vue'
-  import Testimony from '../components/Testimony.vue'
+  import Testimony from '@/components/Testimony.vue'
   export default {
     components: {
       Video,

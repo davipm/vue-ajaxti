@@ -1,7 +1,48 @@
 <template>
-  <section class="section products" v-if="!loading">
+  <section class="section products">
     <div class="container">
+      <!-- products loading -->
+      <div v-if="loading" class="products-loading">
+        <div class="products-item">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="shine line line-title"></div>
+              <div class="shine line line-title"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="shine box"></div>
+            </div>
+          </div>
+        </div>
+        <div class="products-item">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="shine box"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="shine line line-title"></div>
+              <div class="shine line line-title"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /products loading -->
       <div
+        v-else
         v-for="(item, index) in products"
         :key="index"
         class="products-item"
@@ -144,5 +185,17 @@
       background-color: #7B451A;
       box-shadow: 0 5px#FF6B3A;
     }
+  }
+
+  // loading
+  .line-title {
+    height: 2.5rem;
+    border-radius: 5px;
+  }
+
+  .box {
+    height: 450px;
+    border-radius: 5px;
+    background-size: 800px 450px;
   }
 </style>
