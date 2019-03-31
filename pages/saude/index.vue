@@ -10,9 +10,10 @@
     </div>
     <!-- /loading -->
     <!-- content -->
-    <div v-else
-         v-for="item in page"
-         :key="item.id"
+    <div
+      v-else
+      v-for="item in page"
+      :key="item.id"
     >
       <div class="wrap">
         <div

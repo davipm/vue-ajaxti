@@ -5,7 +5,6 @@
       <h3 class="title">
         {{ title }}
       </h3>
-
       <!-- loading client -->
       <div v-if="loading" class="loading">
         <div class="row">
@@ -65,16 +64,18 @@
       <div v-else class="client-content">
         <div class="row">
           <!-- client item -->
-          <div v-for="client in clients"
-               :key="client.id"
-               class="col-md-2"
+          <div
+            v-for="client in clients"
+            :key="client.id"
+            class="col-md-2"
           >
             <!-- client img -->
             <div class="client-item">
-              <img :src="client.icon"
-                   :alt="client.title"
-                   :title="client.title"
-                   class="client-img"
+              <img
+                :src="client.icon"
+                :alt="client.title"
+                :title="client.title"
+                class="client-img"
               >
             </div>
           </div>
@@ -117,14 +118,12 @@
     display: block;
     position: relative;
     padding: 30px 0;
-
     &-item {
       display: flex;
       justify-content: center;
       height: 85px;
       margin-bottom: 55px;
     }
-
     &-img {
       width: 100%;
       height: auto;
