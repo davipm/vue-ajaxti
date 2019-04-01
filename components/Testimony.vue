@@ -1,5 +1,5 @@
 <template>
-  <section class="section testimony" v-if="!loading">
+  <section class="section testimony" v-if="items.length">
     <div class="container">
       <!-- header -->
       <h3 class="title">
@@ -9,7 +9,7 @@
       <div class="section-content">
         <!-- no ssr -->
         <no-ssr>
-          <carousel :items="1" :nav="false" :autoplay="true">
+          <carousel :items="1" :nav="false" :autoplay="false">
             <template slot="prev">
               <span class="prev"><i class="fas fa-chevron-left"></i></span>
             </template>
@@ -19,14 +19,14 @@
               class="media"
             >
               <img
-                :src="item.img"
+                :src="item.image.sizes.thumbnail"
                 class="align-self-center media-img mr-3"
-                alt="..."
+                :alt="item.title"
               >
               <div class="media-body">
                 <div v-html="item.text"></div>
-                <h5 class="mt-0 mb-0">{{ item.name }}</h5>
-                <h6 class="mt-0"> {{ item.job }} </h6>
+                <h5 class="mt-0 mb-0">{{ item.title }}</h5>
+                <h6 class="mt-0">{{ item.job }}</h6>
               </div>
             </div>
             <template slot="next">
@@ -48,60 +48,20 @@
         title: 'Depoimentos',
         error: false,
         loading: true,
-        items: [
-          {
-            name: 'Nome da pessoa',
-            job: 'Developer',
-            img: 'https://via.placeholder.com/150x150',
-            alt: '',
-            text: `
-              <p>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                    scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                    vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-                    nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </p>
-                  <p class="mb-0">
-                    Donec sed odio dui. Nullam quis risus eget
-                    urna mollis ornare vel eu leo. Cum sociis
-                    natoque penatibus et magnis dis parturient montes,
-                    nascetur ridiculus mus.
-                  </p>
-            `
-          },
-          {
-            name: 'Nome da pessoa',
-            job: 'Design',
-            img: 'https://via.placeholder.com/150x150',
-            alt: '',
-            text: `
-              <p>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                    scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                    vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-                    nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                  </p>
-                  <p class="mb-0">
-                    Donec sed odio dui. Nullam quis risus eget
-                    urna mollis ornare vel eu leo. Cum sociis
-                    natoque penatibus et magnis dis parturient montes,
-                    nascetur ridiculus mus.
-                  </p>
-            `
-          },
-        ]
+        items: [],
       }
     },
-
-    created() {
-      setInterval(() => {
-        this.loading = false;
-      }, 2000);
-    },
-
+    created() { this.getTestimony(); },
     methods: {
-      getTestimony() {
-
+      async getTestimony() {
+        await this.$axios
+          .$get('/api/v1/testimony')
+          .then((res) => {
+            let obj = res;
+            this.items = Object.keys(obj).map(function (key) { return [obj[key]][0]; });
+          })
+          .catch((error) => { this.error = true; })
+          .finally(() => { this.loading = false; })
       }
     }
   }
