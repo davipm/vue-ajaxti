@@ -1,5 +1,5 @@
 <template>
-  <section class="section testimony">
+  <section class="section testimony" v-if="!loading">
     <div class="container">
       <!-- header -->
       <h3 class="title">
@@ -46,9 +46,11 @@
     data() {
       return {
         title: 'Depoimentos',
+        error: false,
+        loading: true,
         items: [
           {
-            name: 'Davi Pereira',
+            name: 'Nome da pessoa',
             job: 'Developer',
             img: 'https://via.placeholder.com/150x150',
             alt: '',
@@ -68,8 +70,8 @@
             `
           },
           {
-            name: 'Titulo',
-            job: 'Desing',
+            name: 'Nome da pessoa',
+            job: 'Design',
             img: 'https://via.placeholder.com/150x150',
             alt: '',
             text: `
@@ -88,6 +90,18 @@
             `
           },
         ]
+      }
+    },
+
+    created() {
+      setInterval(() => {
+        this.loading = false;
+      }, 2000);
+    },
+
+    methods: {
+      getTestimony() {
+
       }
     }
   }
@@ -121,10 +135,6 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-  }
-
-  .owl-theme .owl-nav {
-    display: none;
   }
 
   .prev {
