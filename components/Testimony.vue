@@ -151,9 +151,7 @@
     -ms-transition: all .15s ease-in-out;
     -o-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
-    &:hover {
-      font-size: 2.5rem;
-    }
+    &:hover { font-size: 2.5rem; }
   }
 
   .next {
@@ -170,8 +168,6 @@
     -ms-transition: all .15s ease-in-out;
     -o-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
-    &:hover {
-      font-size: 2.5rem;
-    }
+    &:hover { font-size: 2.5rem; }
   }
 </style>
