@@ -19,7 +19,7 @@
         <li
           v-for="(item, index) in menus"
           :key="index"
-          v-if="item.ID !== 23"
+          v-if="item.title !== 'SOLUÇÕES'"
           @click="isActive = !isActive"
         >
           <nuxt-link :to="`${item.url}`">
@@ -157,6 +157,7 @@
         width: 100%;
         height: 100%;
         text-decoration: none;
+        text-transform: uppercase;
       }
     }
     .menu-button {
@@ -170,7 +171,7 @@
       display: block;
       &:after {
         opacity: 0;
-        top: 45px;
+        top: 0;
         content: "";
         width: 100vw;
         display: block;
@@ -217,7 +218,7 @@
         position: fixed;
         //transform: translateX(-405px);
         transition: transform 0.3s cubic-bezier(0,0,0.3,1);
-        top: 45px;
+        top: 0;
         z-index: 10;
         list-style-type: none;
         padding: 0;

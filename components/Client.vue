@@ -127,6 +127,7 @@
     &-img {
       width: 100%;
       height: auto;
+      @media (max-width: 576px) { width: 150px; }
     }
   }
 

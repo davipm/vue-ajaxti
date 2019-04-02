@@ -16,6 +16,7 @@
             <div
               v-for="(item, index) in items"
               :key="index"
+              :title="item.title"
               class="media"
             >
               <img
@@ -95,6 +96,17 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
+  }
+
+  @media (max-width: 756px) {
+    .media {
+      display: block;
+      position: relative;
+      &-img {
+        display: block!important;
+        margin: auto!important;
+      }
+    }
   }
 
   .prev {

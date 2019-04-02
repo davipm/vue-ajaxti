@@ -71,11 +71,7 @@
         loading: true,
       }
     },
-
-    created() {
-      this.pageHealth();
-    },
-
+    created() { this.pageHealth(); },
     methods: {
       async pageHealth() {
         await this.$axios

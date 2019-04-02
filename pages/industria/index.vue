@@ -8,19 +8,21 @@
         <span></span>
       </div>
     </div>
-
     <!-- content -->
-    <div v-else
-         v-for="item in page"
-         :key="item.id"
+    <div
+      v-else
+      v-for="item in page"
+      :key="item.id"
     >
       <div class="wrap">
-        <div class="first-content"
-             :style="{ backgroundImage: `url(${item.acf.image_bg})`}"
+        <div
+          class="first-content"
+          :style="{ backgroundImage: `url(${item.acf.image_bg})`}"
         >
           <div class="container-fluid">
-            <div class="text-top-right"
-                 v-html="item.acf.text_top_right"
+            <div
+              class="text-top-right"
+              v-html="item.acf.text_top_right"
             ></div>
             <div class="content-bottom">
               <div class="title">
@@ -31,27 +33,29 @@
                   {{ item.acf.second_title }}
                 </h5>
               </div>
-              <div class="know-more"
-                   v-html="item.acf.text_bottom_right"
+              <div
+                class="know-more"
+                v-html="item.acf.text_bottom_right"
               ></div>
             </div>
           </div>
         </div>
       </div>
-
       <!-- page content cards -->
       <div class="page-content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-3"
-                 v-for="(card, index) in item.acf.crards"
-                 :key="index"
+            <div
+              v-for="(card, index) in item.acf.crards"
+              :key="index"
+              class="col-md-3"
             >
               <div class="card">
                 <div class="image-wrap">
-                  <img :src="card.card_image"
-                       :alt="card.title"
-                       class="img-fluid"
+                  <img
+                    :src="card.card_image"
+                    :alt="card.title"
+                    class="img-fluid"
                   >
                 </div>
                 <div class="card-body">
@@ -77,11 +81,7 @@
         loading: true,
       }
     },
-
-    created() {
-      this.pageIndustria();
-    },
-
+    created() { this.pageIndustria(); },
     methods: {
       async pageIndustria() {
         await this.$axios

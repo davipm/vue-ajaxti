@@ -155,6 +155,13 @@
       text-align: center;
       @media (max-width: 576px) { margin-bottom: 20px; }
     }
+    &::after {
+      content: '';
+      display: block;
+      position: relative;
+      height: 50px;
+      background-color: #FF6B3A;
+    }
   }
 
   .btn {
