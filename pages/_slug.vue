@@ -89,6 +89,8 @@
         post: [],
         loading: true,
         error: false,
+        title: '',
+        description: '',
       }
     },
 
@@ -108,7 +110,11 @@
       async getPost( slug ) {
         await this.$axios
           .$get(`/wp/v2/pages?slug=${slug}`)
-          .then((res) => { this.post = res;})
+          .then((res) => {
+            this.post = res;
+            this.title = this.post[0].title.rendered;
+            this.description = this.post[0].excerpt.rendered;
+          })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });
       },
@@ -116,7 +122,7 @@
 
     head () {
       return {
-        title: `${this.title} - AjaxTI`,
+        title: `${ this.title } - AjaxTI`,
         meta: [
           { hid: 'description', name: 'description', content: this.description }
         ]
@@ -138,9 +144,7 @@
     }
   }
 
-  .page-content {
-    padding: 60px 0;
-  }
+  .page-content { padding: 60px 0; }
 
   .box {
     width: 50%;

@@ -27,6 +27,7 @@
               </h5>
             </div>
             <div
+              v-if="textBottom"
               v-html="textBottom"
               class="know-more"
             ></div>
@@ -38,12 +39,14 @@
       <div class="container">
         <!-- title -->
         <div
+          v-if="titleContent"
           v-html="titleContent"
           id="outsorcing"
         ></div>
         <!-- grid -->
         <div class="row">
           <div
+            v-if="cards"
             v-for="(card, index) in cards"
             :key="index"
             class="col-md-3"
