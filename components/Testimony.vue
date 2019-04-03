@@ -9,7 +9,7 @@
       <div class="section-content">
         <!-- no ssr -->
         <no-ssr>
-          <carousel :items="1" :nav="false" :autoplay="false">
+          <carousel :items="1" :nav="false" :autoplay="true">
             <template slot="prev">
               <span class="prev"><i class="fas fa-chevron-left"></i></span>
             </template>
