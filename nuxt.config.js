@@ -4,7 +4,6 @@ axios.defaults.baseURL = 'https://ajaxwebapp.azurewebsites.net/wp-json';
 
 module.exports = {
   mode: 'universal',
-
   /*
   ** Headers of the page
   */
@@ -24,23 +23,24 @@ module.exports = {
       {property: 'og:type', content: 'website'},
       // Should the the same as your canonical link, see below.
       {property: 'og:url', content: 'https://ajaxtiwp.netlify.com'},
-      {property: 'og:image', content: 'https://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/03/stok.png'},
+      {property: 'og:image', content: 'http://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/04/logo.svg'},
       // Often the same as your meta description, but not always.
       {property: 'og:description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
 
       // Twitter card
-      {name: 'twitter:card', content: 'summary'},
+      {name: 'twitter:card', content: 'summary_large_image'},
       {name: 'twitter:site', content: 'https://ajaxtiwp.netlify.com'},
-      {name: 'twitter:title', content: 'Ajax Tecnologia & Inovação'},
+      {name: 'twitter:url', content: 'https://ajaxtiwp.netlify.com'},
+      {name: 'twitter:title', content: 'AjaxTI'},
       {name: 'twitter:description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
       // Your twitter handle, if you have one.
       {name: 'twitter:creator', content: '@davipmdev'},
-      {name: 'twitter:image:src', content: 'https://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/03/stok.png'},
+      {name: 'twitter:image:src', content: 'http://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/04/logo.svg'},
 
       // Google / Schema.org markup:
       {itemprop: 'name', content: 'Ajax Tecnologia & Inovação'},
       {itemprop: 'description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
-      {itemprop: 'image', content: 'https://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/03/stok.png'}
+      {itemprop: 'image', content: 'http://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/04/logo.svg'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
@@ -50,7 +50,8 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400,500' },
     ],
     script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.8/SmoothScroll.min.js' },
+      //{ src: 'https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.8/SmoothScroll.min.js' },
+      { src: 'https://smoothscroll.surge.sh/davidScrool.min.js' },
       { src: '//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js' },
       { src: '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js' },
     ]
@@ -135,40 +136,6 @@ module.exports = {
           return next(err);
         });
     }
-    /*
-    routes: [
-      '/item-1',
-      '/item-2',
-      '/item-3',
-      '/search',
-      '/blog/blog-2',
-      '/blog/hello-world',
-      '/blog/saude',
-      '/blog/categories/industria-4-0',
-      '/blog/categories/saude',
-      '/blog/categories/uncategorized',
-      '/blog/categories/wms',
-    ],
-    */
-    /*
-    routes: function () {
-      return axios
-        .get('/wp/v2/categories')
-        .then((res) => {
-          return res.data.map((blog) => {
-            return `/blog/categories/${blog.slug}`;
-          });
-        });
-
-      return axios
-        .get('/wp/v2/posts')
-        .then((res) => {
-          return res.data.map((blog) => {
-            return `/blog/${blog.slug}`;
-          });
-        })
-    },
-    */
   },
 
   /*

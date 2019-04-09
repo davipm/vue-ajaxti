@@ -11,6 +11,7 @@
     <!-- /loading -->
 
     <!-- page content -->
+    <!-- layout industria -->
     <page-ind
       v-for="item in post"
       :key="item.id"
@@ -23,6 +24,7 @@
       v-if="post[0].acf.layout === 'layoutInd'"
     ></page-ind>
 
+    <!-- layout outsourcing -->
     <page-out
       v-for="item in post"
       :key="item.id"
@@ -36,6 +38,7 @@
       v-if="post[0].acf.layout === 'layoutOut'"
     ></page-out>
 
+    <!-- layout saude -->
     <page-saude
       v-for="item in post"
       :key="item.id"
@@ -57,10 +60,13 @@
       class="container page-content"
     >
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
           <div class="page-header">
+            <h3 class="single-title mb-0">
+              {{  item.title.rendered  }}
+            </h3>
             <h3 class="single-title">
-              {{ item.title.rendered }}
+              {{  item.acf.subtitle }}
             </h3>
           </div>
           <div
@@ -149,5 +155,12 @@
   .box {
     width: 50%;
     height: 40px;
+  }
+
+  @media (max-width: 576px) {
+    .single {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
   }
 </style>
