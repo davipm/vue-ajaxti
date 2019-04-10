@@ -62,10 +62,10 @@
       <div class="row">
         <div class="col-md-12">
           <div class="page-header">
-            <h3 class="single-title mb-0">
+            <h3 class="single-title">
               {{  item.title.rendered  }}
             </h3>
-            <h3 class="single-title">
+            <h3 class="single-title single-subtitle">
               {{  item.acf.subtitle }}
             </h3>
           </div>
@@ -144,9 +144,13 @@
     padding: 0;
     min-height: 60vh;
     &-title {
-      margin-bottom: 40px;
+      margin-bottom: 0;
       font-weight: 300;
       text-transform: uppercase;
+    }
+    &-subtitle {
+      margin-bottom: 40px;
+      font-size: 1.3rem;
     }
   }
 
