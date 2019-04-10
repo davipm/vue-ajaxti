@@ -104,6 +104,13 @@
         </div>
         <!-- newsletter form -->
         <div class="col-md-12 col-lg-3">
+          <address class="footer-address">
+            <h5 class="address-title">ONDE ESTAMOS</h5>
+            <p class="address-text">Av Senador Virgílio Távora, 1500, Salas 503 e 903</p>
+            <p class="address-text">Aldeota, Fortaleza - CE</p>
+            <p class="address-text">60.170-078</p>
+          </address>
+          <!--
           <div class="subscribe">
             <h5 class="subscribe-title">
               {{ newsletterTitle }}
@@ -122,6 +129,7 @@
               </button>
             </div>
           </div>
+          -->
         </div>
       </div>
     </div>
@@ -233,6 +241,12 @@
       color: #FFF;
     }
     &-item:nth-child(2) &-link { margin-top: 0; }
+  }
+
+  // address
+  .address-text {
+    margin-bottom: 5px;
+    font-size: .9rem;
   }
 
   .footer-bottom {
