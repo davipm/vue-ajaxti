@@ -115,8 +115,8 @@ module.exports = {
       ];
       axios.all([
         axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/posts'),
-        axios.get('http://cms.ajaxti.com.br/wp-json/wp-json/wp/v2/categories'),
-        axios.get('http://cms.ajaxti.com.br/wp-json/wp-json/wp/v2/pages'),
+        axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/categories'),
+        axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/pages'),
       ])
         .then(axios.spread(function (posts, categories, pages) {
           let routes1 = posts.data.map((post) => {
