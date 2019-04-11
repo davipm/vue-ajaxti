@@ -8,7 +8,7 @@
       class="video-content"
     >
       <source
-        src="http://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/03/ajaxti-video.mp4"
+        :src="url"
         type="video/mp4"
       >
       Your browser does not support HTML5 video.
@@ -19,6 +19,28 @@
 <script>
   export default {
     name: 'VideoComponent',
+    data() {
+      return {
+        url: 'http://cms.ajaxti.com.br/wp-content/uploads/2019/03/ajaxti-video.mp4',
+      }
+    },
+
+    mounted() {
+      this.getVideo();
+    },
+
+    methods: {
+      async getVideo() {
+        await this.$nextTick(function () {
+          this.$axios
+            .$get('/api/v1/video')
+            .then((res) => {
+              this.url = res['ajax-video'].icon.url;
+              console.log(res);
+            })
+        });
+      }
+    }
   }
 </script>
 
