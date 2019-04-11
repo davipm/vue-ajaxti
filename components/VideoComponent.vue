@@ -36,7 +36,6 @@
             .$get('/api/v1/video')
             .then((res) => {
               this.url = res['ajax-video'].icon.url;
-              console.log(res);
             })
         });
       }

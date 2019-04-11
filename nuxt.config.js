@@ -31,7 +31,7 @@ module.exports = {
       {name: 'twitter:card', content: 'summary_large_image'},
       {name: 'twitter:site', content: 'http://www.ajaxti.com.br'},
       {name: 'twitter:url', content: 'http://www.ajaxti.com.br'},
-      {name: 'twitter:title', content: 'AjaxTI'},
+      {name: 'twitter:title', content: 'Ajax Tecnologia & Inovação'},
       {name: 'twitter:description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
       // Your twitter handle, if you have one.
       {name: 'twitter:creator', content: '@davipmdev'},
@@ -66,6 +66,7 @@ module.exports = {
   ** Forcing the scroll position to the top for every route
   */
   router: {
+    base: '/novo',
     scrollBehavior: function (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }

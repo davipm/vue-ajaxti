@@ -7,28 +7,31 @@
           <div class="links">
             <ul class="social">
               <li class="social-item">
-                <a href="https://twitter.com/ajaxti"
-                   rel="noopener noreferrer"
-                   target="_blank"
-                   class="social-link"
+                <a
+                  href="https://twitter.com/ajaxti"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  class="social-link"
                 >
                   <i class="fab fa-twitter"></i>
                 </a>
               </li>
               <li class="social-item">
-                <a href="https://www.facebook.com/ajaxti"
-                   rel="noopener noreferrer"
-                   target="_blank"
-                   class="social-link"
+                <a
+                  href="https://www.facebook.com/ajaxti"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  class="social-link"
                 >
                   <i class="fab fa-facebook-f"></i>
                 </a>
               </li>
               <li class="social-item">
-                <a href="https://www.instagram.com/ajax_ti/"
-                   rel="noopener noreferrer"
-                   target="_blank"
-                   class="social-link"
+                <a
+                  href="https://www.instagram.com/ajax_ti/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  class="social-link"
                 >
                   <i class="fab fa-instagram"></i>
                 </a>
@@ -70,7 +73,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <nuxt-link class="navbar-brand" to="/">
-          <img src="../../assets/img/logo.svg" class="img-fluid" alt="logo">
+          <img src="../../assets/img/logo.svg" alt="logo" title="AjaxTI" class="img-fluid">
         </nuxt-link>
         <div class="collapse navbar-collapse" id="navbarNav">
           <!-- menu loading -->

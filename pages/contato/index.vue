@@ -28,8 +28,9 @@
         <button type="submit" @submit="sendEmail" class="btn btn-primary btn-send">Enviar</button>
       </form>
       -->
-      <iframe src="http://cms.ajaxti.com.br/contato/"
-              frameborder="0"
+      <iframe
+        src="http://cms.ajaxti.com.br/contato/"
+        frameborder="0"
       ></iframe>
     </div>
   </section>

@@ -6,7 +6,7 @@
         <div class="col-md-12 col-lg-3 border-right">
           <div class="logo-footer">
             <nuxt-link to="/" class="logo-link">
-              <img src="../../assets/img/logo_branca.svg" alt="Logo Footer" class="img-fluid">
+              <img src="../../assets/img/logo_branca.svg" alt="Logo Footer" title="AjaxTI" class="img-fluid">
             </nuxt-link>
             <div class="social-footer">
               <ul class="social-list">
@@ -110,7 +110,7 @@
           <!--
           <div class="subscribe">
             <h5 class="subscribe-title">
-              {{ newsletterTitle }}
+              INSCREVA-SE
             </h5>
             <div class="form-group">
               <input
@@ -142,10 +142,10 @@
     <div class="footer-bottom">
       <div class="container-fluid footer-bottom-content">
         <h5 class="footer-bottom-title">
-          {{ footerTitle }}
+          Nós vamos além!
         </h5>
         <h5 class="footer-bottom-title">
-          {{ footerSecondTitle }}
+          Ajax Advanced Technological Solution. All Rights Reserved.
         </h5>
       </div>
     </div>
@@ -157,9 +157,6 @@
     name: 'Footer',
     data() {
       return {
-        newsletterTitle: 'INSCREVA-SE',
-        footerTitle: 'Nós vamos além!',
-        footerSecondTitle: 'Ajax Advanced Technological Solution. All Rights Reserved.',
         solution: [],
         information: [],
         about: [],
