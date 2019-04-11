@@ -11,28 +11,31 @@
             <div class="social-footer">
               <ul class="social-list">
                 <li class="social-item">
-                  <a href="https://twitter.com/ajaxti"
-                     rel="noopener noreferrer"
-                     target="_blank"
-                     class="social-link"
+                  <a
+                    href="https://twitter.com/ajaxti"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    class="social-link"
                   >
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li class="social-item">
-                  <a href="https://www.facebook.com/ajaxti"
-                     rel="noopener noreferrer"
-                     target="_blank"
-                     class="social-link"
+                  <a
+                    href="https://www.facebook.com/ajaxti"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    class="social-link"
                   >
                     <i class="fab fa-facebook-f"></i>
                   </a>
                 </li>
                 <li class="social-item">
-                  <a href="https://www.instagram.com/ajax_ti/"
-                     rel="noopener noreferrer"
-                     target="_blank"
-                     class="social-link"
+                  <a
+                    href="https://www.instagram.com/ajax_ti/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    class="social-link"
                   >
                     <i class="fab fa-instagram"></i>
                   </a>
@@ -104,12 +107,6 @@
         </div>
         <!-- newsletter form -->
         <div class="col-md-12 col-lg-3">
-          <address class="footer-address">
-            <h5 class="address-title">ONDE ESTAMOS</h5>
-            <p class="address-text">Av Senador Virgílio Távora, 1500, Salas 503 e 903</p>
-            <p class="address-text">Aldeota, Fortaleza - CE</p>
-            <p class="address-text">60.170-078</p>
-          </address>
           <!--
           <div class="subscribe">
             <h5 class="subscribe-title">
@@ -130,6 +127,14 @@
             </div>
           </div>
           -->
+          <!-- address -->
+          <address class="footer-address">
+            <h5 class="address-title">ONDE ESTAMOS</h5>
+            <p class="address-text">Av Senador Virgílio Távora, 1500</p>
+            <p class="address-text">Salas 503 e 903</p>
+            <p class="address-text">Aldeota, Fortaleza - CE</p>
+            <p class="address-text">60.170-078</p>
+          </address>
         </div>
       </div>
     </div>
@@ -137,10 +142,10 @@
     <div class="footer-bottom">
       <div class="container-fluid footer-bottom-content">
         <h5 class="footer-bottom-title">
-          Nós vamos além!
+          {{ footerTitle }}
         </h5>
         <h5 class="footer-bottom-title">
-          Ajax Advanced Technological Solution. All Rights Reserved.
+          {{ footerSecondTitle }}
         </h5>
       </div>
     </div>
@@ -153,6 +158,8 @@
     data() {
       return {
         newsletterTitle: 'INSCREVA-SE',
+        footerTitle: 'Nós vamos além!',
+        footerSecondTitle: 'Ajax Advanced Technological Solution. All Rights Reserved.',
         solution: [],
         information: [],
         about: [],

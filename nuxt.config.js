@@ -1,6 +1,6 @@
 const pkg = require('./package');
 import axios from 'axios';
-axios.defaults.baseURL = 'https://ajaxwebapp.azurewebsites.net/wp-json';
+axios.defaults.baseURL = 'http://cms.ajaxti.com.br/wp-json';
 
 module.exports = {
   mode: 'universal',
@@ -29,18 +29,18 @@ module.exports = {
 
       // Twitter card
       {name: 'twitter:card', content: 'summary_large_image'},
-      {name: 'twitter:site', content: 'https://ajaxtiwp.netlify.com'},
-      {name: 'twitter:url', content: 'https://ajaxtiwp.netlify.com'},
+      {name: 'twitter:site', content: 'http://www.ajaxti.com.br'},
+      {name: 'twitter:url', content: 'http://www.ajaxti.com.br'},
       {name: 'twitter:title', content: 'AjaxTI'},
       {name: 'twitter:description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
       // Your twitter handle, if you have one.
       {name: 'twitter:creator', content: '@davipmdev'},
-      {name: 'twitter:image:src', content: 'http://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/04/logo.svg'},
+      {name: 'twitter:image:src', content: 'http://cms.ajaxti.com.br/wp-content/uploads/2019/04/logo.svg'},
 
       // Google / Schema.org markup:
       {itemprop: 'name', content: 'Ajax Tecnologia & Inovação'},
       {itemprop: 'description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
-      {itemprop: 'image', content: 'http://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/04/logo.svg'}
+      {itemprop: 'image', content: 'http://cms.ajaxti.com.br/wp-content/uploads/2019/04/logo.svg'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
@@ -94,7 +94,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     ['@nuxtjs/axios', {
-      baseURL: 'https://ajaxwebapp.azurewebsites.net/wp-json',
+      baseURL: 'http://cms.ajaxti.com.br/wp-json',
     }],
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
@@ -114,9 +114,9 @@ module.exports = {
         '/search',
       ];
       axios.all([
-        axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/posts'),
-        axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/categories'),
-        axios.get('https://ajaxwebapp.azurewebsites.net/wp-json/wp/v2/pages'),
+        axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/posts'),
+        axios.get('http://cms.ajaxti.com.br/wp-json/wp-json/wp/v2/categories'),
+        axios.get('http://cms.ajaxti.com.br/wp-json/wp-json/wp/v2/pages'),
       ])
         .then(axios.spread(function (posts, categories, pages) {
           let routes1 = posts.data.map((post) => {

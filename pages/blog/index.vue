@@ -96,7 +96,7 @@
 <script>
   import CardEffect from '~/components/CardEffect.vue'
   import axios from 'axios'
-  axios.defaults.baseURL = 'https://ajaxwebapp.azurewebsites.net/wp-json';
+  axios.defaults.baseURL = 'http://cms.ajaxti.com.br/wp-json';
   export default {
     components: { CardEffect },
     data() {

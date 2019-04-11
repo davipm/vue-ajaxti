@@ -28,7 +28,7 @@
         <button type="submit" @submit="sendEmail" class="btn btn-primary btn-send">Enviar</button>
       </form>
       -->
-      <iframe src="http://ajaxwebapp.azurewebsites.net/contato/"
+      <iframe src="http://cms.ajaxti.com.br/contato/"
               frameborder="0"
       ></iframe>
     </div>
