@@ -1,8 +1,9 @@
 <template>
-  <section class="section page">
+  <section class="page">
     <div class="container">
+      <h3 class="title">Contato</h3>
       <!--
-      <form>
+      <form @submit.prevent="sendEmail">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputEmail4">Email</label>
@@ -25,59 +26,57 @@
           <textarea v-model="form.message" name="message" required id="message" cols="30" rows="10" class="form-control"></textarea>
         </div>
 
-        <button type="submit" @submit="sendEmail" class="btn btn-primary btn-send">Enviar</button>
+        <button type="submit" class="btn btn-primary btn-send">Enviar</button>
       </form>
       -->
       <iframe
-        src="http://cms.ajaxti.com.br/contato/"
+        src="https://crunvik.000webhostapp.com/patrocinios-form/"
         frameborder="0"
+        class="form-contact"
+        @load="loading = !loading"
       ></iframe>
     </div>
   </section>
 </template>
 
 <script>
-  import axios from 'axios'
   export default {
     name: 'index',
     data() {
       return {
-        form: {
-          email: '',
-          name: '',
-          item: '',
-          message: '',
-        }
-      }
-    },
-
-    methods: {
-      sendEmail() {
-        let apiKey = '6fa5511f-fb0b-41a7-8372-d19f2e426d05';
-        axios.post(`https://api.elasticemail.com/v2/email/send?apikey=${apiKey}&subject=${form.item}&from=&fromName=&sender=&senderName=&msgFrom=&msgFromName=&replyTo=&replyToName=&to=davi.p.m94@gmail.com&msgTo=&msgCC=&msgBcc=&lists=&segments=&mergeSourceFilename=&dataSource=&channel=&bodyHtml=&bodyText=&charset=&charsetBodyHtml=&charsetBodyText=&encodingType=&template=&headers_firstname=firstname: myValueHere&postBack=&merge_firstname=John&timeOffSetMinutes=&poolName=My Custom Pool&isTransactional=false&attachments=&trackOpens=true&trackClicks=true&utmSource=source1&utmMedium=medium1&utmCampaign=campaign1&utmContent=content1`)
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((res) => {
-            console.log(res);
-          })
+        loading: true,
       }
     }
   }
 </script>
 
+<style scoped lang="scss">
+  .page {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding-top: 60px;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+</style>
+
 <style lang="scss">
-  iframe {
+  .form-contact {
     display: block;
     position: relative;
     width: 100%;
-    height: 570px;
+    height: 700px;
     border: none;
     @media (max-width: 768px) {
-      height: 710px;
+      height: 810px;
     }
     @media (max-width: 576px) {
-      height: 750px;
+      height: 832px;
     }
   }
 

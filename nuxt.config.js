@@ -22,8 +22,8 @@ module.exports = {
       // The list of types is available here: http://ogp.me/#types
       {property: 'og:type', content: 'website'},
       // Should the the same as your canonical link, see below.
-      {property: 'og:url', content: 'https://ajaxtiwp.netlify.com'},
-      {property: 'og:image', content: 'http://ajaxwebapp.azurewebsites.net/wp-content/uploads/2019/04/logo.svg'},
+      {property: 'og:url', content: 'http://www.ajaxti.com.br'},
+      {property: 'og:image', content: 'http://cms.ajaxti.com.br/wp-content/uploads/2019/04/logo.svg'},
       // Often the same as your meta description, but not always.
       {property: 'og:description', content: 'Empresa de desenvolvimento de software, integradora de sistemas ERP.'},
 

@@ -6,7 +6,12 @@
         <div class="col-md-12 col-lg-3 border-right">
           <div class="logo-footer">
             <nuxt-link to="/" class="logo-link">
-              <img src="../../assets/img/logo_branca.svg" alt="Logo Footer" title="AjaxTI" class="img-fluid">
+              <img
+                src="../../assets/img/logo_branca.svg"
+                alt="Logo Footer"
+                title="AjaxTI"
+                class="img-fluid"
+              >
             </nuxt-link>
             <div class="social-footer">
               <ul class="social-list">
