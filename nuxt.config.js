@@ -66,7 +66,7 @@ module.exports = {
   ** Forcing the scroll position to the top for every route
   */
   router: {
-    base: '/novo',
+    //base: '/novo',
     scrollBehavior: function (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
@@ -100,12 +100,54 @@ module.exports = {
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
     '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  // sitemap config
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'http://www.ajaxti.com.br',
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: true, // Enable me when using nuxt generate
+    exclude: [
+      '/secret',
+      '/admin/**'
+    ],
+    routes (callback) {
+      let staticPages = [
+        '/search',
+      ];
+      axios.all([
+        axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/posts'),
+        axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/categories'),
+        axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/pages'),
+      ])
+        .then(axios.spread(function (posts, categories, pages) {
+          let routes1 = posts.data.map((post) => {
+            return `/blog/${post.slug}`;
+          });
+
+          let routes2 = categories.data.map((category) => {
+            return `/blog/categories/${category.slug}`;
+          });
+
+          let routes3 = pages.data.map((pages) => {
+            return `/${pages.slug}`;
+          });
+
+          callback(null, routes1.concat(routes2).concat(routes3).concat(staticPages));
+        }), function(err) {
+          return next(err);
+        });
+    }
+
   },
 
   // generate blog routes
