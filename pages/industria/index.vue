@@ -1,7 +1,7 @@
 <template>
   <section class="page">
     <!-- loading -->
-    <div v-if="loading"  class="loading-content">
+    <div v-if="loading" class="loading-content">
       <div class="clear-loading loading-effect-1">
         <span></span>
         <span></span>
