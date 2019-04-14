@@ -246,10 +246,3 @@
     }
   }
 </style>
-
-<style lang="scss">
-  .know-more a {
-    color: yellow;
-    text-decoration: underline;
-  }
-</style>

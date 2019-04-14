@@ -269,18 +269,3 @@
     }
   }
 </style>
-
-<style lang="scss">
-  #outsorcing .page-title {
-    margin-bottom: 40px;
-    text-align: center;
-    font-size: 2.1rem;
-    color: #EA071E;
-  }
-
-  #outsorcing .mark {
-    display: inline-block;
-    color: #F8880B;
-    background-color: transparent;
-  }
-</style>

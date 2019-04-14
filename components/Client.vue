@@ -118,12 +118,14 @@
     display: block;
     position: relative;
     padding: 30px 0;
+    // make Equal Height Columns
     &-item {
       display: flex;
       justify-content: center;
       height: 85px;
       margin-bottom: 55px;
     }
+    // responsive images
     &-img {
       width: 100%;
       height: auto;
