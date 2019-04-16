@@ -52,6 +52,7 @@
                   contato@ajaxti.com.br
                 </a>
               </li>
+              <!--
               <li class="contact-item">
                 <span class="contact-icon">
                   <i class="fas fa-comments"></i>
@@ -64,6 +65,7 @@
                 </span>
                  suporte
               </li>
+              -->
             </ul>
           </div>
         </div>

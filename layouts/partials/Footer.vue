@@ -101,7 +101,20 @@
                     :key="index"
                     class="footer-nav-item"
                   >
-                    <nuxt-link :to="menu.url" class="footer-nav-link">
+                    <!-- if is intranet -->
+                    <a
+                      v-if="menu.post_title === 'Intranet'"
+                      :href="menu.url"
+                      target="_blank"
+                      class="footer-nav-link"
+                    >
+                      {{ menu.post_title }}
+                    </a>
+                    <nuxt-link
+                      v-else
+                      :to="menu.url"
+                      class="footer-nav-link"
+                    >
                       {{ menu.post_title }}
                     </nuxt-link>
                   </li>
