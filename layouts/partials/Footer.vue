@@ -56,14 +56,17 @@
               <nav class="menu-footer">
                 <ul class="footer-nav">
                   <li class="footer-nav-item footer-nav-title">
-                    SOLUÇÕES
+                    {{ solution.name }}
                   </li>
                   <li
                     class="footer-nav-item"
-                    v-for="(menu, index) in solution"
+                    v-for="(menu, index) in solution.items"
                     :key="index"
                   >
-                    <nuxt-link :to="menu.url" class="footer-nav-link">
+                    <nuxt-link
+                      :to="menu.url"
+                      class="footer-nav-link"
+                    >
                       {{ menu.post_title }}
                     </nuxt-link>
                   </li>
@@ -75,14 +78,17 @@
               <nav class="menu-footer">
                 <ul class="footer-nav">
                   <li class="footer-nav-item footer-nav-title">
-                    INFORMAÇÕES
+                    {{ information.name }}
                   </li>
                   <li
-                    v-for="(menu, index) in information"
+                    v-for="(menu, index) in information.items"
                     :key="index"
                     class="footer-nav-item"
                   >
-                    <nuxt-link :to="menu.url" class="footer-nav-link">
+                    <nuxt-link
+                      :to="menu.url"
+                      class="footer-nav-link"
+                    >
                       {{ menu.post_title }}
                     </nuxt-link>
                   </li>
@@ -94,22 +100,21 @@
               <nav class="menu-footer">
                 <ul class="footer-nav">
                   <li class="footer-nav-item footer-nav-title">
-                    SOBRE
+                    {{ about.name }}
                   </li>
                   <li
-                    v-for="(menu, index) in about"
+                    v-for="(menu, index) in about.items"
                     :key="index"
                     class="footer-nav-item"
                   >
-                    <!-- if is intranet -->
                     <a
-                      v-if="menu.post_title === 'Intranet'"
                       :href="menu.url"
                       target="_blank"
                       class="footer-nav-link"
                     >
                       {{ menu.post_title }}
                     </a>
+                    <!--
                     <nuxt-link
                       v-else
                       :to="menu.url"
@@ -117,6 +122,7 @@
                     >
                       {{ menu.post_title }}
                     </nuxt-link>
+                    -->
                   </li>
                 </ul>
               </nav>
@@ -191,21 +197,21 @@
       async getMenuSolution() {
         await this.$axios
           .$get('/menus/v1/menus/footer_menu1')
-          .then((res) => { this.solution = res.items; })
+          .then((res) => { this.solution = res; })
           .catch(() => { this.error = true; });
       },
 
       async getMenuInformation() {
         await this.$axios
           .$get('/menus/v1/menus/footer_menu2')
-          .then((res) => { this.information = res.items; })
+          .then((res) => { this.information = res; })
           .catch(() => { this.error = true; });
       },
 
       async getMenuAbout() {
         await this.$axios
           .$get('/menus/v1/menus/footer_menu3')
-          .then((res) => { this.about = res.items; })
+          .then((res) => { this.about = res; })
           .catch(() => { this.error = true; });
       },
     },
@@ -311,6 +317,7 @@
     border-bottom-left-radius: 0;
   }
 
+  // mobile media
   @media (max-width: 768px) {
     .border-right { border-right: 0!important; }
   }

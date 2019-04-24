@@ -75,7 +75,12 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <nuxt-link class="navbar-brand" to="/">
-          <img src="../../assets/img/logo.svg" alt="logo" title="AjaxTI" class="img-fluid">
+          <img
+            src="../../assets/img/logo.svg"
+            alt="logo"
+            title="AjaxTI"
+            class="img-fluid"
+          >
         </nuxt-link>
         <div class="collapse navbar-collapse" id="navbarNav">
           <!-- menu loading -->
