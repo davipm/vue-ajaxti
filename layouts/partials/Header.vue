@@ -41,6 +41,7 @@
               <li class="contact-item">
                 <span class="contact-icon">
                   <i class="fas fa-phone"></i>
+                  <i class="fab fa-whatsapp"></i>
                 </span>
                  55 852180.2773
               </li>

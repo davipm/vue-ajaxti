@@ -156,6 +156,11 @@
             <h5 class="address-title">ONDE ESTAMOS</h5>
             <p class="address-text">Av Senador Virgílio Távora, 1500</p>
             <p class="address-text">Salas 503 e 903</p>
+            <p class="address-text">
+              <i class="fas fa-phone"></i>
+              <i class="fab fa-whatsapp"></i>
+              55+ 852180.2773
+            </p>
             <p class="address-text">Aldeota, Fortaleza - CE</p>
             <p class="address-text">60.170-078</p>
           </address>
