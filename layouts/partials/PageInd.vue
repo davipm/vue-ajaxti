@@ -8,6 +8,7 @@
         <div class="container-fluid">
           <div
             class="text-top-right"
+            v-if="textTop"
             v-html="textTop"
           ></div>
           <div class="content-bottom">
@@ -21,6 +22,7 @@
             </div>
             <div
               class="know-more"
+              v-if="textBottom"
               v-html="textBottom"
             ></div>
           </div>
