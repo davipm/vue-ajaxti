@@ -131,11 +131,6 @@
               </ul>
               <!-- /sub menu -->
             </li>
-            <li class="nat-item">
-              <nuxt-link to="/opportunities" class="nav-link">
-                Vagas
-              </nuxt-link>
-            </li>
           </ul>
           <!-- /menu -->
         </div>
