@@ -18,7 +18,7 @@
           <div class="col-md-9">
             <ul class="list">
               <li v-for="(item, index) in opportunities" :key="index" class="list-item">
-                <nuxt-link :to="`/opportunities/${item.slug}`" class="list-link">
+                <nuxt-link :to="`/oportunidades/${item.slug}`" class="list-link">
                   {{ item.title }}
                   <div class="list-info">
                     <p class="list-text">
@@ -38,7 +38,7 @@
 
 <script>
   export default {
-    name: 'opportunities',
+    name: 'oportunidades',
     data() {
       return {
         loading: true,

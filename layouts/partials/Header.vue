@@ -36,6 +36,16 @@
                   <i class="fab fa-instagram"></i>
                 </a>
               </li>
+              <li class="social-item">
+                <a
+                  href="https://www.linkedin.com/company/ajaxti/about/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  class="social-link"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
             </ul>
             <ul class="contact">
               <li class="contact-item">
