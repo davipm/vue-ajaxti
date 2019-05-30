@@ -137,6 +137,8 @@
     text-transform: uppercase;
     background-color: #FF6B3A;
     border: none;
-    &:hover { background-color: #e64b3c; }
+    &:hover {
+      background-color: #e64b3c;
+    }
   }
 </style>

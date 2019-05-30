@@ -56,10 +56,10 @@
         await this.$axios
           .$get('/api/v1/opportunities')
           .then((res) => {
-            this.opportunities = res;
+            this.opportunities = res[0];
           })
           .catch(() => {
-            console.log('error')
+            console.log('error');
           })
           .finally(() => {
             this.loading = false;
@@ -87,6 +87,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
+
     &-link {
       display: block;
       padding: 20px;
@@ -106,11 +107,13 @@
         border-color: #0E1B32;
       }
     }
+
     &-info {
       display: block;
       position: relative;
       margin: 0;
     }
+
     &-text {
       font-size: .9rem;
       margin-bottom: 0;
