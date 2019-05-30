@@ -123,17 +123,32 @@
       async getPosts(number, id) {
         this.searchLoading = true;
         this.currentID = id;
-        await axios.get(`/wp/v2/posts?categories=${id}`, { params: { per_page: 6, page: number = this.currentPage, }
+        await axios.get(`/wp/v2/posts`, {
+          params: {
+            categories: id,
+            per_page: 6,
+            page: number = this.currentPage,
+          }
         })
-          .then((res) => { this.pages = res.headers['x-wp-totalpages']; this.items = res.data; })
-          .catch(()   => { this.error = true; })
-          .finally(() => { this.loading = false; this.searchLoading = false; })
+          .then((res) => {
+            this.pages = res.headers['x-wp-totalpages'];
+            this.items = res.data;
+          })
+          .catch(()   => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+            this.searchLoading = false;
+          })
       },
 
       async getCategory() {
         await axios
           .get('/wp/v2/categories')
-          .then((res) => { this.categories = res.data; })
+          .then((res) => {
+            this.categories = res.data;
+          })
       },
 
       linkGen(pageNum) {

@@ -123,6 +123,11 @@ module.exports = {
     routes (callback) {
       let staticPages = [
         '/search',
+        '/oportunidades/analista-de-produto-pl',
+        '/oportunidades/desenvolvedor-dot-net',
+        '/oportunidades/analista-de-sistemas-sr',
+        '/oportunidades/desenvolvedor-de-teste-de-software',
+        '/oportunidades/analista-de-testes',
       ];
       axios.all([
         axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/posts'),
@@ -155,6 +160,11 @@ module.exports = {
     routes: function (callback) {
       let staticPages = [
         '/search',
+        '/oportunidades/analista-de-produto-pl',
+        '/oportunidades/desenvolvedor-dot-net',
+        '/oportunidades/analista-de-sistemas-sr',
+        '/oportunidades/desenvolvedor-de-teste-de-software',
+        '/oportunidades/analista-de-testes',
       ];
       axios.all([
         axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/posts'),
@@ -178,7 +188,9 @@ module.exports = {
         }), function(err) {
           return next(err);
         });
-    }
+    },
+
+    fallback: '404.html'
   },
 
   /*
