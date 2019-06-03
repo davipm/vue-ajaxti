@@ -18,7 +18,8 @@
         <div
           class="description col-md-8"
           v-html="item.acf.description"
-        ></div>
+        >
+        </div>
         <div class="apply-form col-md-4">
           <iframe
             src="https://crunvik.000webhostapp.com/vagas-de-emprego/"
@@ -59,6 +60,9 @@
             </button>
           </form>
           -->
+        </div>
+        <div class="button-back">
+          <nuxt-link to="/oportunidades" class="btn btn-primary">Voltar para lista</nuxt-link>
         </div>
       </div>
     </div>
@@ -138,5 +142,11 @@
     background-color: #FF6B3A;
     border: none;
     &:hover { background-color: #e64b3c; }
+  }
+
+  .btn-primary {
+    color: #FFF;
+    background-color: #FF6B3A;
+    border: none;
   }
 </style>

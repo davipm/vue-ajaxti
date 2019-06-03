@@ -52,6 +52,11 @@
       v-if="post[0].acf.layout === 'layoutSau'"
     ></page-saude>
 
+    <!-- error component -->
+    <div v-if="error" class="container page-content">
+      <Error/>
+    </div>
+
     <!-- layout default -->
     <div
       v-for="(item, index) in post"
@@ -83,12 +88,14 @@
   import PageInd from '../layouts/partials/PageInd.vue'
   import PageSaude from '../layouts/partials/PageSaude.vue'
   import PageOut from "../layouts/partials/PageOut";
+  import Error from '../components/ErrorMessage'
   export default {
     name: 'pageSlug',
     components: {
       PageOut,
       PageInd,
-      PageSaude
+      PageSaude,
+      Error
     },
     data() {
       return {
@@ -115,13 +122,15 @@
     methods: {
       async getPost( slug ) {
         await this.$axios
-          .$get(`/wp/v2/pages?slug=${slug}`)
+          .$get(`/wp/v2/pages?slug=${slug}q`)
           .then((res) => {
             this.post = res;
             this.title = this.post[0].title.rendered;
             this.description = this.post[0].excerpt.rendered;
           })
-          .catch(()   => { this.error = true; })
+          .catch(() => {
+            this.error = true;
+          })
           .finally(() => { this.loading = false; });
       },
     },

@@ -32,7 +32,6 @@
             <div class="shine box"></div>
           </div>
         </div>
-
         <div class="row">
           <div class="col-md-2">
             <div class="shine box"></div>
@@ -104,7 +103,7 @@
     methods: {
       async getClients() {
         await this.$axios
-          .$get('/api/v1/clients')
+          .$get('/api/v1/clients/')
           .then((res) => { this.clients = res; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });

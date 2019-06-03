@@ -26,10 +26,11 @@
     },
 
     mounted() {
-      this.getVideo();
+      //this.getVideo();
     },
 
     methods: {
+      /*
       async getVideo() {
         await this.$nextTick(function () {
           this.$axios
@@ -39,6 +40,7 @@
             })
         });
       }
+      */
     }
   }
 </script>

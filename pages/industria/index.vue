@@ -87,7 +87,7 @@
         await this.$axios
           .$get('/wp/v2/pages', {
             params: {
-              slug: 'industria'
+              slug: '"industria"'
             }
           })
           .then((res) => {

@@ -118,14 +118,24 @@
         error: false,
       }
     },
-    created() { this.getProducts(); },
+
+    created() {
+      this.getProducts();
+    },
+
     methods: {
       async getProducts() {
         await this.$axios
-          .$get('/api/v1/products')
-          .then((res) => { this.products = res; })
-          .catch(()   => { this.error = true })
-          .finally(() => { this.loading = false; })
+          .$get('/api/v1/products/')
+          .then((res) => {
+            this.products = res;
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          })
       }
     }
   }

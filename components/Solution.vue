@@ -104,7 +104,7 @@
     methods: {
       async getSolutions() {
         await this.$axios
-          .$get('/api/v1/solutions')
+          .$get('/api/v1/solutions/')
           .then((res) => { this.solutions = res; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });

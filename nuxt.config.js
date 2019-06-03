@@ -128,6 +128,7 @@ module.exports = {
         '/oportunidades/analista-de-sistemas-sr',
         '/oportunidades/desenvolvedor-de-teste-de-software',
         '/oportunidades/analista-de-testes',
+        '/oportunidades/desenvolvedor-vb',
       ];
       axios.all([
         axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/posts'),
@@ -165,6 +166,7 @@ module.exports = {
         '/oportunidades/analista-de-sistemas-sr',
         '/oportunidades/desenvolvedor-de-teste-de-software',
         '/oportunidades/analista-de-testes',
+        '/oportunidades/desenvolvedor-vb',
       ];
       axios.all([
         axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/posts'),
