@@ -17,7 +17,7 @@
               <ul class="social-list">
                 <li class="social-item">
                   <a
-                    href="https://twitter.com/ajaxti"
+                    href="https://twitter.com/ajax_ti"
                     rel="noopener noreferrer"
                     target="_blank"
                     class="social-link"

@@ -8,8 +8,9 @@
             <ul class="social">
               <li class="social-item">
                 <a
-                  href="https://twitter.com/ajaxti"
+                  href="https://twitter.com/ajax_ti"
                   rel="noopener noreferrer"
+                  aria-label="Twitter"
                   target="_blank"
                   class="social-link"
                 >
@@ -20,6 +21,7 @@
                 <a
                   href="https://www.facebook.com/ajaxti"
                   rel="noopener noreferrer"
+                  aria-label="Facebook"
                   target="_blank"
                   class="social-link"
                 >
@@ -30,6 +32,7 @@
                 <a
                   href="https://www.instagram.com/ajax_ti/"
                   rel="noopener noreferrer"
+                  aria-label="Instagram"
                   target="_blank"
                   class="social-link"
                 >
@@ -40,6 +43,7 @@
                 <a
                   href="https://www.linkedin.com/company/ajaxti/about/"
                   rel="noopener noreferrer"
+                  aria-label="Linkedin"
                   target="_blank"
                   class="social-link"
                 >
@@ -59,7 +63,7 @@
                 <span class="contact-icon">
                   <i class="fas fa-envelope"></i>
                 </span>
-                <a href="mailto:contato@ajaxti.com.br" class="mailto">
+                <a href="mailto:contato@ajaxti.com.br" aria-label="email" class="mailto">
                   contato@ajaxti.com.br
                 </a>
               </li>
@@ -121,7 +125,7 @@
                 :key="index"
                 class="nav-item"
             >
-              <nuxt-link class="nav-link" :to="`${item.url}`">
+              <nuxt-link class="nav-link" aria-label="nav-link" :to="`${item.url}`">
                 {{ item.title }}
               </nuxt-link>
               <!-- sub menu -->
@@ -134,7 +138,7 @@
                   v-for="(item, index) in subMenu"
                   :key="index"
                 >
-                  <nuxt-link :to="`${item.url}`" class="subnav-link">
+                  <nuxt-link :to="`${item.url}`" aria-label="subnav-link" class="subnav-link">
                     {{ item.title }}
                   </nuxt-link>
                 </li>
@@ -145,7 +149,7 @@
           <!-- /menu -->
         </div>
         <div class="search-content">
-          <button class="btn btn-search" @click="showSearch">
+          <button class="btn btn-search" role="button" @click="showSearch">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -167,7 +171,7 @@
           ref="search"
           autofocus
         >
-        <button @click.prevent="getSearch" class="button-search">
+        <button @click.prevent="getSearch" role="button" class="button-search">
           <i class="fas fa-search"></i>
         </button>
       </form>

@@ -122,7 +122,7 @@
     methods: {
       async getPost( slug ) {
         await this.$axios
-          .$get(`/wp/v2/pages?slug=${slug}q`)
+          .$get(`/wp/v2/pages?slug=${slug}`)
           .then((res) => {
             this.post = res;
             this.title = this.post[0].title.rendered;

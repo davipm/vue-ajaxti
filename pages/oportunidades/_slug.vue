@@ -21,10 +21,12 @@
         >
         </div>
         <div class="apply-form col-md-4">
+          <p>{{ formLoading }}</p>
           <iframe
             src="https://crunvik.000webhostapp.com/vagas-de-emprego/"
             frameborder="0"
             class="form-contact"
+            @load="loadingForm"
           ></iframe>
           <!--
           <form class="form">
@@ -62,7 +64,7 @@
           -->
         </div>
         <div class="button-back">
-          <nuxt-link to="/oportunidades" class="btn btn-primary">Voltar para lista</nuxt-link>
+          <nuxt-link to="/oportunidades" aria-label="Return to home" class="btn btn-primary">Voltar para lista</nuxt-link>
         </div>
       </div>
     </div>
@@ -75,7 +77,14 @@
     data() {
       return {
         loading: true,
+        formLoading: true,
         opportunitie: [],
+      }
+    },
+
+    watch: {
+      '$route'(to, from) {
+        this.formLoading = true;
       }
     },
 
@@ -93,6 +102,10 @@
           .finally(() => {
             this.loading = false;
           })
+      },
+
+      loadingForm() {
+        this.formLoading = false;
       }
     }
   }
