@@ -21,7 +21,7 @@
         >
         </div>
         <div class="apply-form col-md-4">
-          <p>{{ formLoading }}</p>
+          <!--<p>{{ formLoading }}</p>-->
           <iframe
             src="https://crunvik.000webhostapp.com/vagas-de-emprego/"
             frameborder="0"

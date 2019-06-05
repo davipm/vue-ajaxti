@@ -167,6 +167,7 @@ module.exports = {
         '/oportunidades/desenvolvedor-de-teste-de-software',
         '/oportunidades/analista-de-testes',
         '/oportunidades/desenvolvedor-vb',
+        '/oportunidades/full-stack-developer',
       ];
       axios.all([
         axios.get('http://cms.ajaxti.com.br/wp-json/wp/v2/posts'),
