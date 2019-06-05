@@ -149,7 +149,7 @@
           <!-- /menu -->
         </div>
         <div class="search-content">
-          <button class="btn btn-search" role="button" @click="showSearch">
+          <button class="btn btn-search" role="button" aria-label="Search" @click="showSearch">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -171,7 +171,12 @@
           ref="search"
           autofocus
         >
-        <button @click.prevent="getSearch" role="button" class="button-search">
+        <button
+          @click.prevent="getSearch"
+          role="button"
+          aria-label="Search"
+          class="button-search"
+        >
           <i class="fas fa-search"></i>
         </button>
       </form>

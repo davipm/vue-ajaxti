@@ -16,13 +16,13 @@
             <div
               v-for="(item, index) in items"
               :key="index"
-              :title="item.title"
               class="media"
             >
               <img
                 :src="item.image.sizes.thumbnail"
-                class="align-self-center media-img mr-3"
                 :alt="item.title"
+                :title="item.title"
+                class="align-self-center media-img mr-3"
               >
               <div class="media-body">
                 <div v-html="item.text"></div>

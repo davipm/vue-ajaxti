@@ -10,7 +10,7 @@ module.exports = {
   head: {
     title: 'AjaxTI',
     htmlAttrs: {
-      lang: 'pt_BR',
+      lang: 'pt-br',
       amp: undefined // "amp" has no value
     },
 

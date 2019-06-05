@@ -20,6 +20,7 @@
                     href="https://twitter.com/ajax_ti"
                     rel="noopener noreferrer"
                     target="_blank"
+                    aria-label="Twitter"
                     class="social-link"
                   >
                     <i class="fab fa-twitter"></i>
@@ -30,6 +31,7 @@
                     href="https://www.facebook.com/ajaxti"
                     rel="noopener noreferrer"
                     target="_blank"
+                    aria-label="Facebook"
                     class="social-link"
                   >
                     <i class="fab fa-facebook-f"></i>
@@ -40,6 +42,7 @@
                     href="https://www.instagram.com/ajax_ti/"
                     rel="noopener noreferrer"
                     target="_blank"
+                    aria-label="Instagram"
                     class="social-link"
                   >
                     <i class="fab fa-instagram"></i>
@@ -50,6 +53,7 @@
                     href="https://www.linkedin.com/company/ajaxti/about/"
                     rel="noopener noreferrer"
                     target="_blank"
+                    aria-label="Linkedin"
                     class="social-link"
                   >
                     <i class="fab fa-linkedin-in"></i>
@@ -75,6 +79,7 @@
                   >
                     <nuxt-link
                       :to="menu.url"
+                      aria-label="Footer Item"
                       class="footer-nav-link"
                     >
                       {{ menu.post_title }}
@@ -97,6 +102,7 @@
                   >
                     <nuxt-link
                       :to="menu.url"
+                      aria-label="Footer Item"
                       class="footer-nav-link"
                     >
                       {{ menu.post_title }}
@@ -120,6 +126,7 @@
                     <a
                       :href="menu.url"
                       target="_blank"
+                      aria-label="Footer Item"
                       class="footer-nav-link"
                     >
                       {{ menu.post_title }}
