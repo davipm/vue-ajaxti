@@ -21,12 +21,11 @@
         >
         </div>
         <div class="apply-form col-md-4">
-          <!--<p>{{ formLoading }}</p>-->
           <iframe
             src="https://crunvik.000webhostapp.com/vagas-de-emprego/"
             frameborder="0"
             class="form-contact"
-            @load="loadingForm"
+            @load="formLoading = false"
           ></iframe>
           <!--
           <form class="form">
@@ -64,7 +63,12 @@
           -->
         </div>
         <div class="button-back">
-          <nuxt-link to="/oportunidades" aria-label="Return to home" class="btn btn-primary">Voltar para lista</nuxt-link>
+          <nuxt-link
+            to="/oportunidades"
+            aria-label="Return to home"
+            class="btn btn-primary">
+            Voltar para lista
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -79,6 +83,8 @@
         loading: true,
         formLoading: true,
         opportunitie: [],
+        seoTitle: '',
+        seoDescription: '',
       }
     },
 
@@ -98,6 +104,8 @@
           .$get(`/api/v1/opportunities/${slug}`)
           .then((res) => {
             this.opportunitie = res;
+            this.seoTitle = res[0].title;
+            console.log(res[0].title)
           })
           .finally(() => {
             this.loading = false;
@@ -106,6 +114,15 @@
 
       loadingForm() {
         this.formLoading = false;
+      }
+    },
+
+    head () {
+      return {
+        title: `${this.seoTitle} - AjaxTI`,
+        meta: [
+          { hid: 'description', name: 'description', content: this.description }
+        ]
       }
     }
   }
@@ -135,10 +152,12 @@
     position: relative;
     padding: 0;
     margin: 0;
+
     &-control {
       color: #0E1B32;
       border: 1px solid #d5d5d5;
     }
+
     label {
       color: #0E1B32;
     }

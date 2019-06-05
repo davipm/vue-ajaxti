@@ -52,7 +52,9 @@
         items: [],
       }
     },
+
     created() { this.getTestimony(); },
+
     methods: {
       async getTestimony() {
         await this.$axios
@@ -61,8 +63,12 @@
             let obj = res;
             this.items = Object.keys(obj).map(function (key) { return [obj[key]][0]; });
           })
-          .catch((error) => { this.error = true; })
-          .finally(() => { this.loading = false; })
+          .catch((error) => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          })
       }
     }
   }

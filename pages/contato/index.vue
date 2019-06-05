@@ -29,11 +29,12 @@
         <button type="submit" class="btn btn-primary btn-send">Enviar</button>
       </form>
       -->
+      <p v-if="loading">loading</p>
       <iframe
         src="https://crunvik.000webhostapp.com/patrocinios-form/"
         frameborder="0"
         class="form-contact"
-        @load="loading = !loading"
+        @load="loading = false"
       ></iframe>
     </div>
   </section>

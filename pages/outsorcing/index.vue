@@ -11,12 +11,15 @@
     <!-- /loading -->
 
     <!-- content -->
-    <div v-else v-for="item in page"
-         :key="item.id"
+    <div
+      v-else
+      v-for="item in page"
+      :key="item.id"
     >
       <div class="wrap">
-        <div class="first-content"
-             :style="{ backgroundImage: `url(${item.acf.image_bg})` }"
+        <div
+          class="first-content"
+          :style="{ backgroundImage: `url(${item.acf.image_bg})` }"
         >
           <div class="container-fluid">
             <!--
@@ -90,7 +93,9 @@
       }
     },
 
-    created() { this.pageOutsourcing(); },
+    created() {
+      this.pageOutsourcing();
+    },
 
     methods: {
       async pageOutsourcing() {
@@ -101,8 +106,12 @@
             this.title = res[0].title.rendered;
             this.secondTitle = res[0].acf.second_title;
           })
-          .catch(()   => { this.error = true; })
-          .finally(() => { this.loading = false; });
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
       },
     },
 
