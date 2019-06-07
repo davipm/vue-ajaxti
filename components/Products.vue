@@ -126,7 +126,7 @@
     methods: {
       async getProducts() {
         await this.$axios
-          .$get('/api/v1/products/')
+          .$get('/api/v1/products')
           .then((res) => {
             this.products = res;
           })

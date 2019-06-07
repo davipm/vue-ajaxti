@@ -29,13 +29,38 @@
         <button type="submit" class="btn btn-primary btn-send">Enviar</button>
       </form>
       -->
-      <p v-if="loading">loading</p>
+      <div v-if="loading" class="form-loading">
+        <div class="form-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="shine line"></div>
+              <div class="shine box"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="shine line"></div>
+              <div class="shine box"></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="shine line"></div>
+          <div class="shine box"></div>
+        </div>
+        <div class="form-group">
+          <div class="shine line"></div>
+          <div class="shine box box-big"></div>
+        </div>
+      </div>
+
       <iframe
         src="https://crunvik.000webhostapp.com/patrocinios-form/"
         frameborder="0"
         class="form-contact"
         @load="loading = false"
       ></iframe>
+
     </div>
   </section>
 </template>
@@ -63,5 +88,27 @@
     margin-bottom: 20px;
     font-weight: 300;
     text-transform: uppercase;
+  }
+
+  // form loading
+  .shine {
+    display: block;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 12px;
+    height: 15px;
+    width: 150px;
+    border-radius: 3px;
+  }
+
+  .box {
+    display: block;
+    width: 100%;
+    height: 37px;
+    border-radius: 6px;
+    &-big {
+      height: 250px;
+      background-size: 800px 250px;
+    }
   }
 </style>

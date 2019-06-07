@@ -16,7 +16,13 @@
       <div class="opportunities-list">
         <div class="row">
           <div class="col-md-9">
-            <ul class="list">
+            <div v-if="opportunities.length === 0" class="alert alert-light" role="alert">
+              <h4 class="alert-heading">Desculpe, mas não temos oportunidades no momento.</h4>
+              <p>Fique atento no nosso sitem ou em nossas redes sociais para saber em primeira mão as nossas vagas disponiveis</p>
+              <hr>
+              <p class="mb-0"><nuxt-link to="/" class="alert-link">Voltar para Home</nuxt-link></p>
+            </div>
+            <ul v-else class="list">
               <li v-for="(item, index) in opportunities" :key="index" class="list-item">
                 <nuxt-link :to="`/oportunidades/${item.slug}`" class="list-link">
                   {{ item.title }}
@@ -54,7 +60,7 @@
     methods: {
       async getOpportunities() {
         await this.$axios
-          .$get('/api/v1/opportunities')
+          .$get('/api/v1/opportunities/')
           .then((res) => {
             this.opportunities = res[0];
           })

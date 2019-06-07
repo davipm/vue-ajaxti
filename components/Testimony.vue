@@ -58,7 +58,7 @@
     methods: {
       async getTestimony() {
         await this.$axios
-          .$get('/api/v1/testimony/')
+          .$get('/api/v1/testimony')
           .then((res) => {
             let obj = res;
             this.items = Object.keys(obj).map(function (key) { return [obj[key]][0]; });

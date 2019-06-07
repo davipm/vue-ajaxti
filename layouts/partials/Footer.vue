@@ -184,6 +184,7 @@
         </div>
       </div>
     </div>
+
     <!-- footer copyright -->
     <div class="footer-bottom">
       <div class="container-fluid footer-bottom-content">
@@ -195,6 +196,14 @@
         </h5>
       </div>
     </div>
+
+    <!-- info dev -->
+    <div class="dev-info">
+      <div class="container">
+        <p>© {{ showDate }}, Designed by AjaxTI Team. Coded by <a href="https://davi-94.github.io/portfolio/" target="_blank">Davi Pereira</a>.</p>
+      </div>
+    </div>
+
   </footer>
 </template>
 
@@ -215,24 +224,30 @@
       this.getMenuAbout();
     },
 
+    computed: {
+      showDate() {
+        return new Date().getFullYear();
+      }
+    },
+
     methods: {
       async getMenuSolution() {
         await this.$axios
-          .$get('/menus/v1/menus/footer_menu1')
+          .$get('/menus/v1/menus/footer_menu1/')
           .then((res) => { this.solution = res; })
           .catch(() => { this.error = true; });
       },
 
       async getMenuInformation() {
         await this.$axios
-          .$get('/menus/v1/menus/footer_menu2')
+          .$get('/menus/v1/menus/footer_menu2/')
           .then((res) => { this.information = res; })
           .catch(() => { this.error = true; });
       },
 
       async getMenuAbout() {
         await this.$axios
-          .$get('/menus/v1/menus/footer_menu3')
+          .$get('/menus/v1/menus/footer_menu3/')
           .then((res) => { this.about = res; })
           .catch(() => { this.error = true; });
       },
@@ -337,6 +352,26 @@
     border: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+
+  .dev-info {
+    display: block;
+    position: relative;
+    padding: 10px 0;
+    text-align: center;
+    color: #FFF;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #FFF;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   // mobile media

@@ -21,6 +21,31 @@
         >
         </div>
         <div class="apply-form col-md-4">
+          <div v-if="formLoading" class="form-loading">
+            <div class="form-group">
+              <div class="shine line"></div>
+              <div class="shine box"></div>
+            </div>
+            <div class="form-group">
+              <div class="shine line"></div>
+              <div class="shine box"></div>
+            </div>
+            <div class="form-group">
+              <div class="shine line"></div>
+              <div class="shine box"></div>
+            </div>
+            <div class="form-group">
+              <div class="shine line"></div>
+              <div class="shine box"></div>
+            </div>
+            <div class="form-group">
+              <div class="shine line"></div>
+              <div class="shine box"></div>
+            </div>
+            <div class="form-group">
+              <div class="shine box"></div>
+            </div>
+          </div>
           <iframe
             src="https://crunvik.000webhostapp.com/vagas-de-emprego/"
             frameborder="0"
@@ -105,7 +130,6 @@
           .then((res) => {
             this.opportunitie = res;
             this.seoTitle = res[0].title;
-            console.log(res[0].title)
           })
           .finally(() => {
             this.loading = false;
@@ -180,5 +204,23 @@
     color: #FFF;
     background-color: #FF6B3A;
     border: none;
+  }
+
+  // form loading
+  .shine {
+    display: block;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 12px;
+    height: 15px;
+    width: 150px;
+    border-radius: 3px;
+  }
+
+  .box {
+    display: block;
+    width: 100%;
+    height: 37px;
+    border-radius: 6px;
   }
 </style>

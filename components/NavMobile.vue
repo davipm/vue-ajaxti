@@ -102,7 +102,7 @@
     methods: {
       async getMenu() {
         await this.$axios
-          .$get('/menus/v1/menus/header_menu')
+          .$get('/menus/v1/menus/header_menu/')
           .then((res) => {
             this.menus = res.items;
           })
@@ -113,7 +113,7 @@
 
       async getSubMenu() {
         await this.$axios
-          .$get('/menus/v1/menus/sub_menu')
+          .$get('/menus/v1/menus/sub_menu/')
           .then((res) => { this.subMenu = res.items; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });

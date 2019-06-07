@@ -149,7 +149,12 @@
           <!-- /menu -->
         </div>
         <div class="search-content">
-          <button class="btn btn-search" role="button" aria-label="Search" @click="showSearch">
+          <button
+            class="btn btn-search"
+            role="button"
+            aria-label="Search"
+            @click="showSearch"
+          >
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -172,7 +177,7 @@
           autofocus
         >
         <button
-          @click.prevent="getSearch"
+          @click="getSearch"
           role="button"
           aria-label="Search"
           class="button-search"
@@ -187,6 +192,7 @@
 
 <script>
   import NavMobile from '~/components/NavMobile.vue'
+
   export default {
     name: 'Header',
     components: { NavMobile },
@@ -209,7 +215,7 @@
     methods: {
       async getMenu() {
         await this.$axios
-          .$get('/menus/v1/menus/header_menu')
+          .$get('/menus/v1/menus/header_menu/')
           .then((res) => { this.menus = res.items; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });
@@ -217,7 +223,7 @@
 
       async getSubMenu() {
         await this.$axios
-          .$get('/menus/v1/menus/sub_menu')
+          .$get('/menus/v1/menus/sub_menu/')
           .then((res) => { this.subMenu = res.items; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });
@@ -228,7 +234,8 @@
         this.isVisible = !this.isVisible;
       },
 
-      getSearch() {
+      getSearch(e) {
+        e.preventDefault();
         this.$router.push('/');
         this.$router.push(`/search/${this.search.toLowerCase()}`);
         this.isVisible = !this.isVisible;
