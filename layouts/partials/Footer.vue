@@ -233,21 +233,21 @@
     methods: {
       async getMenuSolution() {
         await this.$axios
-          .$get('/menus/v1/menus/footer_menu1/')
+          .$get('/menus/v1/menus/footer_menu1')
           .then((res) => { this.solution = res; })
           .catch(() => { this.error = true; });
       },
 
       async getMenuInformation() {
         await this.$axios
-          .$get('/menus/v1/menus/footer_menu2/')
+          .$get('/menus/v1/menus/footer_menu2')
           .then((res) => { this.information = res; })
           .catch(() => { this.error = true; });
       },
 
       async getMenuAbout() {
         await this.$axios
-          .$get('/menus/v1/menus/footer_menu3/')
+          .$get('/menus/v1/menus/footer_menu3')
           .then((res) => { this.about = res; })
           .catch(() => { this.error = true; });
       },
