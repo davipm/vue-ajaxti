@@ -155,6 +155,7 @@
       background: none;
       text-align: left;
       bottom: 7rem;
+
       &-content {
         top: auto;
         left: auto;

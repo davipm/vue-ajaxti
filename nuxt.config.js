@@ -94,9 +94,12 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    /*
     ['@nuxtjs/axios', {
       baseURL: 'http://cms.ajaxti.com.br/wp-json',
     }],
+    */
+    '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
     '@nuxtjs/pwa',
@@ -107,6 +110,7 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'http://cms.ajaxti.com.br/wp-json',
   },
 
   // sitemap config

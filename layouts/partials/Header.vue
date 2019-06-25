@@ -260,6 +260,7 @@
   .navbar {
     padding-top: 30px;
     padding-bottom: 30px;
+
     &-nav { margin-left: auto; }
   }
 
@@ -278,6 +279,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
+
     &-link {
       display: inline-block;
       width: 27px;
@@ -300,11 +302,13 @@
     padding: 0;
     list-style: none;
     color: #FFF;
+
     &-icon {
       font-size: 1rem;
       margin-right: 5px;
       color: #4E5661;
     }
+
     &-item {
       display: flex;
       align-items: center;
@@ -315,8 +319,10 @@
     .mailto {
       text-decoration: none;
       color: #FFF;
+
       &:hover { text-decoration: underline; }
     }
+
     @media (max-width: 768px) { display: none; }
   }
 
@@ -354,6 +360,7 @@
     color: #FFF;
     background-color: #212934;
   }
+
   // default padding between
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1.5rem;
@@ -372,6 +379,7 @@
     min-width: 200px;
     list-style: none;
     z-index: 3;
+
     &-link {
       display: block;
       position: relative;
@@ -387,6 +395,7 @@
       -ms-transition: all .15s ease-in-out;
       -o-transition: all .15s ease-in-out;
       transition: all .15s ease-in-out;
+
       &:hover {
         color: #FFF;
         background-color: #994023;
@@ -416,6 +425,7 @@
 
     .form {
       padding: 0;
+
       &-control {
         display: block;
         position: relative;
@@ -426,6 +436,7 @@
         height: 60px;
         border: none;
         border-radius: 0;
+
         &:focus { box-shadow: none; }
       }
     }
@@ -450,6 +461,7 @@
 
   .nav-link-loading {
     padding: 0;
+
     &:hover {
       color: inherit;
       background: inherit;
@@ -542,6 +554,7 @@
       background-position: 51% -10px;
       background-size: 160%;
     }
+
     .container-menu { background-color: #212934; }
   }
 </style>

@@ -261,6 +261,7 @@
     position: relative;
     color: #FFF;
     background-color: #212934;
+
     &-content { padding: 15px 40px; }
   }
 
@@ -296,15 +297,18 @@
   .footer-nav {
     padding: 0;
     list-style: none;
+
     &-title {
       margin-bottom: 1.3rem;
       font-size: 1.2rem;
     }
+
     &-link {
       display: inline-block;
       margin-top: 20px;
       color: #FFF;
     }
+
     &-item:nth-child(2) &-link { margin-top: 0; }
   }
 
@@ -318,12 +322,14 @@
     display: block;
     position: relative;
     border-top: 2px solid #FFF;
+
     &-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 40px;
     }
+
     &-title {
       margin-top: 10px;
       margin-bottom: 10px;
@@ -340,6 +346,7 @@
 
   .form-control {
     height: 50px;
+
     &:focus { box-shadow: none; }
   }
 
@@ -361,16 +368,13 @@
     text-align: center;
     color: #FFF;
 
-    p {
-      margin-bottom: 0;
-    }
+    p { margin-bottom: 0; }
 
     a {
       text-decoration: none;
       color: #FFF;
-      &:hover {
-        text-decoration: underline;
-      }
+
+      &:hover { text-decoration: underline; }
     }
   }
 

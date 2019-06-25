@@ -143,6 +143,7 @@
     border-radius: 0;
     background-color: #EEE;
     padding: 10px;
+
     &-body {
       padding-right: 40px;
       padding-left: 40px;
@@ -193,6 +194,7 @@
       background: none;
       text-align: left;
       bottom: 7rem;
+
       &-content {
         top: auto;
         left: auto;
