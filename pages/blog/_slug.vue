@@ -32,10 +32,11 @@
     </div>
     <!-- /loading -->
     <!-- page content -->
-    <div v-else
-         v-for="(item, index) in post"
-         :key="index"
-         class="container"
+    <div
+      v-else
+      v-for="(item, index) in post"
+      :key="index"
+      class="container"
     >
       <div class="row">
         <div class="col-md-9">
@@ -44,8 +45,9 @@
               {{ item.title.rendered }}
             </h3>
           </div>
-          <div class="single-content"
-               v-html="item.content.rendered"
+          <div
+            class="single-content"
+            v-html="item.content.rendered"
           ></div>
         </div>
       </div>

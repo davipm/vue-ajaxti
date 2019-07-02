@@ -9,7 +9,3 @@
     name: 'ErrorMessage'
   }
 </script>
-
-<style scoped>
-
-</style>

@@ -1,9 +1,10 @@
 <template>
   <transition name="back-to-top-fade">
-    <div class="btn-back-to-top" id="BackToTop"
-         :style="styleObject"
-         v-show="visible"
-         @click="backToTop"
+    <div
+      class="btn-back-to-top" id="BackToTop"
+      :style="styleObject"
+      v-show="visible"
+      @click="backToTop"
     >
       <slot>
         <div class="default">
