@@ -19,4 +19,6 @@ $ npm start
 $ npm run generate
 ```
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d5a47a31-e8d4-4ea1-9024-f75b1e94ba0c/deploy-status)](https://app.netlify.com/sites/ajaxtiwp/deploys)
+
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).

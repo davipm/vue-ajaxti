@@ -1,40 +1,21 @@
 <template>
-  <section class="section number">
+  <section v-if="!loading" class="section number">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div v-for="item in number"
+             :key="item.id"
+             class="col-md-4"
+        >
           <div class="number-item">
-            <img src="../assets/img/linhas_de_desenvolvimento.svg" class="number-img" alt="">
+            <img :src="item.icon"
+                 :alt="item.title"
+                 :title="item.title"
+                 class="number-img"
+            >
             <div class="number-body">
-              <p class="number-text">
-                milhares de linhas
-                de desenvolvimento
-                na área industrial
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="number-item">
-            <img src="../assets/img/velocimetro.svg" class="number-img" alt="">
-            <div class="number-body">
-              <p class="number-text">
-                mais de 50 projetos
-                nos mais variados
-                setores do mercado
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="number-item">
-            <img src="../assets/img/gears.svg" class="number-img" alt="">
-            <div class="number-body">
-              <p class="number-text">
-                perícia em projetos
-                tecnológicos nas áreas
-                de TI e Engenharia
-              </p>
+              <p v-text="item.title"
+                 class="number-text"
+              ></p>
             </div>
           </div>
         </div>
@@ -45,7 +26,34 @@
 
 <script>
   export default {
-    name: 'Number'
+    name: 'Number',
+    data() {
+      return {
+        number: [],
+        error: false,
+        loading: true,
+      }
+    },
+
+    created() {
+      this.getNumber();
+    },
+
+    methods: {
+      async getNumber() {
+        await this.$axios
+          .$get('/api/v1/number')
+          .then((res) => {
+            this.number = res;
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      }
+    }
   }
 </script>
 

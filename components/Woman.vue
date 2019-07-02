@@ -3,21 +3,14 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12 col-lg-8"></div>
-        <div class="col-md-12 col-lg-4">
+        <div v-for="(item, index) in woman" :key="index" class="col-md-12 col-lg-4">
           <h4 class="title text-center">
-            Gostou né?
+            {{ item.title }}
           </h4>
           <h4 class="title mb-3">
-            É que pra gente, desenvolver
-            avanços tecnológicos é uma
-            verdadeira paixão!
+            {{ item.secont_title }}
           </h4>
-          <p class="text">
-            Quer ler nosso E-book, <strong>"Os Dez Sinais de que sua Empresa ainda
-            Não Entrou no Futuro da Tecnologia"?</strong> Clique aqui para recebê-lo
-            completamente grátis! Será um prazer compartilhar experiências
-            com você.
-          </p>
+          <div v-html="item.text"></div>
         </div>
       </div>
     </div>
@@ -26,7 +19,22 @@
 
 <script>
   export default {
-    name: 'Woman'
+    name: 'Woman',
+    data() {
+      return {
+        woman: [],
+      }
+    },
+    created() { this.getWoman(); },
+    methods: {
+      async getWoman() {
+        await this.$axios
+          .$get('/api/v1/woman')
+          .then((res) => { this.woman = res; })
+          .catch(()   => { this.error = true })
+          .finally(() => { this.loading = false; })
+      }
+    }
   }
 </script>
 

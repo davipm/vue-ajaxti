@@ -1,39 +1,26 @@
 <template>
   <div class="home">
     <Video/>
-    <!--<Slider/>-->
-    <ContactSite/>
     <Solution/>
     <Products/>
-    <Number/>
-    <Woman/>
     <Client/>
+    <Testimony/>
   </div>
 </template>
 
 <script>
-  import Slider from '@/components/Slider.vue'
-  import ContactSite from '@/components/ContactSite.vue'
+  import Video from '@/components/VideoComponent.vue'
   import Solution from '@/components/Solution.vue'
-  import Client from '@/components/Client.vue'
-  import Number from '@/components/Number.vue'
-  import Woman from '@/components/Woman.vue'
   import Products from '@/components/Products.vue'
-  import Video from '../components/VideoComponent.vue'
+  import Client from '@/components/Client.vue'
+  import Testimony from '@/components/Testimony.vue'
   export default {
     components: {
-      Slider,
-      ContactSite,
+      Video,
       Solution,
-      Client,
-      Number,
-      Woman,
       Products,
-      Video
+      Client,
+      Testimony
     }
   }
 </script>
-
-<style lang="scss">
-
-</style>

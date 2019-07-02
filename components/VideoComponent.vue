@@ -1,7 +1,16 @@
 <template>
   <div class="video">
-    <video autoplay muted loop playsinline class="video-content">
-      <source src="../assets/img/ajaxti-video.mp4" type="video/mp4">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="video-content"
+    >
+      <source
+        :src="url"
+        type="video/mp4"
+      >
       Your browser does not support HTML5 video.
     </video>
   </div>
@@ -12,8 +21,26 @@
     name: 'VideoComponent',
     data() {
       return {
-
+        url: 'http://cms.ajaxti.com.br/wp-content/uploads/2019/03/ajaxti-video.mp4',
       }
+    },
+
+    mounted() {
+      //this.getVideo();
+    },
+
+    methods: {
+      /*
+      async getVideo() {
+        await this.$nextTick(function () {
+          this.$axios
+            .$get('/api/v1/video')
+            .then((res) => {
+              this.url = res['ajax-video'].icon.url;
+            })
+        });
+      }
+      */
     }
   }
 </script>
@@ -21,27 +48,14 @@
 <style scoped lang="scss">
   .video {
     display: block;
-    position: relative;
     width: 100%;
-    height: 800px;
     overflow: hidden;
-
     &-content {
       display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      position: relative;
       width: 100%;
     }
-
-    @media (max-width: 768px) {
-      height: 27rem;
-    }
-
-    @media (max-width: 576px) {
-      height: 12rem;
-    }
+    @media (max-width: 768px) { height: 27rem; }
+    @media (max-width: 576px) { height: 12rem; }
   }
 </style>

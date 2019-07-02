@@ -3,17 +3,48 @@
     <li></li>
     <li class="menu-container">
       <input id="menu-toggle" type="checkbox">
-      <label for="menu-toggle" class="menu-button">
+      <label for="menu-toggle"
+             class="menu-button"
+             :class="{ 'remove-after': !isActive, 'put-after': isActive }"
+             @click="isActive = !isActive"
+      >
         <svg class="icon-open" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
         <svg class="icon-close" viewBox="0 0 100 100">
           <path d="M83.288 88.13c-2.114 2.112-5.575 2.112-7.69 0L53.66 66.188c-2.113-2.112-5.572-2.112-7.686 0l-21.72 21.72c-2.114 2.113-5.572 2.113-7.687 0l-4.693-4.692c-2.114-2.114-2.114-5.573 0-7.688l21.72-21.72c2.112-2.115 2.112-5.574 0-7.687L11.87 24.4c-2.114-2.113-2.114-5.57 0-7.686l4.842-4.842c2.113-2.114 5.57-2.114 7.686 0l21.72 21.72c2.114 2.113 5.572 2.113 7.688 0l21.72-21.72c2.115-2.114 5.574-2.114 7.688 0l4.695 4.695c2.112 2.113 2.112 5.57-.002 7.686l-21.72 21.72c-2.112 2.114-2.112 5.573 0 7.686L88.13 75.6c2.112 2.11 2.112 5.572 0 7.687l-4.842 4.84z"/>
         </svg>
       </label>
-      <ul class="menu-sidebar">
-        <li v-for="(item, index) in menus" :key="index">
-          <nuxt-link :to="item.href">
-            {{ item.name }}
+      <ul class="menu-sidebar"
+          :class="{ 'menu-close': !isActive, 'menu-open': isActive }"
+      >
+        <li
+          v-for="(item, index) in menus"
+          :key="index"
+          v-if="item.title !== 'SOLUÇÕES'"
+          @click="isActive = !isActive"
+        >
+          <nuxt-link :to="`${item.url}`">
+            {{ item.title }}
           </nuxt-link>
+        </li>
+        <li v-else>
+          <input type="checkbox" id="sub-one" class="submenu-toggle">
+          <label class="submenu-label" for="sub-one">{{ item.title }}</label>
+          <div class="arrow right">&#8250;</div>
+          <ul class="menu-sub">
+            <li class="menu-sub-title">
+              <label class="submenu-label" for="sub-one">Voltar</label>
+              <div class="arrow left">&#8249;</div>
+            </li>
+            <li
+              v-for="(item, index) in subMenu"
+              :key="index"
+              @click="isActive = !isActive"
+            >
+              <nuxt-link :to="`${item.url}`">
+                {{ item.title }}
+              </nuxt-link>
+            </li>
+          </ul>
         </li>
         <!--
         <li>
@@ -57,17 +88,36 @@
     name: 'NavMobile',
     data() {
       return {
-        menus: [
-          { name: 'HOME',            href: '/'},
-          { name: 'SOLUÇÕES',        href: '#1'},
-          { name: 'INDÚSTRIA 4.0',   href: '/industria'},
-          { name: 'SAÚDE',           href: '/saude'},
-          { name: 'ENGENHARIA',      href: '#2' },
-          { name: 'OUTSOURCING 4.0', href: '/outsorcing'},
-          { name: 'BLOG',            href: '#3'},
-          { name: 'CONTATO',         href: '#4'},
-        ],
+        menus: [],
+        subMenu: [],
+        isActive: false,
       }
+    },
+
+    created() {
+      this.getMenu();
+      this.getSubMenu();
+    },
+
+    methods: {
+      async getMenu() {
+        await this.$axios
+          .$get('/menus/v1/menus/header_menu/')
+          .then((res) => {
+            this.menus = res.items;
+          })
+          .catch(() => {
+            this.error = true;
+          });
+      },
+
+      async getSubMenu() {
+        await this.$axios
+          .$get('/menus/v1/menus/sub_menu/')
+          .then((res) => { this.subMenu = res.items; })
+          .catch(()   => { this.error = true; })
+          .finally(() => { this.loading = false; });
+      },
     }
   }
 </script>
@@ -107,6 +157,7 @@
         width: 100%;
         height: 100%;
         text-decoration: none;
+        text-transform: uppercase;
       }
     }
     .menu-button {
@@ -120,7 +171,7 @@
       display: block;
       &:after {
         opacity: 0;
-        top: 45px;
+        top: 0;
         content: "";
         width: 100vw;
         display: block;
@@ -137,8 +188,8 @@
       display: none;
       &.active ~ .menu-button,
       &:checked ~ .menu-button {
-        .icon-close { display: block; }
-        .icon-open { display: none; }
+        //.icon-close { display: block; }
+        //.icon-open { display: none; }
         &:after {
           opacity: 1;
           pointer-events: auto;
@@ -165,9 +216,9 @@
         background: #7B451A;
         color: #333;
         position: fixed;
-        transform: translateX(-405px);
+        //transform: translateX(-405px);
         transition: transform 0.3s cubic-bezier(0,0,0.3,1);
-        top: 45px;
+        top: 0;
         z-index: 10;
         list-style-type: none;
         padding: 0;
@@ -201,7 +252,7 @@
             background: #7B451A;
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0,0,0.3,1);
-            border-left: 1px solid #ccc;
+            //border-left: 1px solid #ccc;
             list-style-type: none;
             padding: 0;
             margin: 0;
@@ -231,9 +282,43 @@
     }
   }
 
-  @media (max-width: 768px) {
-    .nav-mobile {
-      display: block;
-    }
+  label {
+    color: #FFF;
+    font-weight: 400;
   }
+
+  .nav-mobile .menu-open {
+    -webkit-transform: translateX(0) !important;
+    -moz-transform: translateX(0) !important;
+    -ms-transform: translateX(0) !important;
+    -o-transform: translateX(0) !important;
+    transform: translateX(0) !important;
+  }
+
+  .nav-mobile .menu-close {
+    -webkit-transform: translateX(-405px) !important;
+    -moz-transform: translateX(-405px) !important;
+    -ms-transform: translateX(-405px) !important;
+    -o-transform: translateX(-405px) !important;
+    transform: translateX(-405px) !important;
+  }
+
+  .nav-mobile.remove-after:after,
+  .nav-mobile #menu-toggle:checked ~ .remove-after:after{
+    opacity: 0!important;
+    pointer-events: auto;
+    transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+    z-index: 9;
+    display: none!important;
+  }
+
+  .nav-mobile .put-after:after {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+    z-index: 9;
+    display: block!important;
+  }
+
+  @media (max-width: 768px) { .nav-mobile { display: block; } }
 </style>

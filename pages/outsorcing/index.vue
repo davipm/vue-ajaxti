@@ -1,134 +1,82 @@
 <template>
   <section class="page">
-    <div class="wrap">
-      <div class="first-content">
-        <div class="container-fluid">
-          <!--
-          <div class="text-top-right">
-            <p class="text">
-              O atendimento médico é, normalmente, cercado por
-              uma série de procedimentos reguladores, definidos pela Agência
-              Reguladora de Saúde, que contribuem para a organização
-              do processo. É preciso experiência para entender o trâmite.
-              E experiência na área, a Ajax tem de sobra!
-            </p>
-          </div>
-          -->
-          <div class="content-bottom">
-            <div class="title">
-              <h5 class="title-content">
-                Tecnologia para a
-              </h5>
-              <h5 class="title-content second-title">
-                Parceria
-              </h5>
-            </div>
-            <div class="know-more">
-              <p class="know-more-text">
-                Conhece a modalidade de
-                <strong>Outsourcing 4.0</strong>? Não?
-                <a href="#">
-                  <strong>Clique aqui</strong>
-                </a> para saber mais.
+    <!-- loading -->
+    <div v-if="loading" class="loading-content">
+      <div class="clear-loading loading-effect-1">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- /loading -->
+
+    <!-- content -->
+    <div
+      v-else
+      v-for="item in page"
+      :key="item.id"
+    >
+      <div class="wrap">
+        <div
+          class="first-content"
+          :style="{ backgroundImage: `url(${item.acf.image_bg})` }"
+        >
+          <div class="container-fluid">
+            <!--
+            <div class="text-top-right">
+              <p class="text">
+                O atendimento médico é, normalmente, cercado por
+                uma série de procedimentos reguladores, definidos pela Agência
+                Reguladora de Saúde, que contribuem para a organização
+                do processo. É preciso experiência para entender o trâmite.
+                E experiência na área, a Ajax tem de sobra!
               </p>
             </div>
+            -->
+            <div class="content-bottom">
+              <div class="title">
+                <h5 class="title-content">
+                  {{ item.title.rendered }}
+                </h5>
+                <h5 class="title-content second-title">
+                  {{ item.acf.second_title }}
+                </h5>
+              </div>
+              <div class="know-more" v-html="item.acf.text_bottom_right"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="page-content">
-      <div class="container">
-        <h3 class="page-title">
-          Você conhece as vantagens do <span class="mark">outsourcing</span>? Listamos 4 bem legais:
-        </h3>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="item">
-              <div class="item-number">
-                <h1 class="item-title title-number">1</h1>
-                <h1 class="item-title">Experiência</h1>
-              </div>
-              <img src="../../assets/img/out-experiencia.png" class="item-img" alt="">
-              <div class="item-body">
-                <p class="item-text">
-                  Sua empresa contará com
-                  o know-how da <strong>Ajax</strong>,
-                  que ficará inteiramente a
-                  disposição de suas
-                  demandas. Estamos
-                  prontos para oferecer
-                  as melhores soluções,
-                  personalizadas às suas
-                  necessidades.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item">
-              <div class="item-number">
-                <h1 class="item-title title-number">2</h1>
-                <h1 class="item-title">Garantia</h1>
-              </div>
-              <img src="../../assets/img/out-garantia.png" class="item-img" alt="">
-              <div class="item-body">
-                <p class="item-text">
-                  Uma grande vantagem do
-                  sistema de <strong>outsorcing</strong> é
-                  a garantia dos riscos
-                  operacionais, ou seja,
-                  a <strong>Ajax</strong> garante que seu
-                  projeto será feito com a
-                  máxima expertise.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item">
-              <div class="item-number">
-                <h1 class="item-title title-number">3</h1>
-                <h1 class="item-title">Liberdade</h1>
-              </div>
-              <img src="../../assets/img/out-liberdade.png" class="item-img" alt="">
-              <div class="item-body">
-                <p class="item-text">
-                  Sua empresa terá liberdade
-                  para ficar 100% focada em
-                  suas atividades principais.
-                  Ao invés de criar mais
-                  departamentos, com custos
-                  de contratação de funcionários,
-                  o foco pode ser inteiramente
-                  aplicado na atividade-fim
-                  do negócio.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="item">
-              <div class="item-number">
-                <h1 class="item-title title-number">4</h1>
-                <h1 class="item-title">Economia</h1>
-              </div>
-              <img src="../../assets/img/out-img-1.png" class="item-img" alt="">
-              <div class="item-body">
-                <p class="item-text">
-                  A economia é perceptível e
-                  imediata, já que a empresa
-                  fica apenas com o custo de
-                  manutenção do serviço.
-                  Todas as obrigações
-                  trabalhistas ficam a cargo
-                  da <strong>Ajax</strong>.
-                </p>
+      <div class="page-content">
+        <div class="container">
+          <!-- title -->
+          <div v-html="item.acf.title_content" id="outsorcing"></div>
+          <!-- grid -->
+          <div class="row">
+            <div class="col-md-3" v-for="(card, index) in item.acf.items" :key="index">
+              <div class="item">
+                <div class="item-number">
+                  <h1 class="item-title title-number">
+                    {{ card.number }}
+                  </h1>
+                  <h1 class="item-title">
+                    {{ card.title }}
+                  </h1>
+                </div>
+                <img :src="card.icon"
+                     :alt="card.title"
+                     class="item-img"
+                >
+                <div class="item-body"
+                     v-html="card.texto"
+                ></div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- /content -->
   </section>
 </template>
 
@@ -137,11 +85,37 @@
     name: 'index',
     data() {
       return {
-        title: 'Outsourcing',
-        description: ''
+        page: [],
+        title: '',
+        secondTitle: '',
+        description: '',
+        loading: true,
       }
     },
 
+    created() {
+      this.pageOutsourcing();
+    },
+
+    methods: {
+      async pageOutsourcing() {
+        await this.$axios
+          .$get('/wp/v2/pages', { params: { slug: 'outsorcing' }})
+          .then((res) => {
+            this.page = res;
+            this.title = res[0].title.rendered;
+            this.secondTitle = res[0].acf.second_title;
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      },
+    },
+
+    // meta tags header
     head () {
       return {
         title: `${this.title} - AjaxTI`,
@@ -173,9 +147,9 @@
     display: block;
     position: relative;
     height: 550px;
-    background: url('../../assets/img/outsorcing-banner.png') 0 0/cover no-repeat;
+    background: 0 0/cover no-repeat;
   }
-
+  /*
   .text-top-right {
     position: absolute;
     top: 3rem;
@@ -185,7 +159,7 @@
     line-height: 1;
     text-align: right;
   }
-
+  */
   .content-bottom {
     position: absolute;
     left: 15px;
@@ -231,6 +205,13 @@
     color: #EA071E;
   }
 
+  // marks title
+  .mark {
+    display: inline-block;
+    color: #F8880B;
+    background-color: transparent;
+  }
+
   // item
   .item {
     display: block;
@@ -249,9 +230,7 @@
       text-align: center;
     }
 
-    &-text {
-      font-size: 1.2rem;
-    }
+    &-text { font-size: 1.2rem; }
   }
 
   // number for items
@@ -262,30 +241,13 @@
     opacity: 0.6;
   }
 
-  // marks title
-  .mark {
-    display: inline-block;
-    color: #F8880B;
-    background-color: transparent;
-  }
-
   // col items
   .row .col-md-3 {
-    &:nth-child(even) {
-      margin-top: 60px;
-    }
-    &:nth-child(1) {
-      color: #5190FC;
-    }
-    &:nth-child(2) {
-      color: #AADF8D;
-    }
-    &:nth-child(3) {
-      color: #BC9BF7;
-    }
-    &:nth-child(4) {
-      color: #EB6B1E;
-    }
+    &:nth-child(even) { margin-top: 60px; }
+    &:nth-child(1) { color: #5190FC; }
+    &:nth-child(2) { color: #AADF8D; }
+    &:nth-child(3) { color: #BC9BF7; }
+    &:nth-child(4) { color: #EB6B1E; }
   }
 
   .second-title {
@@ -294,13 +256,14 @@
   }
 
   @media (max-width: 576px) {
+    /*
     .text-top-right {
       font-size: 1rem;
       text-align: left;
       right: auto;
       width: auto;
     }
-
+    */
     .title {
       padding-right: 0;
       width: auto;

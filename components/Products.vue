@@ -1,67 +1,106 @@
 <template>
   <section class="section products">
     <div class="container">
-      <div class="products-item">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="../assets/img/ipad_stok.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-6">
-            <div class="products-content">
-              <h5 class="products-title">
-                revolucione a forma
-                de organizar seu
-                estoque!
-              </h5>
-              <p class="products-text">
-                Modernize seu depósito/armazém, usando a ferramenta de
-                estoque da Ajax. Com ela, você tem várias vantagens, como
-                internação inteligente, conferência com nota cega e o melhor,
-                o exclusivo sistema de convocação ativa, que distribui, automaticamente as demandas para os colaboradores.
-                Dê adeus ás perdas por vencimento e elimine a ociosidade
-                em campo de trabalho.
-              </p>
+      <!-- products loading -->
+      <div v-if="loading" class="products-loading">
+        <div class="products-item">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="shine line line-title"></div>
+              <div class="shine line line-title"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
             </div>
-            <div class="products-buttons">
-              <a href="#" class="btn btn-primary">
-                Saiba mais
-              </a>
-              <a href="#" class="btn btn-secondary">
-                Peça um orçamento
-              </a>
+            <div class="col-md-6">
+              <div class="shine box"></div>
+            </div>
+          </div>
+        </div>
+        <div class="products-item">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="shine box"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="shine line line-title"></div>
+              <div class="shine line line-title"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
+              <div class="shine line"></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="products-item">
-        <div class="row">
+      <!-- /products loading -->
+      <div
+        v-else
+        v-for="(item, index) in products"
+        :key="index"
+        class="products-item"
+      >
+        <!-- image right -->
+        <div v-if="item.id === 102" class="row">
+          <div class="col-md-6">
+            <img
+              :src="item.image"
+              :alt="item.title"
+              class="img-fluid"
+            >
+          </div>
+          <div class="col-md-6">
+            <div class="products-content">
+              <h5 class="products-title">{{ item.title }}</h5>
+              <div v-html="item.description" class="products-text"></div>
+            </div>
+            <div class="products-buttons">
+              <nuxt-link :to="item.know_more" class="btn btn-primary">
+                Saiba mais
+              </nuxt-link>
+              <nuxt-link :to="item.prices_url" class="btn btn-secondary">
+                Peça um orçamento
+              </nuxt-link>
+            </div>
+          </div>
+        </div>
+        <!-- image left -->
+        <div v-else class="row">
           <div class="col-md-6">
             <div class="products-content">
               <h5 class="products-title">
-                inventariar é sempre
-                aquela dificuldade?
-                vamos mudar isso
+                {{ item.title }}
               </h5>
-              <p class="products-text">
-                O Catalog da Ajax, é o sistema de leitura automática
-                que agiliza a catalogação dos ativos da empresa.
-                O aplicativo, tem interface web, e decodifica
-                etiquetas NFC, códigos de barra e QR Code.
-                Chega de dor de cabeça, na hora de realizar
-                a listagem de seu patrimônio.
-              </p>
+              <div v-html="item.description" class="products-text"></div>
             </div>
             <div class="products-buttons">
-              <a href="#" class="btn btn-primary">
+              <nuxt-link
+                :to="item.know_more"
+                class="btn btn-primary"
+              >
                 Saiba mais
-              </a>
-              <a href="#" class="btn btn-secondary">
+              </nuxt-link>
+              <nuxt-link
+                :to="item.prices_url"
+                class="btn btn-secondary"
+              >
                 Peça um orçamento
-              </a>
+              </nuxt-link>
             </div>
           </div>
           <div class="col-md-6">
-            <img src="../assets/img/iphone_catalog.png" class="img-fluid" alt="">
+            <img
+              :src="item.image"
+              :alt="item.title"
+              class="img-fluid"
+            >
           </div>
         </div>
       </div>
@@ -72,38 +111,66 @@
 <script>
   export default {
     name: 'Products',
+    data() {
+      return {
+        products: [],
+        loading: true,
+        error: false,
+      }
+    },
+
+    created() {
+      this.getProducts();
+    },
+
+    methods: {
+      async getProducts() {
+        await this.$axios
+          .$get('/api/v1/products')
+          .then((res) => {
+            this.products = res;
+          })
+          .catch(() => {
+            this.error = true;
+          })
+          .finally(() => {
+            this.loading = false;
+          })
+      }
+    }
   }
 </script>
 
 <style scoped lang="scss">
   .products {
+    position: relative;
+    display: block;
     background: url('../assets/img/transparencia_produtos.png') center/cover no-repeat ;
-
-    &-item {
-      margin-bottom: 30px;
-    }
-
+    &-item { margin-bottom: 30px; }
     &-content {
       display: block;
       margin-top: 80px;
     }
-
     &-title {
       display: block;
       font-size: 3rem;
       font-weight: 600;
       letter-spacing: 2px;
     }
-
-    &-text {
-      font-size: 1.2rem;
-    }
-
+    &-text { font-size: 1.2rem; }
     &-buttons {
       display: block;
       position: relative;
       margin-top: 30px;
       text-align: center;
+      @media (max-width: 576px) { margin-bottom: 20px; }
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: relative;
+      height: 50px;
+      background-color: #FF6B3A;
     }
   }
 
@@ -122,10 +189,30 @@
   .btn-primary {
     background-color: #212934;
     box-shadow: 0 5px #151420;
+    &:hover {
+      background-color: #151420;
+      box-shadow: 0 5px #212934;
+    }
   }
 
   .btn-secondary {
     background-color: #FF6B3A;
     box-shadow: 0 5px #7B451A;
+    &:hover {
+      background-color: #7B451A;
+      box-shadow: 0 5px#FF6B3A;
+    }
+  }
+
+  // loading
+  .line-title {
+    height: 2.5rem;
+    border-radius: 5px;
+  }
+
+  .box {
+    height: 450px;
+    border-radius: 5px;
+    background-size: 800px 450px;
   }
 </style>
