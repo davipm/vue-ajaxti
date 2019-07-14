@@ -127,6 +127,7 @@
                       :href="menu.url"
                       target="_blank"
                       aria-label="Footer Item"
+                      rel="noopener noreferrer"
                       class="footer-nav-link"
                     >
                       {{ menu.post_title }}
