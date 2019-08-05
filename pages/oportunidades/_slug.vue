@@ -52,40 +52,6 @@
             class="form-contact"
             @load="formLoading = false"
           ></iframe>
-          <!--
-          <form class="form">
-            <div class="form-group">
-              <label for="name">Nome*</label>
-              <input type="text" class="form-control" id="name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email*</label>
-              <input type="email" class="form-control" id="email">
-            </div>
-            <div class="form-group">
-              <label for="tel">Celular*</label>
-              <input type="tel" class="form-control" id="tel">
-            </div>
-            <div class="form-group">
-              <label for="inputState">Estado*</label>
-              <select id="inputState" class="form-control">
-                <option selected>Escolha...</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="linkedin">Linkedin (Opcional)</label>
-              <input type="url" class="form-control" id="linkedin">
-            </div>
-            <div class="custom-file mb-3">
-              <input type="file" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" data-browse="Curriculo" for="customFile">Escolher arquivo</label>
-            </div>
-            <button type="submit" class="btn btn-primary">
-              Quero me candidatar
-            </button>
-          </form>
-          -->
         </div>
         <div class="button-back">
           <nuxt-link
