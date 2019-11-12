@@ -103,7 +103,7 @@
     methods: {
       async getClients() {
         await this.$axios
-          .$get('/api/v1/clients/')
+          .$get('/api/v1/clients')
           .then((res) => { this.clients = res; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });

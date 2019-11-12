@@ -53,7 +53,7 @@ module.exports = {
       //{ src: 'https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.8/SmoothScroll.min.js' },
       { src: 'https://smoothscroll.surge.sh/davidScrool.min.js' },
       { src: '//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js' },
-      { src: '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js' },
+      //{ src: '//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js' },
     ]
   },
 
@@ -208,7 +208,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
+
     }
   }
 };

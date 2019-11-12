@@ -109,6 +109,8 @@
 </template>
 
 <script>
+  import axios from "axios";
+
   export default {
     name: 'Products',
     data() {
@@ -125,17 +127,14 @@
 
     methods: {
       async getProducts() {
-        await this.$axios
-          .$get('/api/v1/products')
-          .then((res) => {
-            this.products = res;
-          })
-          .catch(() => {
-            this.error = true;
-          })
-          .finally(() => {
-            this.loading = false;
-          })
+        this.loading = true;
+        try {
+          const response = await axios.get('http://cms.ajaxti.com.br/wp-json/api/v1/products/');
+          this.products = response.data;
+        } catch (e) {
+          this.error = true;
+        }
+        this.loading = false;
       }
     }
   }
@@ -189,6 +188,7 @@
   .btn-primary {
     background-color: #212934;
     box-shadow: 0 5px #151420;
+
     &:hover {
       background-color: #151420;
       box-shadow: 0 5px #212934;
@@ -198,6 +198,7 @@
   .btn-secondary {
     background-color: #FF6B3A;
     box-shadow: 0 5px #7B451A;
+
     &:hover {
       background-color: #7B451A;
       box-shadow: 0 5px#FF6B3A;

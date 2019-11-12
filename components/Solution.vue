@@ -104,7 +104,7 @@
     methods: {
       async getSolutions() {
         await this.$axios
-          .$get('/api/v1/solutions/')
+          .$get('/api/v1/solutions')
           .then((res) => { this.solutions = res; })
           .catch(()   => { this.error = true; })
           .finally(() => { this.loading = false; });
@@ -117,22 +117,29 @@
   .solution {
     padding-top: 60px;
     padding-bottom: 0;
-    &-content { margin-top: 5rem; }
+
+    &-content {
+      margin-top: 5rem;
+    }
+
     &-item {
       display: block;
       position: relative;
       text-align: center;
     }
+
     &-img {
       display: block;
       position: relative;
       margin: auto;
       height: 90px;
     }
+
     &-title {
       margin-bottom: 1.2rem;
       font-weight: 600;
     }
+
     &-text { font-size: .85rem; }
     &-body { padding: 15px; }
     &-loading { padding-bottom: 70px; }
@@ -163,6 +170,7 @@
 
   .line {
     margin-top: 0;
+
     &-title {
       height: 1.3rem;
       border-radius: 5px;

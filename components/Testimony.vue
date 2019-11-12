@@ -8,7 +8,7 @@
       <!-- page content  -->
       <div class="section-content">
         <!-- no ssr -->
-        <no-ssr>
+        <client-only>
           <carousel :items="1" :nav="false" :autoplay="true">
             <template slot="prev">
               <span class="prev"><i class="fas fa-chevron-left"></i></span>
@@ -34,7 +34,7 @@
               <span class="next"><i class="fas fa-chevron-right"></i></span>
             </template>
           </carousel>
-        </no-ssr>
+        </client-only>
         <!-- /no ssr -->
       </div>
     </div>
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+  import axios from 'axios';
+
   export default {
     name: 'Testimony',
     data() {
@@ -53,22 +55,25 @@
       }
     },
 
-    created() { this.getTestimony(); },
+    created() {
+      this.getTestimony();
+    },
 
     methods: {
       async getTestimony() {
-        await this.$axios
-          .$get('/api/v1/testimony')
-          .then((res) => {
-            let obj = res;
-            this.items = Object.keys(obj).map(function (key) { return [obj[key]][0]; });
-          })
-          .catch((error) => {
-            this.error = true;
-          })
-          .finally(() => {
-            this.loading = false;
-          })
+        this.loading = true;
+
+        try {
+          const response = await axios.get('http://cms.ajaxti.com.br/wp-json/api/v1/testimony/');
+          let obj = response.data;
+          this.items = Object.keys(obj).map((key) => {
+            return [obj[key]][0];
+          });
+        } catch (e) {
+          this.error = true;
+        }
+
+        this.loading = false;
       }
     }
   }
@@ -108,6 +113,7 @@
     .media {
       display: block;
       position: relative;
+
       &-img {
         display: block!important;
         margin: auto!important;
@@ -129,7 +135,10 @@
     -ms-transition: all .15s ease-in-out;
     -o-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
-    &:hover { font-size: 2.5rem; }
+
+    &:hover {
+      font-size: 2.5rem;
+    }
   }
 
   .next {
@@ -146,6 +155,9 @@
     -ms-transition: all .15s ease-in-out;
     -o-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
-    &:hover { font-size: 2.5rem; }
+
+    &:hover {
+      font-size: 2.5rem;
+    }
   }
 </style>
