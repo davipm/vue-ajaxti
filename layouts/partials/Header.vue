@@ -191,7 +191,8 @@
 </template>
 
 <script>
-  import NavMobile from '~/components/NavMobile.vue'
+  import NavMobile from '~/components/NavMobile.vue';
+  import axios from 'axios';
 
   export default {
     name: 'Header',
@@ -208,28 +209,32 @@
     },
 
     created() {
-      this.getMenu();
-      this.getSubMenu();
+      this.getMenus();
     },
 
     methods: {
-      async getMenu() {
-        await this.$axios
-          .$get('/menus/v1/menus/header_menu')
-          .then((res) => { this.menus = res.items; })
-          .catch((error) => {
-            console.log(error);
-            this.error = true;
-          })
-          .finally(() => { this.loading = false; });
+      getMenu() {
+        return axios.get('http://cms.ajaxti.com.br/wp-json/menus/v1/menus/header_menu');
       },
 
-      async getSubMenu() {
-        await this.$axios
-          .$get('/menus/v1/menus/sub_menu')
-          .then((res) => { this.subMenu = res.items; })
-          .catch(()   => { this.error = true; })
-          .finally(() => { this.loading = false; });
+      getSubMenu() {
+        return axios.get('http://cms.ajaxti.com.br/wp-json/menus/v1/menus/sub_menu');
+      },
+
+      async getMenus() {
+        this.loading = true;
+
+        try {
+          await axios.all([this.getMenu(), this.getSubMenu()])
+            .then(axios.spread((menu, subMenu) => {
+              this.menus = menu.data.items;
+              this.subMenu = subMenu.data.items;
+            }));
+        } catch (e) {
+          this.error = true;
+        }
+
+        this.loading = false;
       },
 
       showSearch() {

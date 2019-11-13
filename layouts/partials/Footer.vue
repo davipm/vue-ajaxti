@@ -209,6 +209,8 @@
 </template>
 
 <script>
+  import axios from 'axios';
+
   export default {
     name: 'Footer',
     data() {
@@ -220,9 +222,7 @@
     },
 
     created() {
-      this.getMenuSolution();
-      this.getMenuInformation();
-      this.getMenuAbout();
+      this.getAllItems();
     },
 
     computed: {
@@ -232,26 +232,26 @@
     },
 
     methods: {
-      async getMenuSolution() {
-        await this.$axios
-          .$get('/menus/v1/menus/footer_menu1')
-          .then((res) => { this.solution = res; })
-          .catch(() => { this.error = true; });
+      getMenuSolution() {
+        return axios.get('http://cms.ajaxti.com.br/wp-json/menus/v1/menus/footer_menu1');
       },
 
-      async getMenuInformation() {
-        await this.$axios
-          .$get('/menus/v1/menus/footer_menu2')
-          .then((res) => { this.information = res; })
-          .catch(() => { this.error = true; });
+      getMenuInformation() {
+        return axios.get('http://cms.ajaxti.com.br/wp-json/menus/v1/menus/footer_menu2');
       },
 
-      async getMenuAbout() {
-        await this.$axios
-          .$get('/menus/v1/menus/footer_menu3')
-          .then((res) => { this.about = res; })
-          .catch(() => { this.error = true; });
+      getMenuAbout() {
+        return axios.get('http://cms.ajaxti.com.br/wp-json/menus/v1/menus/footer_menu3');
       },
+
+      async getAllItems() {
+        await axios.all([this.getMenuSolution(), this.getMenuInformation(), this.getMenuAbout()])
+          .then(axios.spread((menu1, menu2, menu3) => {
+            this.solution = menu1.data;
+            this.information = menu2.data;
+            this.about = menu3.data;
+          }))
+      }
     },
   }
 </script>
