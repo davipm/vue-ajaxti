@@ -66,7 +66,7 @@ module.exports = {
   ** Forcing the scroll position to the top for every route
   */
   router: {
-    //base: '/novo',
+    //base: '/template',
     scrollBehavior: function (to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
