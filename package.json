@@ -21,6 +21,7 @@
     "nuxt": "^2.8.1",
     "v-owl-carousel": "^1.0.8",
     "vue": "^2.6.10",
+    "vue-fragment": "^1.5.1",
     "vue-owl-carousel": "^2.0.3"
   },
   "devDependencies": {

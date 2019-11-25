@@ -85,28 +85,35 @@
 </template>
 
 <script>
+  import API from '../services/API';
+
   export default {
     name: 'Client',
     data() {
       return {
         title: 'Nossos Clientes',
-        loading: true,
+        loading: false,
         error: false,
         clients: [],
       }
     },
 
     created() {
-      this.getClients();
+      this.handleApi();
     },
 
     methods: {
-      async getClients() {
-        await this.$axios
-          .$get('/api/v1/clients')
-          .then((res) => { this.clients = res; })
-          .catch(()   => { this.error = true; })
-          .finally(() => { this.loading = false; });
+      async handleApi() {
+        this.loading = true;
+
+        try {
+          const response = await API.get('/api/v1/clients');
+          this.clients = response.data;
+        } catch (e) {
+          this.error = true;
+        }
+
+        this.loading = false;
       }
     }
   }
@@ -117,6 +124,7 @@
     display: block;
     position: relative;
     padding: 30px 0;
+
     // make Equal Height Columns
     &-item {
       display: flex;
@@ -124,11 +132,15 @@
       height: 85px;
       margin-bottom: 55px;
     }
+
     // responsive images
     &-img {
       width: 100%;
       height: auto;
-      @media (max-width: 576px) { width: 150px; }
+
+      @media (max-width: 576px) {
+        width: 150px;
+      }
     }
   }
 

@@ -2,20 +2,20 @@
   <section v-if="!loading" class="section number">
     <div class="container">
       <div class="row">
-        <div v-for="item in number"
-             :key="item.id"
-             class="col-md-4"
+        <div
+          v-for="item in number"
+          :key="item.id"
+          class="col-md-4"
         >
           <div class="number-item">
-            <img :src="item.icon"
-                 :alt="item.title"
-                 :title="item.title"
-                 class="number-img"
+            <img
+              :src="item.icon"
+              :alt="item.title"
+              :title="item.title"
+              class="number-img"
             >
             <div class="number-body">
-              <p v-text="item.title"
-                 class="number-text"
-              ></p>
+              <p class="number-text">{{ item.title }}</p>
             </div>
           </div>
         </div>
@@ -25,33 +25,34 @@
 </template>
 
 <script>
+  import API from '../services/API';
+
   export default {
     name: 'Number',
     data() {
       return {
         number: [],
         error: false,
-        loading: true,
+        loading: false,
       }
     },
 
     created() {
-      this.getNumber();
+      this.handleApi();
     },
 
     methods: {
-      async getNumber() {
-        await this.$axios
-          .$get('/api/v1/number')
-          .then((res) => {
-            this.number = res;
-          })
-          .catch(() => {
-            this.error = true;
-          })
-          .finally(() => {
-            this.loading = false;
-          });
+      async handleApi() {
+        this.loading = true;
+
+        try {
+          const response = await API.get('/api/v1/number');
+          this.number = response.data;
+        } catch (e) {
+          this.error = true;
+        }
+
+        this.loading = false;
       }
     }
   }

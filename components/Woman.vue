@@ -18,21 +18,34 @@
 </template>
 
 <script>
+  import API from "../services/API";
+
   export default {
     name: 'Woman',
     data() {
       return {
         woman: [],
+        loading: false,
+        error: false,
       }
     },
-    created() { this.getWoman(); },
+
+    created() {
+      this.handleApi();
+    },
+
     methods: {
-      async getWoman() {
-        await this.$axios
-          .$get('/api/v1/woman')
-          .then((res) => { this.woman = res; })
-          .catch(()   => { this.error = true })
-          .finally(() => { this.loading = false; })
+      async handleApi() {
+        this.loading = true;
+
+        try {
+          const response = await API.get('/api/v1/woman');
+          this.woman = response.data;
+        } catch (e) {
+          this.error = true;
+        }
+
+        this.loading = false;
       }
     }
   }

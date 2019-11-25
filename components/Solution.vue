@@ -2,7 +2,7 @@
   <section class="section solution">
     <div class="container-fluid">
       <!-- heading -->
-      <h3 class="title" v-html="title"></h3>
+      <h3 class="title" v-html="title" />
       <!-- content -->
       <!-- loading content -->
       <div v-if="loading" class="solution-loading solution-content">
@@ -72,10 +72,9 @@
               <h5 class="solution-title">
                 {{ item.title }}
               </h5>
-              <p
-                class="solution-text"
-                v-text="item.description"
-              ></p>
+              <p class="solution-text">
+                {{ item.description }}
+              </p>
             </div>
           </div>
         </div>
@@ -86,6 +85,8 @@
 </template>
 
 <script>
+  import API from "../services/API";
+
   export default {
     name: 'Solution',
     data() {
@@ -98,16 +99,21 @@
     },
 
     created() {
-      this.getSolutions();
+      this.handleApi();
     },
 
     methods: {
-      async getSolutions() {
-        await this.$axios
-          .$get('/api/v1/solutions')
-          .then((res) => { this.solutions = res; })
-          .catch(()   => { this.error = true; })
-          .finally(() => { this.loading = false; });
+      async handleApi() {
+        this.loading = false;
+
+        try {
+          const response = await API.get('/api/v1/solutions');
+          this.solutions = response.data;
+        } catch (e) {
+          this.error = true;
+        }
+
+        this.loading = false;
       }
     }
   }
