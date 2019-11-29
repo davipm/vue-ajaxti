@@ -22,7 +22,7 @@
       :textBottom="item.acf.text_bottom_right"
       :cards="item.acf.crards"
       v-if="post[0].acf.layout === 'layoutInd'"
-    ></page-ind>
+    />
 
     <!-- layout outsourcing -->
     <page-out
@@ -36,7 +36,7 @@
       :title-content="item.acf.title_content"
       :cards="item.acf.items"
       v-if="post[0].acf.layout === 'layoutOut'"
-    ></page-out>
+    />
 
     <!-- layout saude -->
     <page-saude
@@ -50,7 +50,7 @@
       :imageBgContent="item.acf.image_bg_content"
       :content="item.content.rendered"
       v-if="post[0].acf.layout === 'layoutSau'"
-    ></page-saude>
+    />
 
     <!-- error component -->
     <div v-if="error" class="container page-content">
@@ -77,7 +77,7 @@
           <div
             class="single-content"
             v-html="item.content.rendered"
-          ></div>
+          />
         </div>
       </div>
     </div>
@@ -85,10 +85,11 @@
 </template>
 
 <script>
-  import PageInd from '../layouts/partials/PageInd.vue'
-  import PageSaude from '../layouts/partials/PageSaude.vue'
+  import PageInd from '../layouts/partials/PageInd.vue';
+  import PageSaude from '../layouts/partials/PageSaude.vue';
   import PageOut from "../layouts/partials/PageOut";
-  import Error from '../components/ErrorMessage'
+  import Error from '../components/ErrorMessage';
+
   export default {
     name: 'pageSlug',
     components: {
@@ -97,6 +98,7 @@
       PageSaude,
       Error
     },
+
     data() {
       return {
         post: [],
@@ -152,28 +154,30 @@
     position: relative;
     padding: 0;
     min-height: 60vh;
+
     &-title {
       margin-bottom: 0;
       font-weight: 300;
       text-transform: uppercase;
     }
+
     &-subtitle {
       margin-bottom: 40px;
       font-size: 1.3rem;
     }
+
+    @media (max-width: 576px) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
   }
 
-  .page-content { padding: 60px 0; }
+  .page-content {
+    padding: 60px 0;
+  }
 
   .box {
     width: 50%;
     height: 40px;
-  }
-
-  @media (max-width: 576px) {
-    .single {
-      padding-right: 15px;
-      padding-left: 15px;
-    }
   }
 </style>

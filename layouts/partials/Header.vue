@@ -560,6 +560,8 @@
       background-size: 160%;
     }
 
-    .container-menu { background-color: #212934; }
+    .container-menu {
+      background-color: #212934;
+    }
   }
 </style>
